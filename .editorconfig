@@ -1,0 +1,24 @@
+# Editor configuration, see http://editorconfig.org
+
+# 表示是最顶层的 EditorConfig 配置文件
+root = true
+
+[*] # 表示所有文件适用
+charset = utf-8 # 设置字符集为 utf-8
+end_of_line = LF # 控制换行类型（LF | CR | CRLF）
+indent_style = space # 缩进风格 （tab | space）
+indent_size = 4 # 缩进大小
+insert_final_newline = true # 始终在文件末尾插入一个新行
+trim_trailing_whitespace = true # 去除行首的任意空白字符
+max_line_length = 300 # 一行最大字符数
+
+[*.{yml,yaml,json}] # 表示在 yml | yaml | json 文件下适用的规则
+indent_style = space
+indent_size = 4
+
+[*.md] # 表示在 md 文件下适用的规则
+max_line_length = off
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = space

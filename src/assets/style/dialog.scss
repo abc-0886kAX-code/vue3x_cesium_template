@@ -1,0 +1,69 @@
+.furnace-dialog {
+    padding: 0;
+    // background-color: rgba($color: #051B40, $alpha: 0.8);
+    background: url("@/assets/images/dialog/banner-box.png") no-repeat;
+    background-size: 100% 100%;
+    backdrop-filter: blur(3px);
+    box-sizing: border-box;
+}
+
+.el-dialog__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    height: 50px;
+    padding: 0;
+    background: url("@/assets/images/dialog/dialog-header-img.png") no-repeat;
+    background-size: contain;
+    background-position: 10px 25px;
+    box-sizing: border-box;
+
+    &::after {
+        position: absolute;
+        width: 97%;
+        height: 1px;
+        bottom: 0;
+        left: 10px;
+        background: repeating-linear-gradient(to right, #17e4c9, #3365a8, #20b6a8);
+        content: "";
+    }
+
+    & span,
+    & button {
+        color: #fff;
+        margin: auto;
+        font-size: 17px;
+    }
+
+    .el-dialog__headerbtn .el-dialog__close {
+        color: #fff !important;
+        font-size: 20px !important;
+    }
+}
+
+// .el-dialog__header::after {
+//     position: absolute;
+//     left: 30%;
+//     bottom: 0px;
+//     content: "";
+//     width: 500px;
+//     height: 1px;
+//     background: linear-gradient(to right, rgba(0, 0, 0, 0)0%, #02D8ED 50%, rgba(0, 0, 0, 0)100%);
+// }
+
+// .el-dialog__header::before {
+//     position: absolute;
+//     left: 30%;
+//     top: 0px;
+//     content: "";
+//     width: 500px;
+//     height: 1px;
+//     background: linear-gradient(to right, rgba(0, 0, 0, 0)0%, #02D8ED 50%, rgba(0, 0, 0, 0)100%);
+// }
+
+.el-dialog__body {
+    padding: 12px;
+    box-sizing: border-box;
+}

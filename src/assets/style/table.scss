@@ -1,0 +1,122 @@
+$normFontColor: #50CFE6;
+$normBorderColor: rgba($normFontColor, 0.6);
+$hoverFontColor: #fff;
+$hoverBackgroundColor: rgba($normBorderColor, 0.3);
+$tableBackgroundColor: transparent;
+$normCheckColor: $normFontColor;
+$hoverCheckColor: $normBorderColor;
+
+:deep(.el-table),
+:deep(.el-table thead) {
+    color: $normFontColor;
+}
+
+:deep(.el-table thead) {
+    color: #fff !important;
+    font-size: 14px;
+    height: 65px;
+}
+
+:deep(.el-table__fixed-right-patch),
+:deep(.el-table, .el-table__expanded-cell),
+:deep(.el-table tr),
+:deep(.el-table th.el-table__cell),
+:deep(.el-table::before),
+:deep(.el-table__fixed-right::before),
+:deep(.el-table__fixed::before) {
+    background-color: $tableBackgroundColor;
+}
+
+:deep(.el-table__fixed-right) {
+    background-color: rgba(5, 27, 64, 0.8);
+    backdrop-filter: blur(6px);
+}
+
+:deep(.el-table td.el-table__cell),
+:deep(.el-table th.el-table__cell.is-leaf),
+:deep(.el-table--border th.el-table__cell),
+:deep(.el-table__fixed-right-patch),
+:deep(.el-table--border),
+:deep(.el-table--group),
+:deep(.el-table--border, .el-table--group) {
+    // border-bottom: 1px solid $normBorderColor;
+    border: 0;
+}
+
+:deep(.el-table--border th.el-table__cell.gutter:last-of-type) {
+    border-color: transparent;
+}
+
+:deep(.el-table--border .el-table__cell),
+:deep(.el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed),
+:deep(.el-table--border, .el-table--group) {
+    border-color: $normBorderColor;
+}
+
+:deep(.el-table--border::after),
+:deep(.el-table--group::after) {
+    background-color: $normBorderColor;
+}
+
+:deep(.el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell),
+:deep(.el-table__body tr.hover-row.current-row>td.el-table__cell),
+:deep(.el-table__body tr.hover-row.el-table__row--striped.current-row>td.el-table__cell),
+:deep(.el-table__body tr.hover-row.el-table__row--striped>td.el-table__cell),
+:deep(.el-table__body tr.hover-row>td.el-table__cell) {
+    background-color: $hoverBackgroundColor;
+    color: $hoverFontColor;
+}
+
+:deep(.el-checkbox) {
+    color: $normCheckColor;
+}
+
+:deep(.el-checkbox__inner) {
+    background-color: $normCheckColor;
+    border: 1px solid $normCheckColor;
+}
+
+:deep(.el-checkbox__inner:hover),
+:deep(.el-checkbox__input.is-focus .el-checkbox__inner) {
+    border-color: $hoverCheckColor;
+}
+
+:deep(.el-checkbox__input.is-checked .el-checkbox__inner),
+:deep(.el-checkbox__input.is-indeterminate .el-checkbox__inner) {
+    background-color: $hoverCheckColor;
+    border-color: $hoverCheckColor;
+}
+
+/* 隐藏滚动条 */
+// :deep(.el-table__body-wrapper::-webkit-scrollbar) {
+//     display: none;
+// }
+
+/* 修改滚动条滑块的颜色 */
+:deep(.el-table__body-wrapper::-webkit-scrollbar-thumb) {
+    background-color: $hoverBackgroundColor;
+    border-radius: 6px;
+}
+
+/* 修改滚动条轨道的颜色 */
+:deep(.el-table__body-wrapper::-webkit-scrollbar-track),
+:deep(.el-table__body-wrapper::-webkit-scrollbar) {
+    background-color: $tableBackgroundColor;
+}
+
+:deep(.el-table__body-wrapper::-webkit-scrollbar-corner),
+:deep(.el-table thead.is-group th.el-table__cell) {
+    background: transparent;
+}
+
+/* 修改滚动条的宽度 */
+:deep(.el-table__body-wrapper::-webkit-scrollbar) {
+    width: 6px;
+    height: 6px;
+}
+
+/* 修改横向滚动条样式 */
+// :deep(.el-table__body-wrapper::-webkit-scrollbar-horizontal) {}
+
+/* 修改竖向滚动条样式 */
+// :deep(.el-table__body-wrapper::-webkit-scrollbar-vertical) {}

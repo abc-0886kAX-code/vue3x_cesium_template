@@ -1,0 +1,13 @@
+// 表格状态
+// :row-class-name="tableRowClassName"
+$fontColor: #fff;
+$rowWarnBackgroundColor: #d03050;
+
+:deep(.el-table .table-row-warning) {
+    background-color: $rowWarnBackgroundColor;
+    color: $fontColor;
+}
+
+:deep(.el-table--enable-row-hover .el-table__body tr.table-row-warning:hover>td.el-table__cell) {
+    background-color: lighten($rowWarnBackgroundColor, 10%);
+}

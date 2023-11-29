@@ -1,0 +1,70 @@
+.point-icon-box {
+    // display: flex;
+    // justify-content: space-between;
+    position: relative;
+}
+
+.point-icon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    & img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        overflow: hidden;
+    }
+}
+
+.point-icon-animation {
+    -webkit-animation: bounce-down 6.6s linear infinite;
+    animation: bounce-down 6.6s linear infinite;
+
+}
+
+.point-icon-title {
+    display: block;
+    color: #fff;
+    width: auto;
+    line-height: 20px;
+    margin-left: 12px;
+    text-align: left;
+    box-sizing: border-box;
+    font-size: 14px;
+    position: absolute;
+    min-width: 150px;
+    top: 0px;
+    left: 35px;
+
+    & p {
+        height: 30px;
+        line-height: 30px;
+        padding-left: 10px;
+
+        &:first-child {
+            background: linear-gradient(to top, rgba(35, 123, 183, 0.9), rgba(6, 156, 201, 0.9));
+        }
+
+        &:last-child {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+    }
+}
+
+
+@keyframes bounce-down {
+    25% {
+        transform: translateY(-5px);
+    }
+
+    50%,
+    100% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(1px);
+    }
+}

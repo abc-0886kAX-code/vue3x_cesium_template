@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "allowJs": true, // 允许编译器编译JS，JSX文件
+        "checkJs": false, // 允许在JS文件中报错，通常与allowJS一起使用
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "paths": {
+            "@/*": [
+                "src/*"
+            ],
+            "~/*": [
+                "src/internal/*"
+            ]
+        },
+        "jsx": "preserve"
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

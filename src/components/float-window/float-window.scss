@@ -1,0 +1,31 @@
+$color: #FFF;
+$bg: rgba($color: $color, $alpha: .6);
+$shadow: rgba($color: $color, $alpha: .3);
+
+.float-window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: $bg;
+    backdrop-filter: blur(3px);
+    box-shadow: inset 0px 15px 15px -15px $shadow,
+        inset 0px -15px 15px -15px $shadow;
+
+    &-item {
+        display: flex;
+        height: 24px;
+
+        &-text {
+            flex: 1;
+            font-weight: bold;
+        }
+
+        &>p {
+            line-height: 24px;
+            font-size: 14px;
+        }
+    }
+}
