@@ -1,9 +1,9 @@
 /*
- * @FilePath: \vue3x_template-master\vite.config.js
+ * @FilePath: \vue3x_cesium_template\vite.config.js
  * @Author: maggot-code
  * @Date: 2022-11-21 14:19:59
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-11-29 15:00:13
+ * @LastEditTime: 2023-11-29 15:50:59
  * @Description:
  */
 import { defineConfig, splitVendorChunkPlugin, loadEnv } from "vite";
@@ -87,7 +87,7 @@ export default defineConfig(({ mode }) => {
             }),
             visualizer({
                 filename: "./node_modules/.cache/visualizer/stats.html",
-                open: false,
+                open: true,
                 gzipSize: true,
                 brotliSize: true,
             }),
