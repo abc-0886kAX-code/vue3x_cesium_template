@@ -26,7 +26,7 @@ router.beforeEach(async (to, from, next) => {
     NProgress.start();
 
     // set page title
-    document.title = to.meta.title ?? "vue3x_template";
+    document.title = to.meta.title ?? "vue3x_cesium_template";
 
     if (
         noNeedToken.findIndex((item) => {

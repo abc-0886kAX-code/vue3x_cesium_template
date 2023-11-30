@@ -1,5 +1,5 @@
 /*
- * @FilePath: \vue3x_template-master\src\service\Application.js
+ * @FilePath: \vue3x_cesium_template-master\src\service\Application.js
  * @Author: maggot-code
  * @Date: 2022-11-24 10:05:30
  * @LastEditors: zhangxin

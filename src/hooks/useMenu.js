@@ -1,5 +1,5 @@
 /*
- * @FilePath: \vue3x_template-master\src\hooks\useMenu.js
+ * @FilePath: \vue3x_cesium_template-master\src\hooks\useMenu.js
  * @Author: zhangxin
  * @Date: 2023-08-03 15:01:33
  * @LastEditors: zhangxin

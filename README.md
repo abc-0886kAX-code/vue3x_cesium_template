@@ -6,5 +6,5 @@
  * @LastEditTime: 2023-11-16 17:43:12
  * @Description: 
 -->
-# vue3x_admin_template
- vue3x_admin_template
+# vue3x_cesium_template
+ vue3x_cesium_template

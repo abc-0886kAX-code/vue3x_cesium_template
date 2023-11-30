@@ -1,5 +1,5 @@
 /*
- * @FilePath: \vue3x_template-master\src\service\request.js
+ * @FilePath: \vue3x_cesium_template-master\src\service\request.js
  * @Author: zhangxin
  * @Date: 2023-05-24 15:00:39
  * @LastEditors: zhangxin

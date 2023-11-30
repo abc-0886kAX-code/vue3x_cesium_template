@@ -1,5 +1,5 @@
 <!--
- * @FilePath: \vue3x_template-master\src\biz\Cesium\view\cesium-container\cesium-container.vue
+ * @FilePath: \vue3x_cesium_template-master\src\biz\Cesium\view\cesium-container\cesium-container.vue
  * @Author: zhangxin
  * @Date: 2023-11-29 10:45:41
  * @LastEditors: zhangxin

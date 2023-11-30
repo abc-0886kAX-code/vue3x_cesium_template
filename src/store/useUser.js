@@ -1,5 +1,5 @@
 /*
- * @FilePath: \vue3x_template-master\src\store\useUser.js
+ * @FilePath: \vue3x_cesium_template-master\src\store\useUser.js
  * @Author: zhangxin
  * @Date: 2023-02-07 15:09:09
  * @LastEditors: zhangxin

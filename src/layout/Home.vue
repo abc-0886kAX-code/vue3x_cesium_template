@@ -1,5 +1,5 @@
 <!--
- * @FilePath: \vue3x_template-master\src\layout\Home.vue
+ * @FilePath: \vue3x_cesium_template-master\src\layout\Home.vue
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin

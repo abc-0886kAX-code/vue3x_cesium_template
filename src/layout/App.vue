@@ -1,5 +1,5 @@
 <!--
- * @FilePath: \vue3x_template-master\src\layout\App.vue
+ * @FilePath: \vue3x_cesium_template-master\src\layout\App.vue
  * @Author: maggot-code
  * @Date: 2022-11-21 14:19:59
  * @LastEditors: zhangxin

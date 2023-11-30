@@ -1,5 +1,5 @@
 /*
- * @FilePath: \vue3x_template-master\src\router\generator.js
+ * @FilePath: \vue3x_cesium_template-master\src\router\generator.js
  * @Author: zhangxin
  * @Date: 2023-08-03 15:26:27
  * @LastEditors: zhangxin

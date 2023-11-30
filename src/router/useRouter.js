@@ -1,5 +1,5 @@
 /*
- * @FilePath: \vue3x_template-master\src\router\useRouter.js
+ * @FilePath: \vue3x_cesium_template-master\src\router\useRouter.js
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
