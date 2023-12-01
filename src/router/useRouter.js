@@ -1,9 +1,9 @@
 /*
- * @FilePath: \vue3x_cesium_template-master\src\router\useRouter.js
+ * @FilePath: \vue3x_cesium_template\src\router\useRouter.js
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-11-29 10:41:14
+ * @LastEditTime: 2023-12-01 15:26:32
  * @Description:
  */
 import { defineRouter } from "./defineRouter";
@@ -30,18 +30,36 @@ export const routes = [
     {
         name: "layout",
         path: "/",
-        redirect: "/home",
+        redirect: "/Example/ExamplePoint",
         meta: defineMeta({ level: 0 }),
         component: () => import("@/layout/Home.vue"),
         children: [
             {
-                "path": "/home",
-                "name": "home",
+                "path": "/Example/ExamplePoint",
+                "name": "ExamplePoint",
                 "meta": {
-                    "title": "首页",
+                    "title": "点",
                     "hidden": "true"
                 },
-                "component": () => import("@/pages/home/home.vue")
+                "component": () => import("@/pages/Example/ExamplePoint.vue")
+            },
+            {
+                "path": "/Example/ExampleLine",
+                "name": "ExampleLine",
+                "meta": {
+                    "title": "线",
+                    "hidden": "true"
+                },
+                "component": () => import("@/pages/Example/ExampleLine.vue")
+            },
+            {
+                "path": "/Example/ExampleZones",
+                "name": "ExampleZones",
+                "meta": {
+                    "title": "面",
+                    "hidden": "true"
+                },
+                "component": () => import("@/pages/Example/ExampleZones.vue")
             }
         ]
     },

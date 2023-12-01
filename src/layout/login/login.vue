@@ -1,9 +1,9 @@
 <!--
- * @FilePath: \vue3x_cesium_template-master\src\layout\login\login.vue
+ * @FilePath: \vue3x_cesium_template\src\layout\login\login.vue
  * @Author: zhangxin
  * @Date: 2023-04-12 10:51:30
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-08-04 09:54:51
+ * @LastEditTime: 2023-12-01 15:27:10
  * @Description:https://element-plus-admin.cn/assets/login-box-bg-fec91044.svg
 -->
 <script setup>
@@ -39,7 +39,7 @@ function logon() {
     unref(loginForm).validate(async (valid) => {
         if (!valid) return;
         user.setupToken(uuid());
-        proxy.$router.push({ name: "home" });
+        proxy.$router.push({ name: "ExamplePoint" });
     });
 }
 </script>

@@ -2,17 +2,33 @@
  * @Author: zhangxin
  * @Date: 2022-04-26 15:11:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-11-22 14:58:31
+ * @LastEditTime: 2023-12-01 14:31:58
  * @Description: file content
  */
-import { LayerUtil } from "mars3d";
 import { uuid } from "@/shared/uuid";
+import { Primitive } from 'cesium';
+const { VITE_ROOT_LAYERID } = import.meta.env;
 
-import { addLayer, handlerLayerConfig } from "./useLayerSetup";
-const getLayerOptions = {
-    basemaps: false,
-    layers: false,
+const handlerLayerPid = () => +VITE_ROOT_LAYERID;
+const handlerLayerId = (pid, index) => pid + index + 1;
+export const handlerLayerConfig = (conf, index) => {
+    const pid = handlerLayerPid();
+
+    return new Primitive(Object.assign(
+        {},
+        {
+            show: true,
+            id: handlerLayerId(pid, index),
+            pid,
+        },
+        conf
+    ));
 };
+export const addLayer = (layer, mapview) => {
+    if (mapview.scene.primitives.contains(layer)) return;
+    mapview.scene.primitives.add(layer);
+};
+
 
 function eachGather(gather, handler) {
     Reflect.ownKeys(gather).forEach((key) => handler(gather[key], key));
@@ -20,12 +36,12 @@ function eachGather(gather, handler) {
 
 function handlerGather(layers, mapview, handler) {
     layers.forEach((layer) => {
-        const find = () => mapview.getLayer(layer.name, "name");
+        const find = () => unref(mapview).scene.primitives._primitives.find((item) => item.id === layer.id);
         const show = () => (find().show = true);
         const hide = () => (find().show = false);
         const clear = () => {
             const l = find();
-            l.clear ? l.clear(true) : l.remove(true);
+            l.destroy();
         };
 
         handler(layer.name, {
@@ -40,11 +56,11 @@ function handlerGather(layers, mapview, handler) {
 }
 
 function releaseGather(layer) {
-    layer.clear();
+    layer.destroy();
 }
 
-export function useLayer(mapview) {
-    const layers = unref(mapview).getLayers(getLayerOptions);
+export function usePrimitiveLayer(mapview) {
+    const layers = unref(mapview).scene.primitives._primitives;
     const gather = shallowRef({});
 
     const setupGather = (name, layer) => {

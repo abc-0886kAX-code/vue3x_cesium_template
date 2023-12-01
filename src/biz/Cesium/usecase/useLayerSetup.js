@@ -2,45 +2,39 @@
  * @Author: zhangxin
  * @Date: 2022-04-26 15:34:17
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-11-29 14:14:07
+ * @LastEditTime: 2023-12-01 15:21:47
  * @Description: file content
  */
-const { VITE_ROOT_LAYERID } = import.meta.env;
+import { ImageryLayer, ArcGisMapServerImageryProvider } from 'cesium';
 
-const handlerLayerPid = () => +VITE_ROOT_LAYERID;
-const handlerLayerId = (pid, index) => pid + index + 1;
-export const handlerLayerConfig = (conf, index) => {
-    const pid = handlerLayerPid();
-
-    return Object.assign(
-        {},
-        {
-            show: true,
-            id: handlerLayerId(pid, index),
-            pid,
+// 集中处理初始化各种类型，后续扩展...
+const layerType = {
+    'arcgis': {
+        buildingLayers: async ({ url }) => {
+            const esri = await ArcGisMapServerImageryProvider.fromUrl(url)
+            return esri;
         },
-        conf
-    );
+        addToMap: async (esri, mapview) => {
+            await mapview.imageryLayers.add(new ImageryLayer(esri))
+        }
+    },
+}
+
+export const addLayer = async (conf, mapview) => {
+    const { type } = conf;
+    const esri = await layerType[type].buildingLayers(conf)
+    layerType[type].addToMap(esri, mapview)
 };
-export const addLayer = (layer, mapview) => {
-    if (mapview.hasLayer(layer.id)) return;
-    mapview.addLayer(layer);
-};
+
 
 export function useLayerSetup(props, mapview) {
     const layerGroup = computed(() => {
         return [
-            // {
-            //     type: "osmBuildings",
-            //     name: "osmBuildingsLayer",
-            // },
             ...props.layers,
         ];
     });
 
-    const layers = unref(layerGroup).map(handlerLayerConfig);
-
     onMounted(() => {
-        layers.forEach((layer) => addLayer(layer, unref(mapview.view)));
+        unref(layerGroup).forEach((layer) => addLayer(layer, unref(mapview).view));
     });
 }

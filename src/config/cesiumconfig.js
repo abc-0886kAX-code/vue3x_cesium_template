@@ -1,4 +1,13 @@
-import { Terrain } from 'cesium';
+/*
+ * @FilePath: \vue3x_cesium_template\src\config\cesiumconfig.js
+ * @Author: zhangxin
+ * @Date: 2023-11-29 14:20:16
+ * @LastEditors: zhangxin
+ * @LastEditTime: 2023-12-01 14:37:28
+ * @Description:
+ */
+import * as Cesium from 'cesium';
+import { BJ_AREA_SERVICE } from "@/config/arcgis.conf";
 
 const config = {
     infoBox: false, // 创建InfoBox小部件 默认true - false解决报错
@@ -12,7 +21,12 @@ const config = {
     selectionIndicator: true,//选取指示器组件
     navigationHelpButton: true,//帮助按钮
     navigationInstructionsInitiallyVisible: false, // 如果导航说明最初应该是可见的，则为true；如果直到用户明确单击该按钮，则不显示该说明，否则为false。
-    terrain: Terrain.fromWorldTerrain(),
+    terrain: Cesium.Terrain.fromWorldTerrain(),
 }
-const layers = []
+const layers = [
+    {
+        type: "arcgis",
+        url: BJ_AREA_SERVICE
+    }
+]
 export { config, layers }

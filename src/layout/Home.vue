@@ -1,9 +1,9 @@
 <!--
- * @FilePath: \vue3x_cesium_template-master\src\layout\Home.vue
+ * @FilePath: \vue3x_cesium_template\src\layout\Home.vue
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-11-29 14:22:32
+ * @LastEditTime: 2023-12-01 15:40:00
  * @Description:
 -->
 <script setup>
@@ -14,12 +14,33 @@ import { useUserStore } from "@/store/useUser";
 const { proxy } = getCurrentInstance();
 const user = useUserStore();
 function handleUser(params) { }
+const featurelist = {
+    'userLogout':{
+        label:'注销登录',
+        func:userLogout
+    },
+    'ExamplePoint':{
+        label:'点',
+        func:jumpToPage
+    },
+    'ExampleLine':{
+        label:'线',
+        func:jumpToPage
+    },
+    'ExampleZones':{
+        label:'面',
+        func:jumpToPage
+    }
+}
 function handleCommand(command) {
-    command === "userLogout" && userLogout();
+    featurelist[command].func(command);
 }
 function userLogout() {
     user.emptyUserInfo();
     proxy.$router.push({ name: "login" });
+}
+function jumpToPage(name) {
+    proxy.$router.push({ name });
 }
 </script>
 
@@ -27,10 +48,10 @@ function userLogout() {
     <el-container class="home">
         <el-dropdown class="home-user" size="small" split-button type="primary" @command="handleCommand"
             @click="handleUser">
-            用户名称
+            功能菜单
             <template #dropdown>
                 <el-dropdown-menu>
-                    <el-dropdown-item command="userLogout">注销登录</el-dropdown-item>
+                    <el-dropdown-item v-for="(item,key) in featurelist" :key="key" :command="key">{{ item.label }}</el-dropdown-item>
                 </el-dropdown-menu>
             </template>
         </el-dropdown>
