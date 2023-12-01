@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-01 17:26:30
+ * @LastEditTime: 2023-12-01 17:27:39
  * @Description:
 -->
 <script setup>
@@ -37,7 +37,6 @@ function executeQuery() {
             });
         }
     }
-    console.log(enity);
 }
 
 onMounted(() => {
