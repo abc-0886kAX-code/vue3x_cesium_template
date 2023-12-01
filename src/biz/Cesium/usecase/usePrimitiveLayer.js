@@ -2,27 +2,15 @@
  * @Author: zhangxin
  * @Date: 2022-04-26 15:11:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-01 14:31:58
+ * @LastEditTime: 2023-12-01 16:50:57
  * @Description: file content
  */
 import { uuid } from "@/shared/uuid";
-import { Primitive } from 'cesium';
-const { VITE_ROOT_LAYERID } = import.meta.env;
+import { PrimitiveCollection, PointPrimitiveCollection } from 'cesium';
 
-const handlerLayerPid = () => +VITE_ROOT_LAYERID;
-const handlerLayerId = (pid, index) => pid + index + 1;
-export const handlerLayerConfig = (conf, index) => {
-    const pid = handlerLayerPid();
-
-    return new Primitive(Object.assign(
-        {},
-        {
-            show: true,
-            id: handlerLayerId(pid, index),
-            pid,
-        },
-        conf
-    ));
+export const handlerLayerConfig = (params, index) => {
+    const { render, config } = params;
+    return new render(config);
 };
 export const addLayer = (layer, mapview) => {
     if (mapview.scene.primitives.contains(layer)) return;
@@ -36,7 +24,7 @@ function eachGather(gather, handler) {
 
 function handlerGather(layers, mapview, handler) {
     layers.forEach((layer) => {
-        const find = () => unref(mapview).scene.primitives._primitives.find((item) => item.id === layer.id);
+        const find = () => mapview.scene.primitives._primitives.find((item) => item._guid === layer._guid)
         const show = () => (find().show = true);
         const hide = () => (find().show = false);
         const clear = () => {
@@ -44,8 +32,7 @@ function handlerGather(layers, mapview, handler) {
             l.destroy();
         };
 
-        handler(layer.name, {
-            id: layer.id,
+        handler(layer._guid, {
             find,
             show,
             hide,
@@ -67,8 +54,7 @@ export function usePrimitiveLayer(mapview) {
         gather.value[name] = layer;
     };
     const setupLayer = (conf) => {
-        const id = uuid();
-        const layer = handlerLayerConfig({ ...conf, id });
+        const layer = handlerLayerConfig(conf);
         addLayer(layer, unref(mapview));
         handlerGather([layer], unref(mapview), setupGather);
         return layer;

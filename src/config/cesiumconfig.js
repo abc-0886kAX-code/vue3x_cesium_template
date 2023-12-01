@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 14:20:16
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-01 14:37:28
+ * @LastEditTime: 2023-12-01 17:07:25
  * @Description:
  */
 import * as Cesium from 'cesium';
@@ -22,6 +22,7 @@ const config = {
     navigationHelpButton: true,//帮助按钮
     navigationInstructionsInitiallyVisible: false, // 如果导航说明最初应该是可见的，则为true；如果直到用户明确单击该按钮，则不显示该说明，否则为false。
     terrain: Cesium.Terrain.fromWorldTerrain(),
+    selectionIndicator: false, // 选中图层后 显示的默认绿色框
 }
 const layers = [
     {
