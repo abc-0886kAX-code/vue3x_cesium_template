@@ -3,12 +3,12 @@
  * @Author: zhangxin
  * @Date: 2022-05-19 11:02:21
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 15:47:02
+ * @LastEditTime: 2023-12-04 16:18:53
  * @Description:
  */
 import { Cartesian3, GeometryInstance, GroundPolylineGeometry, PolylineMaterialAppearance, EllipsoidSurfaceAppearance, Material } from 'cesium';
 import { convertColorRange } from "./usePoint";
-import waterNormals from "@/assets/images/map/waterNormals.jpg";
+import waterNormals from "@/assets/images/map/line-tarans.png";
 
 
 const waterStyle = {
@@ -40,7 +40,7 @@ export function usePolyline(mapview) {
             }),
             appearance: new PolylineMaterialAppearance({
                 material: Material.fromType("Color", {
-                    color: color ? convertColorRange(color) : convertColorRange([255, 0, 51, 1]),
+                    color: color ? convertColorRange(color) : convertColorRange([0, 255, 255, 255, 1]),
                 }),
             })
         }
@@ -55,7 +55,7 @@ export function usePolyline(mapview) {
                     width: width ?? 4.0,
                 }),
             }),
-            appearance: new EllipsoidSurfaceAppearance(style ?? waterStyle)
+            appearance: new PolylineMaterialAppearance(style ?? waterStyle)
         }
     }
 

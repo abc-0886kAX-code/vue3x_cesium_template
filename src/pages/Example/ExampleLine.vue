@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 15:38:16
+ * @LastEditTime: 2023-12-04 16:25:56
  * @Description:
 -->
 <script setup>
@@ -12,7 +12,7 @@ import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import LineJson from '@/assets/json/ExampleLine.json';
 import { usePolyline } from '@/biz/Cesium/usecase/usePolyline.js';
-const { setupPolylineImageShape } = usePolyline()
+const { setupPolylineFillShape, setupPolylineImageShape } = usePolyline()
 const { mapview } = useCesium();
 const { gather, setupLayer } = usePrimitiveLayer(mapview);
 const controller = setupLayer({
@@ -31,9 +31,9 @@ function executeQuery() {
         const positions = geometry.paths[0].flat(2);
         const options = {
             positions,
-            width: 10
+            width: 5
         }
-        enity.add(new GroundPolylinePrimitive(setupPolylineImageShape(options)))
+        enity.add(new GroundPolylinePrimitive(setupPolylineFillShape(options)))
     })
 }
 
