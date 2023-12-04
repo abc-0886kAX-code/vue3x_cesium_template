@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 11:14:06
+ * @LastEditTime: 2023-12-04 16:06:41
  * @Description:
 -->
 <script setup>
@@ -11,7 +11,8 @@ import { Cartesian3, GroundPrimitive, PrimitiveCollection, GeometryInstance, Pol
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import ZonesJson from '@/assets/json/ExampleZones.json';
-
+import { usePolygonGrid } from "@/biz/Cesium/usecase/usePolygonGrid.js"
+const { setupPolygonFillShape, setupPolygonImageShape } = usePolygonGrid();
 const { mapview } = useCesium();
 const { gather, setupLayer } = usePrimitiveLayer(mapview);
 const controller = setupLayer({
@@ -27,21 +28,9 @@ function pointController() {
 
 function executeQuery() {
     ZonesJson.features.forEach(({ geometry }) => {
-        enity.add(new GroundPrimitive({
-            geometryInstances: new GeometryInstance({
-                geometry: new PolygonGeometry({
-                    polygonHierarchy: new PolygonHierarchy(
-                        Cartesian3.fromDegreesArray(geometry.rings.flat(2))
-                    ),
-                }),
-            }),
-            appearance: new MaterialAppearance({
-                material: Material.fromType("Color", {
-                    color: new Color(0, 1, 1, 1),
-                }),
-                faceForward: true,
-            }),
-        }))
+
+        const positions = geometry.rings.flat(2);
+        enity.add(new GroundPrimitive(setupPolygonImageShape({ positions })))
     })
 }
 

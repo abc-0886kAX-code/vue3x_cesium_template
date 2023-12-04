@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 11:14:17
+ * @LastEditTime: 2023-12-04 15:38:16
  * @Description:
 -->
 <script setup>
@@ -11,7 +11,8 @@ import { Cartesian3, GroundPolylinePrimitive, PrimitiveCollection, GeometryInsta
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import LineJson from '@/assets/json/ExampleLine.json';
-
+import { usePolyline } from '@/biz/Cesium/usecase/usePolyline.js';
+const { setupPolylineImageShape } = usePolyline()
 const { mapview } = useCesium();
 const { gather, setupLayer } = usePrimitiveLayer(mapview);
 const controller = setupLayer({
@@ -27,19 +28,12 @@ function pointController() {
 
 function executeQuery() {
     LineJson.features.forEach(({ geometry }) => {
-        enity.add(new GroundPolylinePrimitive({
-            geometryInstances: new GeometryInstance({
-                geometry: new GroundPolylineGeometry({
-                    positions: Cartesian3.fromDegreesArray(geometry.paths[0].flat(2)),
-                    width: 5.0,
-                }),
-            }),
-            appearance: new PolylineMaterialAppearance({
-                material: Material.fromType("Color", {
-                    color: new Color(1.0, 1.0, 0.0, 1.0),
-                }),
-            })
-        }))
+        const positions = geometry.paths[0].flat(2);
+        const options = {
+            positions,
+            width: 10
+        }
+        enity.add(new GroundPolylinePrimitive(setupPolylineImageShape(options)))
     })
 }
 

@@ -1,112 +1,67 @@
 /*
- * @FilePath: \3D防汛作战\src\biz\Mars3D\usecase\usePolyline.js
+ * @FilePath: \vue3x_cesium_template\src\biz\Cesium\usecase\usePolyline.js
  * @Author: zhangxin
  * @Date: 2022-05-19 11:02:21
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-06-22 11:42:10
+ * @LastEditTime: 2023-12-04 15:47:02
  * @Description:
  */
-import { Cesium, MaterialUtil, MaterialType } from "mars3d";
+import { Cartesian3, GeometryInstance, GroundPolylineGeometry, PolylineMaterialAppearance, EllipsoidSurfaceAppearance, Material } from 'cesium';
+import { convertColorRange } from "./usePoint";
+import waterNormals from "@/assets/images/map/waterNormals.jpg";
 
-export function setupPolylineFillShape(options = {}) {
-    const { color } = options;
 
-    const highlight = {
-        color: color ?? "rgba(30, 226, 242,1.0)",
-        alpha: 1.0,
-    };
-
-    const style = {
-        width: 12,
-        clampToGround: true,
-        color: color ?? "rgba(30, 226, 242,0.8)",
-        alpha: 0.8,
-        highlight,
-    };
-
-    return style;
+const waterStyle = {
+    aboveGround: true,
+    material: new Material({
+        fabric: {
+            type: 'Water',
+            uniforms: {
+                normalMap: waterNormals,
+                frequency: 8000.0, // 控制波数的数字。
+                animationSpeed: 0.02, // 控制水的动画速度的数字。
+                amplitude: 5.0, // 控制水波振幅的数字。
+                specularIntensity: 0.8, // 控制镜面反射强度的数字。
+            }
+        }
+    }),
 }
 
-export function setupLineFlowColorShape(options = {}) {
-    const { color, colorActive } = options;
-
-    const highlight = {
-        material: MaterialUtil.createMaterialProperty(MaterialType.LineFlowColor, {
-            color: colorActive,
-            speed: 24,
-            percent: 0.15,
-            alpha: 0.8,
-        }),
-    };
-
-    const style = {
-        width: 6,
-        clampToGround: true,
-        material: MaterialUtil.createMaterialProperty(MaterialType.LineFlowColor, {
-            color,
-            speed: 18,
-            percent: 0.15,
-            alpha: 0.6,
-        }),
-        highlight,
-    };
-
-    return style;
-}
-
-export function setupPolylineImageShape(options = {}) {
-    const { color, colorActive, image } = options;
-
-    const highlight = {
-        material: MaterialUtil.createMaterialProperty(MaterialType.LineFlow, {
-            color: colorActive ?? color ?? "rgba(30, 226, 242,1.0)",
-            speed: 7,
-            alpha: 1.0,
-            image,
-        }),
-    };
-
-    const style = {
-        width: 8,
-        clampToGround: true,
-        material: MaterialUtil.createMaterialProperty(MaterialType.LineFlow, {
-            color: color ?? "rgba(30, 226, 242,0.8)",
-            speed: 3,
-            alpha: 1.0,
-            image,
-        }),
-        highlight,
-    };
-
-    return style;
-}
-
-export function setupWallLineShape(options = {}) {
-    const { color, colorActive, image } = options;
-
-    const highlight = {
-        material: MaterialUtil.createMaterialProperty(MaterialType.LineFlow, {
-            image,
-            color: colorActive,
-            repeat: new Cesium.Cartesian2(20, 1),
-            speed: 24,
-        }),
-    };
-
-    const style = {
-        diffHeight: 400,
-        material: MaterialUtil.createMaterialProperty(MaterialType.LineFlow, {
-            image,
-            color,
-            repeat: new Cesium.Cartesian2(20, 1),
-            speed: 12,
-        }),
-        highlight,
-    };
-
-    return style;
-}
 
 export function usePolyline(mapview) {
-    return {};
+    function setupPolylineFillShape(options) {
+        const { width, positions, color } = options;
+        return {
+            geometryInstances: new GeometryInstance({
+                geometry: new GroundPolylineGeometry({
+                    positions: Cartesian3.fromDegreesArray(positions),
+                    width: width ?? 4.0,
+                }),
+            }),
+            appearance: new PolylineMaterialAppearance({
+                material: Material.fromType("Color", {
+                    color: color ? convertColorRange(color) : convertColorRange([255, 0, 51, 1]),
+                }),
+            })
+        }
+    }
+
+    function setupPolylineImageShape(options) {
+        const { width, positions, style } = options;
+        return {
+            geometryInstances: new GeometryInstance({
+                geometry: new GroundPolylineGeometry({
+                    positions: Cartesian3.fromDegreesArray(positions),
+                    width: width ?? 4.0,
+                }),
+            }),
+            appearance: new EllipsoidSurfaceAppearance(style ?? waterStyle)
+        }
+    }
+
+
+    return {
+        setupPolylineFillShape,
+        setupPolylineImageShape
+    };
 }
