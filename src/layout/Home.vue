@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-01 15:40:00
+ * @LastEditTime: 2023-12-04 17:11:47
  * @Description:
 -->
 <script setup>
@@ -15,21 +15,21 @@ const { proxy } = getCurrentInstance();
 const user = useUserStore();
 function handleUser(params) { }
 const featurelist = {
-    'userLogout':{
-        label:'注销登录',
-        func:userLogout
+    'userLogout': {
+        label: '注销登录',
+        func: userLogout
     },
-    'ExamplePoint':{
-        label:'点',
-        func:jumpToPage
+    'ExamplePoint': {
+        label: '点',
+        func: jumpToPage
     },
-    'ExampleLine':{
-        label:'线',
-        func:jumpToPage
+    'ExampleLine': {
+        label: '线',
+        func: jumpToPage
     },
-    'ExampleZones':{
-        label:'面',
-        func:jumpToPage
+    'ExampleZones': {
+        label: '面',
+        func: jumpToPage
     }
 }
 function handleCommand(command) {
@@ -51,7 +51,8 @@ function jumpToPage(name) {
             功能菜单
             <template #dropdown>
                 <el-dropdown-menu>
-                    <el-dropdown-item v-for="(item,key) in featurelist" :key="key" :command="key">{{ item.label }}</el-dropdown-item>
+                    <el-dropdown-item v-for="(item, key) in featurelist" :key="key" :command="key">{{ item.label
+                    }}</el-dropdown-item>
                 </el-dropdown-menu>
             </template>
         </el-dropdown>

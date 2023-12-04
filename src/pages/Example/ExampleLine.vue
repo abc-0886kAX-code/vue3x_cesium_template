@@ -3,11 +3,11 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 16:25:56
+ * @LastEditTime: 2023-12-04 16:28:23
  * @Description:
 -->
 <script setup>
-import { Cartesian3, GroundPolylinePrimitive, PrimitiveCollection, GeometryInstance, GroundPolylineGeometry, PolylineMaterialAppearance, Material, Color } from 'cesium';
+import { Cartesian3, GroundPolylinePrimitive, PrimitiveCollection } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import LineJson from '@/assets/json/ExampleLine.json';

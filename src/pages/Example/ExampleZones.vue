@@ -3,11 +3,11 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 16:06:41
+ * @LastEditTime: 2023-12-04 16:28:37
  * @Description:
 -->
 <script setup>
-import { Cartesian3, GroundPrimitive, PrimitiveCollection, GeometryInstance, PolygonGeometry, PolygonHierarchy, MaterialAppearance, Material, Color } from 'cesium';
+import { Cartesian3, GroundPrimitive, PrimitiveCollection } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import ZonesJson from '@/assets/json/ExampleZones.json';
