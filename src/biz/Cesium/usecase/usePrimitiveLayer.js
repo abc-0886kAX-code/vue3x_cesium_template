@@ -5,9 +5,6 @@
  * @LastEditTime: 2023-12-01 16:50:57
  * @Description: file content
  */
-import { uuid } from "@/shared/uuid";
-import { PrimitiveCollection, PointPrimitiveCollection } from 'cesium';
-
 export const handlerLayerConfig = (params, index) => {
     const { render, config } = params;
     return new render(config);
@@ -29,7 +26,7 @@ function handlerGather(layers, mapview, handler) {
         const hide = () => (find().show = false);
         const clear = () => {
             const l = find();
-            l.destroy();
+            mapview.scene.primitives.remove(l);
         };
 
         handler(layer._guid, {
