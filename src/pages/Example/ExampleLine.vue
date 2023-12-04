@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 16:28:23
+ * @LastEditTime: 2023-12-04 18:06:00
  * @Description:
 -->
 <script setup>
@@ -27,7 +27,7 @@ function pointController() {
 }
 
 function executeQuery() {
-    LineJson.features.forEach(({ geometry }) => {
+    LineJson.features.forEach(({ attributes, geometry }) => {
         const positions = geometry.paths[0].flat(2);
         const options = {
             positions,

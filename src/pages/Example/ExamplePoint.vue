@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 14:11:54
+ * @LastEditTime: 2023-12-04 18:06:19
  * @Description:
 -->
 <script setup>
@@ -36,9 +36,11 @@ function pointController() {
 }
 function addBasePoint() {
     randomPart1.forEach((item) => {
-        enity.add(setBaseShape({
+        enity.add(Object.assign(setBaseShape({
             longitude: item.lgtd,
             latitude: item.lttd
+        }), {
+            id: item
         }))
     })
 }

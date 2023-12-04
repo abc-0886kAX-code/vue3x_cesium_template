@@ -55,7 +55,7 @@ export function usePolyline(mapview) {
                     width: width ?? 4.0,
                 }),
             }),
-            appearance: new PolylineMaterialAppearance(style ?? waterStyle)
+            appearance: new PolylineMaterialAppearance(style ?? waterStyle),
         }
     }
 
