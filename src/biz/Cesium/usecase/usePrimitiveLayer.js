@@ -2,9 +2,11 @@
  * @Author: zhangxin
  * @Date: 2022-04-26 15:11:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-01 16:50:57
+ * @LastEditTime: 2023-12-04 14:07:36
  * @Description: file content
  */
+import { uuid } from "@/shared/uuid.js";
+
 export const handlerLayerConfig = (params, index) => {
     const { render, config } = params;
     return new render(config);
@@ -52,6 +54,9 @@ export function usePrimitiveLayer(mapview) {
     };
     const setupLayer = (conf) => {
         const layer = handlerLayerConfig(conf);
+        if (!layer._guid) {
+            layer._guid = uuid();
+        }
         addLayer(layer, unref(mapview));
         handlerGather([layer], unref(mapview), setupGather);
         return layer;
