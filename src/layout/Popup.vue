@@ -1,9 +1,9 @@
 <!--
- * @FilePath: \vue2.7_admin_template-master\src\layout\Popup.vue
+ * @FilePath: \vue3x_cesium_template\src\layout\Popup.vue
  * @Author: maggot-code
  * @Date: 2023-01-03 16:58:44
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-11-16 16:05:15
+ * @LastEditTime: 2023-12-05 15:00:53
  * @Description:
 -->
 <script setup>
@@ -15,7 +15,7 @@ const { pond, pondFind, pondRelease } = definePopup();
 <template>
     <div class="furnace-popup">
         <template v-for="key in pond" :key="key">
-            <el-dialog :before-close="pondRelease(key)" :visible="pondFind(key).visible.value"
+            <el-dialog :before-close="pondRelease(key)" :model-value="pondFind(key).visible.value"
                 :title="pondFind(key).title.value" :width="pondFind(key).width.value" :top="pondFind(key).top.value"
                 v-bind="pondFind(key).constProps">
                 <div class="furnace-popup-main" :ref="pondFind(key).refs" :style="{ height: pondFind(key).height.value }">

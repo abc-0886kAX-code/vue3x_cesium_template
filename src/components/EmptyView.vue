@@ -19,4 +19,9 @@ const props = defineProps({
     <el-empty class="furnace-empty" :description="desc"></el-empty>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.furnace-empty {
+    width: 100%;
+    height: 100%;
+}
+</style>

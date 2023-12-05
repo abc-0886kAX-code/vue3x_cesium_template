@@ -3,15 +3,20 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 18:06:19
+ * @LastEditTime: 2023-12-05 15:24:51
  * @Description:
 -->
 <script setup>
+import { CesiumFloatSymbolName } from '@/biz/Cesium/share/context';
+import { usePopup } from "@/biz/Popup/usecase/usePopup";
+import { useCesiumEvent } from '@/biz/Cesium/usecase/useCesiumEvent';
+
 import { Cartesian3, PointPrimitiveCollection, BillboardCollection } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import PointJson from '@/assets/json/ExamplePoint.json';
 import { usePoint } from '@/biz/Cesium/usecase/usePoint.js';
+
 
 function splitArrayRandomly(array) {
     const randomIndex = Math.floor(Math.random() * array.length);
@@ -31,6 +36,65 @@ const controller = setupLayer({
 });
 const controllerEnity = unref(gather)[controller._guid];
 const enity = controllerEnity.find();
+
+const popup = usePopup();
+const dialog = popup.define({
+    width: "50%",
+    // template: WaterLevel,
+});
+const { setupFloatHide, setupFloatWindow } = inject(CesiumFloatSymbolName);
+function handlerClick(target) {
+    if (!target?.id) return;
+    const { id: attr } = target;
+    const { stnm: title } = attr;
+
+    setupFloatHide();
+    dialog.setupTitle(title);
+    dialog.show(attr);
+}
+
+
+const floatColumn = [
+    {
+        prop: "stnm",
+        label: "名称",
+    },
+    {
+        prop: "addvcdname",
+        label: "区域",
+    },
+    {
+        prop: "stlc",
+        label: "详细地址",
+    },
+];
+
+const setupFloat = (attr) => {
+    return floatColumn.map((item) => {
+        const { label, prop: field } = item;
+
+        return {
+            label,
+            field,
+            text: attr[field],
+        };
+    });
+};
+
+function handlerOver(target) {
+    if (!target?.id) return;
+    const { id: attr, endPosition } = target;
+    setupFloatWindow({
+        content: setupFloat(attr),
+        ...endPosition,
+    });
+}
+
+useCesiumEvent({
+    click: handlerClick,
+    mouseOver: handlerOver,
+    mouseOut: setupFloatHide,
+});
 function pointController() {
     controllerEnity.switch();
 }

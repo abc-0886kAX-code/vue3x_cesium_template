@@ -3,10 +3,14 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 16:28:37
+ * @LastEditTime: 2023-12-05 15:41:40
  * @Description:
 -->
 <script setup>
+import { CesiumFloatSymbolName } from '@/biz/Cesium/share/context';
+import { usePopup } from "@/biz/Popup/usecase/usePopup";
+import { useCesiumEvent } from '@/biz/Cesium/usecase/useCesiumEvent';
+
 import { Cartesian3, GroundPrimitive, PrimitiveCollection } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
@@ -22,15 +26,71 @@ const controller = setupLayer({
 const controllerEnity = unref(gather)[controller._guid];
 const enity = controllerEnity.find();
 
+const popup = usePopup();
+const dialog = popup.define({
+    width: "50%",
+    // template: WaterLevel,
+});
+const { setupFloatHide, setupFloatWindow } = inject(CesiumFloatSymbolName);
+function handlerClick(target) {
+    if (!target?.id) return;
+    const { id: attr } = target;
+    const { NAME } = attr;
+
+    setupFloatHide();
+    dialog.setupTitle(NAME);
+    dialog.show(attr);
+}
+
+
+const floatColumn = [
+    {
+        prop: "NAME",
+        label: "名称",
+    },
+    {
+        prop: "名称",
+        label: "流域",
+    },
+];
+
+const setupFloat = (attr) => {
+    return floatColumn.map((item) => {
+        const { label, prop: field } = item;
+
+        return {
+            label,
+            field,
+            text: attr[field],
+        };
+    });
+};
+
+function handlerOver(target) {
+    if (!target?.id) return;
+    const { id: attr, endPosition } = target;
+    setupFloatWindow({
+        content: setupFloat(attr),
+        ...endPosition,
+    });
+}
+
+useCesiumEvent({
+    click: handlerClick,
+    mouseOver: handlerOver,
+    mouseOut: setupFloatHide,
+});
+
 function pointController() {
     controllerEnity.switch();
 }
 
 function executeQuery() {
-    ZonesJson.features.forEach(({ geometry }) => {
+    ZonesJson.features.forEach(({ attributes, geometry }) => {
 
         const positions = geometry.rings.flat(2);
-        enity.add(new GroundPrimitive(setupPolygonImageShape({ positions })))
+        const options = { attr: attributes, positions }
+        enity.add(new GroundPrimitive(setupPolygonImageShape(options)))
     })
 }
 

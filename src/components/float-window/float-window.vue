@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-29 09:22:25
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-11-29 10:53:27
+ * @LastEditTime: 2023-12-05 15:31:03
  * @Description: file content
 -->
 <script setup>
@@ -31,7 +31,8 @@ const { width, height } = useElementSize(floatRefs);
 
 const style = computed(() => {
     const { left, top } = props.positionStyle;
-    const x = left - unref(width) - unref(width) / 2.5;
+    const x = left + 36;
+    // const x = left - unref(width) - unref(width) / 2;
     const y = top - unref(height) / 2;
     return {
         left: `${x}px`,

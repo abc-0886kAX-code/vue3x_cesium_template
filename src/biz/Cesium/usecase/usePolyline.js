@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-05-19 11:02:21
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 16:18:53
+ * @LastEditTime: 2023-12-05 09:37:10
  * @Description:
  */
 import { Cartesian3, GeometryInstance, GroundPolylineGeometry, PolylineMaterialAppearance, EllipsoidSurfaceAppearance, Material } from 'cesium';
@@ -30,13 +30,14 @@ const waterStyle = {
 
 export function usePolyline(mapview) {
     function setupPolylineFillShape(options) {
-        const { width, positions, color } = options;
+        const { width, positions, color, attr } = options;
         return {
             geometryInstances: new GeometryInstance({
                 geometry: new GroundPolylineGeometry({
                     positions: Cartesian3.fromDegreesArray(positions),
                     width: width ?? 4.0,
                 }),
+                id: attr ?? {}
             }),
             appearance: new PolylineMaterialAppearance({
                 material: Material.fromType("Color", {
@@ -47,13 +48,14 @@ export function usePolyline(mapview) {
     }
 
     function setupPolylineImageShape(options) {
-        const { width, positions, style } = options;
+        const { width, positions, style, attr } = options;
         return {
             geometryInstances: new GeometryInstance({
                 geometry: new GroundPolylineGeometry({
                     positions: Cartesian3.fromDegreesArray(positions),
                     width: width ?? 4.0,
                 }),
+                id: attr ?? {}
             }),
             appearance: new PolylineMaterialAppearance(style ?? waterStyle),
         }

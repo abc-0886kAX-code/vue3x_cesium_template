@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-05-19 11:02:21
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 16:05:54
+ * @LastEditTime: 2023-12-05 09:35:39
  * @Description:
  */
 import { Cartesian3, GeometryInstance, PolygonGeometry, PolylineMaterialAppearance, EllipsoidSurfaceAppearance, Material, PolygonHierarchy } from 'cesium';
@@ -30,7 +30,7 @@ const waterStyle = {
 
 export function usePolygonGrid(mapview) {
     function setupPolygonFillShape(options) {
-        const { positions, color } = options;
+        const { positions, color, attr } = options;
         return {
             geometryInstances: new GeometryInstance({
                 geometry: new PolygonGeometry({
@@ -38,6 +38,7 @@ export function usePolygonGrid(mapview) {
                         Cartesian3.fromDegreesArray(positions)
                     ),
                 }),
+                id: attr ?? {}
             }),
             appearance: new PolylineMaterialAppearance({
                 material: Material.fromType("Color", {
@@ -48,7 +49,7 @@ export function usePolygonGrid(mapview) {
     }
 
     function setupPolygonImageShape(options) {
-        const { positions, style } = options;
+        const { positions, style, attr } = options;
         return {
             geometryInstances: new GeometryInstance({
                 geometry: new PolygonGeometry({
@@ -56,6 +57,7 @@ export function usePolygonGrid(mapview) {
                         Cartesian3.fromDegreesArray(positions)
                     ),
                 }),
+                id: attr ?? {}
             }),
             appearance: new EllipsoidSurfaceAppearance(style ?? waterStyle)
         }
