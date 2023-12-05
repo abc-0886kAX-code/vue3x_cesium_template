@@ -3,12 +3,12 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 17:11:47
+ * @LastEditTime: 2023-12-05 15:57:15
  * @Description:
 -->
 <script setup>
 import { CesiumContainer } from '@/biz/Cesium/view/cesium-container';
-import { config, layers } from '@/config/cesiumconfig';
+import { config, layers } from '@/config/cesium.conf';
 
 import { useUserStore } from "@/store/useUser";
 const { proxy } = getCurrentInstance();
@@ -20,15 +20,15 @@ const featurelist = {
         func: userLogout
     },
     'ExamplePoint': {
-        label: '点',
+        label: 'Cesium示例-点',
         func: jumpToPage
     },
     'ExampleLine': {
-        label: '线',
+        label: 'Cesium示例-线',
         func: jumpToPage
     },
     'ExampleZones': {
-        label: '面',
+        label: 'Cesium示例-面',
         func: jumpToPage
     }
 }
@@ -81,3 +81,4 @@ function jumpToPage(name) {
     }
 }
 </style>
+@/config/cesium.conf

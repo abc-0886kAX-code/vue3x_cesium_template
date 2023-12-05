@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-01 15:26:32
+ * @LastEditTime: 2023-12-05 15:49:50
  * @Description:
  */
 import { defineRouter } from "./defineRouter";
@@ -38,28 +38,28 @@ export const routes = [
                 "path": "/Example/ExamplePoint",
                 "name": "ExamplePoint",
                 "meta": {
-                    "title": "点",
+                    "title": "Cesium示例-点",
                     "hidden": "true"
                 },
-                "component": () => import("@/pages/Example/ExamplePoint.vue")
+                "component": () => import("@/pages/Example/ExamplePoint/ExamplePoint.vue")
             },
             {
                 "path": "/Example/ExampleLine",
                 "name": "ExampleLine",
                 "meta": {
-                    "title": "线",
+                    "title": "Cesium示例-线",
                     "hidden": "true"
                 },
-                "component": () => import("@/pages/Example/ExampleLine.vue")
+                "component": () => import("@/pages/Example/ExampleLine/ExampleLine.vue")
             },
             {
                 "path": "/Example/ExampleZones",
                 "name": "ExampleZones",
                 "meta": {
-                    "title": "面",
+                    "title": "Cesium示例-面",
                     "hidden": "true"
                 },
-                "component": () => import("@/pages/Example/ExampleZones.vue")
+                "component": () => import("@/pages/Example/ExampleZones/ExampleZones.vue")
             }
         ]
     },

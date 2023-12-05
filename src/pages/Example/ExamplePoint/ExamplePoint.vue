@@ -1,15 +1,16 @@
 <!--
- * @FilePath: \vue3x_cesium_template\src\pages\Example\ExamplePoint.vue
+ * @FilePath: \vue3x_cesium_template\src\pages\Example\ExamplePoint\ExamplePoint.vue
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-05 15:24:51
+ * @LastEditTime: 2023-12-05 15:53:47
  * @Description:
 -->
 <script setup>
 import { CesiumFloatSymbolName } from '@/biz/Cesium/share/context';
 import { usePopup } from "@/biz/Popup/usecase/usePopup";
 import { useCesiumEvent } from '@/biz/Cesium/usecase/useCesiumEvent';
+import { setupFloat } from './float.conf';
 
 import { Cartesian3, PointPrimitiveCollection, BillboardCollection } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
@@ -52,34 +53,6 @@ function handlerClick(target) {
     dialog.setupTitle(title);
     dialog.show(attr);
 }
-
-
-const floatColumn = [
-    {
-        prop: "stnm",
-        label: "名称",
-    },
-    {
-        prop: "addvcdname",
-        label: "区域",
-    },
-    {
-        prop: "stlc",
-        label: "详细地址",
-    },
-];
-
-const setupFloat = (attr) => {
-    return floatColumn.map((item) => {
-        const { label, prop: field } = item;
-
-        return {
-            label,
-            field,
-            text: attr[field],
-        };
-    });
-};
 
 function handlerOver(target) {
     if (!target?.id) return;
