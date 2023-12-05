@@ -1,14 +1,14 @@
 /*
- * @FilePath: \Furnace\src\domain\Popup\shared\constant.js
+ * @FilePath: \vue3x_cesium_template\src\biz\Popup\shared\constant.js
  * @Author: maggot-code
  * @Date: 2022-12-05 15:01:12
- * @LastEditors: maggot-code
- * @LastEditTime: 2022-12-05 17:43:03
+ * @LastEditors: zhangxin
+ * @LastEditTime: 2023-12-05 16:19:23
  * @Description:
  */
-export const DialogCustomClass = "furnace-dialog";
+// export const DialogCustomClass = "furnace-dialog";
 export const DialogProps = {
-    customClass: DialogCustomClass,
+    // customClass: DialogCustomClass, element-plus version 2.3.0 属性弃用
     fullscreen: false,
     modal: false,
     modalAppendToBody: true,
