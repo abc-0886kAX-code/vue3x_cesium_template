@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-28 16:51:12
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-05 15:32:30
+ * @LastEditTime: 2023-12-07 14:12:26
  * @Description: file content
  */
 import { uuid } from "@/shared/uuid.js";
@@ -30,11 +30,13 @@ export function useCesiumEvent(events) {
         const pick = unref(mapview).scene.pick(e.endPosition);
         if (defined(pick) && events['mouseOver']) {
             triggerOut = true;
+            unref(mapview)._container.style.cursor = "pointer";
             // 鼠标移入
             events['mouseOver']({ ...pick, endPosition: e.endPosition });
         }
 
         if (triggerOut && !defined(pick) && events['mouseOut']) {
+            unref(mapview)._container.style.cursor = "default";
             // 鼠标移出
             events['mouseOut'](pick);
             triggerOut = false;
