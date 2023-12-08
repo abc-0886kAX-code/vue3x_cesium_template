@@ -2,13 +2,12 @@
  * @Author: zhangxin
  * @Date: 2022-04-25 09:19:13
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 14:01:38
+ * @LastEditTime: 2023-12-08 17:14:33
  * @Description: file content
  */
 import { uuid } from "@/shared/uuid.js";
 import { Viewer, EventHelper, Ion, WebMapTileServiceImageryProvider, GeographicTilingScheme } from 'cesium'
-const { VITE_CESIUMTOKEN } = import.meta.env;
-
+const { VITE_CESIUMTOKEN, DEV } = import.meta.env;
 export class Mapview {
     _id = uuid();
     view = null;
@@ -33,7 +32,7 @@ export class Mapview {
         Ion.defaultAccessToken = VITE_CESIUMTOKEN; // 设置Cesium token
         this.view = new Viewer(mapbox, this.config);
         this.view._cesiumWidget._creditContainer.style.display = 'none'; // 隐藏Cesium logo
-        this.view.scene.debugShowFramesPerSecond = true; // 显示帧率
+        this.view.scene.debugShowFramesPerSecond = DEV ? true : false; // 显示帧率
 
         // 天地图标注
         this.view.imageryLayers.addImageryProvider(new WebMapTileServiceImageryProvider({
