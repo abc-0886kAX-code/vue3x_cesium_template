@@ -88,7 +88,12 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="ExampleLine">
-        <el-button type="primary" plain @click="pointController">线段显隐</el-button>
+        <div class="ExampleLine-item">
+            <div>线段-显示隐藏
+            </div>
+            <el-button type="primary" plain @click="pointController">切换</el-button>
+        </div>
+
     </div>
 </template>
 
@@ -98,5 +103,20 @@ onBeforeUnmount(() => {
     top: 5px;
     left: 150px;
     z-index: 999;
+    background: #232323;
+    height: 50px;
+    width: 300px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    &-item {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        box-sizing: border-box;
+    }
 }
 </style>

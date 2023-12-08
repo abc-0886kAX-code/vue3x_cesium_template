@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 11:22:06
+ * @LastEditTime: 2023-12-08 16:48:01
  * @Description:
 -->
 <script setup>
@@ -54,8 +54,7 @@ function jumpToPage(name) {
 
 <template>
     <el-container class="home">
-        <el-dropdown class="home-user" split-button type="primary" @command="handleCommand"
-            @click="handleUser">
+        <el-dropdown class="home-user" split-button type="primary" plain @command="handleCommand" @click="handleUser">
             功能菜单
             <template #dropdown>
                 <el-dropdown-menu>
@@ -85,7 +84,7 @@ function jumpToPage(name) {
         position: absolute;
         z-index: 99;
         left: 5px;
-        top: 5px;
+        top: 15px;
     }
 }
 </style>

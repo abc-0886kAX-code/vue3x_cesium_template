@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 16:04:51
+ * @LastEditTime: 2023-12-08 16:32:08
  * @Description:
 -->
 <script setup>
@@ -14,7 +14,9 @@ import transparentImage from '@/assets/images/map/transparent.png';
 import ImagesJson from '@/assets/json/ExampleImages.json';
 const { mapview } = useCesium();
 const { gather, setupLayer } = useImagesLayer(mapview);
-const controller = ref()
+const controller = ref({
+    alpha: 1
+})
 
 const controllerEnity = computed(() => {
     return unref(gather)[unref(controller)._layerIndex];
@@ -50,7 +52,15 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="ExampleImages">
-        <el-button type="primary" plain @click="pointController">显隐</el-button>
+        <div class="ExampleImages-item">
+            <div>显示隐藏</div>
+            <el-button type="primary" plain @click="pointController">切换</el-button>
+        </div>
+        <div class="ExampleImages-item">
+            <div>透明度</div>
+            <el-slider class="slider" v-model="controller.alpha" :min="0" :max="1" :step="0.1" />
+        </div>
+
     </div>
 </template>
 
@@ -60,5 +70,24 @@ onBeforeUnmount(() => {
     top: 5px;
     left: 150px;
     z-index: 999;
+    background: #232323;
+    height: 100px;
+    width: 300px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    &-item {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+}
+
+.slider {
+    width: 150px;
 }
 </style>

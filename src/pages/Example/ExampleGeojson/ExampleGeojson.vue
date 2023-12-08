@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 09:39:27
+ * @LastEditTime: 2023-12-08 16:40:40
  * @Description:
 -->
 <script setup>
@@ -26,10 +26,10 @@ function pointController() {
 }
 
 function executeQuery() {
-    GeoJson.data.features.forEach(({ geometry,properties }) => {
+    GeoJson.data.features.forEach(({ geometry, properties }) => {
 
         const positions = geometry.coordinates.flat(2);
-        const options = { positions,color:properties.color }
+        const options = { positions, color: properties.color }
         enity.add(new GroundPrimitive(setupPolygonFillShape(options)))
     })
 }
@@ -48,7 +48,10 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="ExampleGeojson">
-        <el-button type="primary" plain @click="pointController">GeoJson显隐</el-button>
+        <div class="ExampleGeojson-item">
+            <div>风险等级图-显示隐藏</div>
+            <el-button type="primary" plain @click="pointController">切换</el-button>
+        </div>
     </div>
 </template>
 
@@ -58,5 +61,20 @@ onBeforeUnmount(() => {
     top: 5px;
     left: 150px;
     z-index: 999;
+    background: #232323;
+    height: 50px;
+    width: 300px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    &-item {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        box-sizing: border-box;
+    }
 }
 </style>
