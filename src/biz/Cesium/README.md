@@ -1,3 +1,11 @@
+<!--
+ * @FilePath: \vue3x_cesium_template\src\biz\Cesium\README.md
+ * @Author: zhangxin
+ * @Date: 2023-12-08 10:14:20
+ * @LastEditors: zhangxin
+ * @LastEditTime: 2023-12-08 16:57:14
+ * @Description: 
+-->
 # Cesium - UseCase
 
 ## useCesiumSetup
@@ -72,6 +80,13 @@ useCesiumEvent({
 // 具体查看 ExampleZones.vue / ExampleGeojson.vue 
 ```
 
+### useImagesLayer
+
+```javascript
+// 图片渲染
+// 具体查看 ExampleImages.vue 
+```
+
 ## `TODO`
 
 - [x] `Cesium`实体构建
@@ -81,4 +96,4 @@ useCesiumEvent({
 - [x] `Point`
 - [x] `Line`
 - [x] `GeoJson/Zones`
-- [ ] `ImagesLayer`
+- [x] `ImagesLayer`
