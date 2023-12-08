@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 17:21:33
+ * @LastEditTime: 2023-12-08 17:49:04
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -63,6 +63,8 @@ useCesiumEvent({
 ```javascript
 // 几何图形图层
 // 目前 点、线、面 图层控制都是基于此方法构建
+// 可携带额外数据 id:{}
+// _guid 唯一标识
 ```
 
 

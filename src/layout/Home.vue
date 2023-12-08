@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 16:48:01
+ * @LastEditTime: 2023-12-08 17:54:54
  * @Description:
 -->
 <script setup>
@@ -88,4 +88,3 @@ function jumpToPage(name) {
     }
 }
 </style>
-@/config/cesium.conf
