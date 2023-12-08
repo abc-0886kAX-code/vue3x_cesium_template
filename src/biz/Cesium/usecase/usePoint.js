@@ -2,8 +2,8 @@
  * @Author: zhangxin
  * @Date: 2022-04-26 17:47:31
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 15:10:49
- * @Description: file content
+ * @LastEditTime: 2023-12-08 10:12:55
+ * @Description: 点渲染方法
  */
 
 import { Cartesian3, Color, VerticalOrigin } from 'cesium';

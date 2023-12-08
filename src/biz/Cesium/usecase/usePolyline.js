@@ -4,7 +4,7 @@
  * @Date: 2022-05-19 11:02:21
  * @LastEditors: zhangxin
  * @LastEditTime: 2023-12-05 09:37:10
- * @Description:
+ * @Description: 线段渲染方法
  */
 import { Cartesian3, GeometryInstance, GroundPolylineGeometry, PolylineMaterialAppearance, EllipsoidSurfaceAppearance, Material } from 'cesium';
 import { convertColorRange } from "./usePoint";

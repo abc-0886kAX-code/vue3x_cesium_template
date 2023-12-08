@@ -2,8 +2,8 @@
  * @Author: zhangxin
  * @Date: 2022-04-26 15:11:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-04 14:07:36
- * @Description: file content
+ * @LastEditTime: 2023-12-08 09:56:44
+ * @Description: 几何图形图层
  */
 import { uuid } from "@/shared/uuid.js";
 

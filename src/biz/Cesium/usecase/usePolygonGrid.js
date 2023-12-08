@@ -4,7 +4,7 @@
  * @Date: 2022-05-19 11:02:21
  * @LastEditors: zhangxin
  * @LastEditTime: 2023-12-05 09:35:39
- * @Description:
+ * @Description: 面渲染方法
  */
 import { Cartesian3, GeometryInstance, PolygonGeometry, PolylineMaterialAppearance, EllipsoidSurfaceAppearance, Material, PolygonHierarchy } from 'cesium';
 import { convertColorRange } from "./usePoint";
