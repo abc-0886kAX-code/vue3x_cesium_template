@@ -2,10 +2,11 @@
  * @Author: zhangxin
  * @Date: 2022-04-26 15:34:17
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-01 15:21:47
+ * @LastEditTime: 2023-12-08 14:41:02
  * @Description: file content
  */
-import { ImageryLayer, ArcGisMapServerImageryProvider } from 'cesium';
+import { ArcGisMapServerImageryProvider } from 'cesium';
+import { uuid } from "@/shared/uuid.js";
 
 // 集中处理初始化各种类型，后续扩展...
 const layerType = {
@@ -15,7 +16,7 @@ const layerType = {
             return esri;
         },
         addToMap: async (esri, mapview) => {
-            await mapview.imageryLayers.add(new ImageryLayer(esri))
+            await mapview.imageryLayers.addImageryProvider(esri)
         }
     },
 }
