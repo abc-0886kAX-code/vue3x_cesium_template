@@ -1,6 +1,6 @@
 /*
- * @FilePath: \明湖数字大厅\src\hooks\useScroll.js
- * @Author: maggot-code
+ * @FilePath: \vue3x_cesium_template\src\hooks\useScroll.js
+ * @Author: zhangxin
  * @Date: 2022-12-08 02:16:55
  * @LastEditors: zhangxin
  * @LastEditTime: 2023-03-04 17:44:53

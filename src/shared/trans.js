@@ -1,8 +1,8 @@
 /*
  * @FilePath: \Furnace\src\shared\trans.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-11-21 15:35:56
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-11-22 13:37:37
  * @Description: 
  */

@@ -1,5 +1,5 @@
 /*
- * @FilePath: \明湖数字大厅\src\biz\Tabs\usecase\useTabs.js
+ * @FilePath: \vue3x_cesium_template\src\biz\Tabs\usecase\useTabs.js
  * @Author: zhangxin
  * @Date: 2023-02-01 13:45:09
  * @LastEditors: zhangxin

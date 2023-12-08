@@ -1,6 +1,6 @@
 /*
- * @FilePath: \明湖数字大厅\src\internal\shared\number.js
- * @Author: maggot-code
+ * @FilePath: \vue3x_cesium_template\src\internal\shared\number.js
+ * @Author: zhangxin
  * @Date: 2022-12-22 11:11:05
  * @LastEditors: zhangxin
  * @LastEditTime: 2023-03-04 15:49:38

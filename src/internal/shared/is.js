@@ -1,8 +1,8 @@
 /*
  * @FilePath: /Furnace/src/internal/shared/is.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-03 18:54:33
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-12-03 19:03:12
  * @Description: 
  */

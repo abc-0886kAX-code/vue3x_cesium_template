@@ -1,8 +1,8 @@
 /*
  * @FilePath: \Furnace\plugins\component.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-11-21 14:45:40
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-11-21 14:45:53
  * @Description: 
  */

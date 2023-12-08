@@ -1,6 +1,6 @@
 /*
- * @FilePath: \明湖数字大厅\src\biz\Popup\usecase\definePopup.js
- * @Author: maggot-code
+ * @FilePath: \vue3x_cesium_template\src\biz\Popup\usecase\definePopup.js
+ * @Author: zhangxin
  * @Date: 2022-12-05 14:10:19
  * @LastEditors: zhangxin
  * @LastEditTime: 2023-03-04 20:19:05

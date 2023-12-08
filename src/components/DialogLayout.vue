@@ -1,5 +1,5 @@
 <!--
- * @FilePath: \明湖数字大厅\src\components\DialogLayout.vue
+ * @FilePath: \vue3x_cesium_template\src\components\DialogLayout.vue
  * @Author: zhangxin
  * @Date: 2023-03-09 16:09:30
  * @LastEditors: zhangxin

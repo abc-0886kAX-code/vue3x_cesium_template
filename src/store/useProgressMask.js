@@ -1,5 +1,5 @@
 /*
- * @FilePath: \明湖数字大厅\src\store\useProgressMask.js
+ * @FilePath: \vue3x_cesium_template\src\store\useProgressMask.js
  * @Author: zhangxin
  * @Date: 2023-03-12 00:25:16
  * @LastEditors: zhangxin

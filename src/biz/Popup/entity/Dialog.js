@@ -1,6 +1,6 @@
 /*
- * @FilePath: \明湖数字大厅\src\biz\Popup\entity\Dialog.js
- * @Author: maggot-code
+ * @FilePath: \vue3x_cesium_template\src\biz\Popup\entity\Dialog.js
+ * @Author: zhangxin
  * @Date: 2022-12-05 14:59:26
  * @LastEditors: zhangxin
  * @LastEditTime: 2023-03-11 14:01:45
@@ -17,7 +17,7 @@ import { useShallowObject } from "@/hooks/ref/useShallowObject";
 
 export function DialogEntity(record, popup, props, keyword) {
     const template = get(props, "template", UNDEFINED_VIEW);
-    const afterClose = get(props, "afterClose", () => {});
+    const afterClose = get(props, "afterClose", () => { });
     const uid = transDefault(keyword, `${record}-${uuid()}`);
     const element = useElementRefs();
     const state = useBooleanState(get(props, "show", false));

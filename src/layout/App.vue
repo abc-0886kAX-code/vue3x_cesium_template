@@ -1,6 +1,6 @@
 <!--
  * @FilePath: \vue3x_cesium_template-master\src\layout\App.vue
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-11-21 14:19:59
  * @LastEditors: zhangxin
  * @LastEditTime: 2023-11-29 13:34:38

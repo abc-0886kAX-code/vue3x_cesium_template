@@ -1,8 +1,8 @@
 /*
  * @FilePath: \Furnace\src\hooks\useShallowObject.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-11-22 12:50:47
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-11-22 13:15:55
  * @Description: 
  */

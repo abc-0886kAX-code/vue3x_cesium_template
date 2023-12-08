@@ -1,8 +1,8 @@
 /*
  * @FilePath: \Furnace\src\internal\uuid.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-11-21 15:19:29
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-11-21 15:19:47
  * @Description: 
  */

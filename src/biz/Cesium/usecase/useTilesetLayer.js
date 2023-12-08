@@ -1,5 +1,5 @@
 /*
- * @FilePath: \明湖数字大厅\src\biz\Mars3D\usecase\useTilesetLayer.js
+ * @FilePath: \vue3x_cesium_template\src\biz\Mars3D\usecase\useTilesetLayer.js
  * @Author: zhangxin
  * @Date: 2022-11-24 14:25:37
  * @LastEditors: zhangxin

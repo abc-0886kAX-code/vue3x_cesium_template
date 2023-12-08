@@ -1,8 +1,8 @@
 /*
  * @FilePath: /aa/src/internal/shared/uuid.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-03 17:32:36
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-12-03 17:32:58
  * @Description: 
  */

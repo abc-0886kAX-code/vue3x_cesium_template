@@ -1,8 +1,8 @@
 /*
  * @FilePath: \51world\src\internal\shared\trans.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-03 17:33:16
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-12-22 15:22:03
  * @Description: 
  */

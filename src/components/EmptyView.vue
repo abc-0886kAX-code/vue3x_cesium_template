@@ -1,6 +1,6 @@
 <!--
- * @FilePath: \明湖数字大厅\src\components\EmptyView.vue
- * @Author: maggot-code
+ * @FilePath: \vue3x_cesium_template\src\components\EmptyView.vue
+ * @Author: zhangxin
  * @Date: 2022-11-26 16:03:34
  * @LastEditors: zhangxin
  * @LastEditTime: 2023-03-02 15:59:48

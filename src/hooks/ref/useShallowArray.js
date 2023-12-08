@@ -1,8 +1,8 @@
 /*
  * @FilePath: \Furnace\src\hooks\ref\useShallowArray.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-04 01:42:19
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-12-09 10:17:36
  * @Description: 
  */

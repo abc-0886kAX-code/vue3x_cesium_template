@@ -1,6 +1,6 @@
 /*
  * @FilePath: \vue3x_cesium_template\src\internal\shared\constant.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-03 17:56:35
  * @LastEditors: zhangxin
  * @LastEditTime: 2023-12-05 15:14:32

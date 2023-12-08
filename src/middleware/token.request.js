@@ -1,6 +1,6 @@
 /*
  * @FilePath: \数字大厅\src\middleware\token.request.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-11-01 10:42:20
  * @LastEditors: zhangxin
  * @LastEditTime: 2023-03-21 17:34:38
@@ -41,7 +41,7 @@ function response(response) {
                 message: res.msg || "请求出错，请重试",
                 type: "error",
                 duration: 1500,
-                onClose: () => {},
+                onClose: () => { },
             });
         }
         return Promise.reject(new Error(res.msg || "Error"));

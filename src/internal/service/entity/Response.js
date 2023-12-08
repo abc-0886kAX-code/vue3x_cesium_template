@@ -1,8 +1,8 @@
 /*
  * @FilePath: \Furnace\src\internal\service\entity\Response.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-04 00:48:41
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-12-07 18:16:00
  * @Description: 
  */

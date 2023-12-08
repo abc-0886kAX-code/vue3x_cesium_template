@@ -1,8 +1,8 @@
 /*
  * @FilePath: /Furnace/src/internal/service/entity/Config.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-04 00:50:32
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-12-04 03:07:30
  * @Description: 
  */

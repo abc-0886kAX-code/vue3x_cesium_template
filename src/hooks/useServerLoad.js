@@ -1,8 +1,8 @@
 /*
  * @FilePath: \Furnace\src\hooks\useServerLoad.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-11-22 14:01:06
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-11-22 14:04:31
  * @Description: 
  */

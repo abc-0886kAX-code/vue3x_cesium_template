@@ -1,8 +1,8 @@
 /*
  * @FilePath: \51world\src\internal\service\shread\constant.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-04 00:51:38
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-12-21 14:42:31
  * @Description: 
  */

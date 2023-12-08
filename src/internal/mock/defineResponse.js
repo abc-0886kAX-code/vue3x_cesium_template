@@ -1,8 +1,8 @@
 /*
  * @FilePath: /Furnace/src/internal/mock/defineResponse.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-04 02:46:07
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-12-04 03:38:41
  * @Description: 
  */

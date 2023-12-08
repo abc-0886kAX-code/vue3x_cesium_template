@@ -1,8 +1,8 @@
 /*
  * @FilePath: \明湖大屏\src\internal\service\index.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-04 00:42:53
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-12-28 09:24:23
  * @Description: 
  */

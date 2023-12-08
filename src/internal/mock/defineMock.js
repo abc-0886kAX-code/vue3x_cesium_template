@@ -1,8 +1,8 @@
 /*
  * @FilePath: /Furnace/src/internal/mock/defineMock.js
- * @Author: maggot-code
+ * @Author: zhangxin
  * @Date: 2022-12-04 02:38:01
- * @LastEditors: maggot-code
+ * @LastEditors: zhangxin
  * @LastEditTime: 2022-12-04 21:52:19
  * @Description: 
  */
