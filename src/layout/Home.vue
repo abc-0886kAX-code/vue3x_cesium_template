@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-05 15:57:15
+ * @LastEditTime: 2023-12-08 09:29:30
  * @Description:
 -->
 <script setup>
@@ -29,6 +29,10 @@ const featurelist = {
     },
     'ExampleZones': {
         label: 'Cesium示例-面',
+        func: jumpToPage
+    },
+    'ExampleGeojson': {
+        label: 'Cesium示例-Geojson',
         func: jumpToPage
     }
 }

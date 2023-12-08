@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-05 15:49:50
+ * @LastEditTime: 2023-12-08 09:30:42
  * @Description:
  */
 import { defineRouter } from "./defineRouter";
@@ -60,6 +60,15 @@ export const routes = [
                     "hidden": "true"
                 },
                 "component": () => import("@/pages/Example/ExampleZones/ExampleZones.vue")
+            },
+            {
+                "path": "/Example/ExampleGeojson",
+                "name": "ExampleGeojson",
+                "meta": {
+                    "title": "Cesium示例-Geojson",
+                    "hidden": "true"
+                },
+                "component": () => import("@/pages/Example/ExampleGeojson/ExampleGeojson.vue")
             }
         ]
     },
