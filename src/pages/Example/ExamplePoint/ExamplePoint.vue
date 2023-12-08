@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-05 15:53:47
+ * @LastEditTime: 2023-12-08 09:39:48
  * @Description:
 -->
 <script setup>
@@ -117,8 +117,8 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="ExamplePoint">
-        <el-button type="primary" plain @click="pointController" size="small">基础点位显示隐藏</el-button>
-        <el-button type="primary" plain @click="iconPointController" size="small">Icon点位显示隐藏</el-button>
+        <el-button type="primary" plain @click="pointController">基础点位显示隐藏</el-button>
+        <el-button type="primary" plain @click="iconPointController">Icon点位显示隐藏</el-button>
     </div>
 </template>
 
@@ -126,7 +126,7 @@ onBeforeUnmount(() => {
 .ExamplePoint {
     position: absolute;
     top: 5px;
-    left: 120px;
+    left: 150px;
     z-index: 999;
 }
 </style>

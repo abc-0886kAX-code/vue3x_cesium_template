@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-05 15:55:06
+ * @LastEditTime: 2023-12-08 09:39:39
  * @Description:
 -->
 <script setup>
@@ -87,16 +87,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div class="ExamplePoint">
-        <el-button type="primary" plain @click="pointController" size="small">线段显隐</el-button>
+    <div class="ExampleLine">
+        <el-button type="primary" plain @click="pointController">线段显隐</el-button>
     </div>
 </template>
 
 <style scoped lang='scss'>
-.ExamplePoint {
+.ExampleLine {
     position: absolute;
     top: 5px;
-    left: 120px;
+    left: 150px;
     z-index: 999;
 }
 </style>

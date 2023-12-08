@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-05 15:55:46
+ * @LastEditTime: 2023-12-08 09:39:58
  * @Description:
 -->
 <script setup>
@@ -83,16 +83,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div class="ExamplePoint">
-        <el-button type="primary" plain @click="pointController" size="small">面显隐</el-button>
+    <div class="ExampleZones">
+        <el-button type="primary" plain @click="pointController">面显隐</el-button>
     </div>
 </template>
 
 <style scoped lang='scss'>
-.ExamplePoint {
+.ExampleZones {
     position: absolute;
     top: 5px;
-    left: 120px;
+    left: 150px;
     z-index: 999;
 }
 </style>

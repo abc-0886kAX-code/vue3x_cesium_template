@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 09:36:08
+ * @LastEditTime: 2023-12-08 09:39:27
  * @Description:
 -->
 <script setup>
@@ -47,16 +47,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div class="ExamplePoint">
-        <el-button type="primary" plain @click="pointController" size="small">面显隐</el-button>
+    <div class="ExampleGeojson">
+        <el-button type="primary" plain @click="pointController">GeoJson显隐</el-button>
     </div>
 </template>
 
 <style scoped lang='scss'>
-.ExamplePoint {
+.ExampleGeojson {
     position: absolute;
     top: 5px;
-    left: 120px;
+    left: 150px;
     z-index: 999;
 }
 </style>
