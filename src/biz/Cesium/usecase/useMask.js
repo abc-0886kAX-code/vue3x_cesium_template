@@ -1,45 +1,79 @@
 /*
- * @FilePath: \PC\src\test\Mars3D\usecase\useMask.js
+ * @FilePath: \vue3x_cesium_template\src\biz\Cesium\usecase\useMask.js
  * @Author: zhangxin
  * @Date: 2022-06-21 10:08:49
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-11-22 16:53:38
+ * @LastEditTime: 2023-12-11 15:29:21
  * @Description:
  */
-// import { cacheGet } from "maggot-utils";
-import { Cesium, layer } from "mars3d";
+import { Cartesian3, GeometryInstance, PolygonGeometry, PolylineMaterialAppearance, Material, PolygonHierarchy, GroundPrimitive } from 'cesium';
+import { convertColorRange } from "./usePoint";
 
-const { ArcType } = Cesium;
-const { GeoJsonLayer } = layer;
+// 通过三个面构建一个遮罩层 - 不能使用180
+const GlobalMap = [
+    [0, 0, 0, 90, 179, 90, 179, 0], // 上半面
+    [0, 0, 0, -90, 179, -90, 179, 0], // 下半面
+    [-179, 90, -179, -90, 0, -90, 0, 90] // 背面
+]
 
-export function useMask(mapview) {
-    // const cacheCode = cacheGet("addvcd");
-    const cacheCode = "addvcd";
-    const code = isString(cacheCode) ? cacheCode : "";
-    const notEmpty = code.length > 0;
+export function useMask() {
+    function setupMaskLayer(options) {
+        const { positions, color, attr, enity } = options;
+        const empty = new PolygonHierarchy(
+            Cartesian3.fromDegreesArray(positions)
+        )
+        // 不能使用循环，会出现重叠问题
+        enity.add(new GroundPrimitive({
+            geometryInstances: new GeometryInstance({
+                geometry: new PolygonGeometry({
+                    polygonHierarchy: new PolygonHierarchy(
+                        Cartesian3.fromDegreesArray(GlobalMap[0]), [empty]
+                    ),
+                }),
+                id: attr ?? {}
+            }),
+            appearance: new PolylineMaterialAppearance({
+                material: Material.fromType("Color", {
+                    color: color ? convertColorRange(color) : convertColorRange([2, 26, 79, 0.5]),
+                }),
+            })
+        }))
 
-    if (notEmpty) {
-        const maskLayer = new GeoJsonLayer({
-            url: "https://data.mars3d.cn/file/geojson/areas/110117.json",
-            // url: `/mask/areas/${code}.json`,
-            mask: true,
-            zIndex: 10001,
-            symbol: {
-                styleOptions: {
-                    fill: true,
-                    color: "rgb(2,26,79)",
-                    opacity: process.env.NODE_ENV === "production" ? 1.0 : 0.6,
-                    outline: true,
-                    outlineColor: "#39E09B",
-                    outlineWidth: 2,
-                    outlineOpacity: 0.8,
-                    arcType: ArcType.GEODESIC,
-                    clampToGround: true,
-                },
-            },
-        });
-        mapview.addLayer(maskLayer);
+        enity.add(new GroundPrimitive({
+            geometryInstances: new GeometryInstance({
+                geometry: new PolygonGeometry({
+                    polygonHierarchy: new PolygonHierarchy(
+                        Cartesian3.fromDegreesArray(GlobalMap[1])
+                    ),
+                }),
+                id: attr ?? {}
+            }),
+            appearance: new PolylineMaterialAppearance({
+                material: Material.fromType("Color", {
+                    color: color ? convertColorRange(color) : convertColorRange([2, 26, 79, 0.5]),
+                }),
+            })
+        }))
+
+
+        enity.add(new GroundPrimitive({
+            geometryInstances: new GeometryInstance({
+                geometry: new PolygonGeometry({
+                    polygonHierarchy: new PolygonHierarchy(
+                        Cartesian3.fromDegreesArray(GlobalMap[2])
+                    ),
+                }),
+                id: attr ?? {}
+            }),
+            appearance: new PolylineMaterialAppearance({
+                material: Material.fromType("Color", {
+                    color: color ? convertColorRange(color) : convertColorRange([2, 26, 79, 0.5]),
+                }),
+            })
+        }))
     }
 
-    return {};
+    return {
+        setupMaskLayer
+    }
 }
