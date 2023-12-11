@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 17:49:04
+ * @LastEditTime: 2023-12-11 15:42:12
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -98,6 +98,14 @@ useCesiumEvent({
 // 具体查看 ExampleImages.vue 
 ```
 
+### useMask
+
+```javascript
+// 遮罩层渲染
+// 简述:通过在地球上绘制三个面，只在指定的一个面上绘制空洞，形成遮罩层
+// 具体查看 ExampleMask.vue 
+```
+
 ## `TODO`
 
 - [x] `Cesium`实体构建
@@ -108,6 +116,6 @@ useCesiumEvent({
 - [x] `Line`
 - [x] `GeoJson/Zones`
 - [x] `ImagesLayer`
-- [ ] 遮罩层
+- [x] `Mask`遮罩层
 - [ ] 模型渲染
 
