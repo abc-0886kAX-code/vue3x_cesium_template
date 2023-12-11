@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-11 09:24:32
+ * @LastEditTime: 2023-12-11 15:47:06
  * @Description:
  */
 import { defineRouter } from "./defineRouter";
@@ -87,6 +87,15 @@ export const routes = [
                     "hidden": "true"
                 },
                 "component": () => import("@/pages/Example/ExampleMask/ExampleMask.vue")
+            },
+            {
+                "path": "/Example/ExampleModel",
+                "name": "ExampleModel",
+                "meta": {
+                    "title": "Cesium示例-模型",
+                    "hidden": "true"
+                },
+                "component": () => import("@/pages/Example/ExampleModel/ExampleModel.vue")
             }
         ]
     },

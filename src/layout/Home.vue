@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-11 09:24:00
+ * @LastEditTime: 2023-12-11 15:47:29
  * @Description:
 -->
 <script setup>
@@ -41,6 +41,10 @@ const featurelist = {
     },
     'ExampleMask': {
         label: 'Cesium示例-遮罩层',
+        func: jumpToPage
+    },
+    'ExampleModel': {
+        label: 'Cesium示例-模型',
         func: jumpToPage
     }
 }

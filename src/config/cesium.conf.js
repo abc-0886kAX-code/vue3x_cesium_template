@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 14:20:16
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-05 17:11:21
+ * @LastEditTime: 2023-12-11 17:00:02
  * @Description:
  */
 import * as Cesium from 'cesium';
@@ -43,7 +43,8 @@ const config = {
 const layers = [
     {
         type: "arcgis",
-        url: BJ_AREA_SERVICE
+        url: BJ_AREA_SERVICE,
+        maximumLevel: 18
     }
 ]
 export { config, layers }
