@@ -84,33 +84,56 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="ExampleZones">
-        <div class="ExampleZones-item">
-            <div>水库-显示隐藏</div>
-            <el-button type="primary" plain @click="pointController">切换</el-button>
+        <div class="ExampleZones-console">
+            <div class="ExampleZones-console-item">
+                <div>水库-显示隐藏</div>
+                <el-button type="primary" plain @click="pointController">切换</el-button>
+            </div>
         </div>
+        <div class="ExampleZones-illustrate">
+            水库(面)示例
+        </div>
+
     </div>
 </template>
 
 <style scoped lang='scss'>
 .ExampleZones {
-    position: absolute;
-    top: 5px;
-    left: 150px;
-    z-index: 999;
-    background: #232323;
-    height: 50px;
-    width: 300px;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 10px;
-
-    &-item {
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    &-console {
+        position: absolute;
+        top: 5px;
+        left: 150px;
+        z-index: 999;
+        background: #232323;
+        height: 50px;
+        width: 300px;
         padding: 5px;
         box-sizing: border-box;
+        border-radius: 10px;
+
+        &-item {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    }
+
+    &-illustrate {
+        position: absolute;
+        top: 5px;
+        left: 40%;
+        z-index: 999;
+        background: #232323;
+        height: 30px;
+        width: 400px;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        color: #fff;
+        text-align: center;
     }
 }
 </style>

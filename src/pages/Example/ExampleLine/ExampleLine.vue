@@ -88,35 +88,58 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="ExampleLine">
-        <div class="ExampleLine-item">
-            <div>线段-显示隐藏
+        <div class="ExampleLine-console">
+
+            <div class="ExampleLine-console-item">
+                <div>线段-显示隐藏
+                </div>
+                <el-button type="primary" plain @click="pointController">切换</el-button>
             </div>
-            <el-button type="primary" plain @click="pointController">切换</el-button>
         </div>
 
+        <div class="ExampleLine-illustrate">
+            河道(线)示例
+        </div>
     </div>
 </template>
 
 <style scoped lang='scss'>
 .ExampleLine {
-    position: absolute;
-    top: 5px;
-    left: 150px;
-    z-index: 999;
-    background: #232323;
-    height: 50px;
-    width: 300px;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 10px;
-
-    &-item {
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    &-console {
+        position: absolute;
+        top: 5px;
+        left: 150px;
+        z-index: 999;
+        background: #232323;
+        height: 50px;
+        width: 300px;
         padding: 5px;
         box-sizing: border-box;
+        border-radius: 10px;
+
+        &-item {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    }
+
+    &-illustrate {
+        position: absolute;
+        top: 5px;
+        left: 40%;
+        z-index: 999;
+        background: #232323;
+        height: 30px;
+        width: 400px;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        color: #fff;
+        text-align: center;
     }
 }
 </style>

@@ -48,33 +48,57 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="ExampleGeojson">
-        <div class="ExampleGeojson-item">
-            <div>风险等级图-显示隐藏</div>
-            <el-button type="primary" plain @click="pointController">切换</el-button>
+        <div class="ExampleGeojson-console">
+            <div class="ExampleGeojson-console-item">
+                <div>风险等级图-显示隐藏</div>
+                <el-button type="primary" plain @click="pointController">切换</el-button>
+            </div>
         </div>
+
+        <div class="ExampleGeojson-illustrate">
+            GeoJson数据格式渲染
+        </div>
+
     </div>
 </template>
 
 <style scoped lang='scss'>
 .ExampleGeojson {
-    position: absolute;
-    top: 5px;
-    left: 150px;
-    z-index: 999;
-    background: #232323;
-    height: 50px;
-    width: 300px;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 10px;
-
-    &-item {
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    &-console {
+        position: absolute;
+        top: 5px;
+        left: 150px;
+        z-index: 999;
+        background: #232323;
+        height: 50px;
+        width: 300px;
         padding: 5px;
         box-sizing: border-box;
+        border-radius: 10px;
+
+        &-item {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    }
+
+    &-illustrate {
+        position: absolute;
+        top: 5px;
+        left: 40%;
+        z-index: 999;
+        background: #232323;
+        height: 30px;
+        width: 400px;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        color: #fff;
+        text-align: center;
     }
 }
 </style>

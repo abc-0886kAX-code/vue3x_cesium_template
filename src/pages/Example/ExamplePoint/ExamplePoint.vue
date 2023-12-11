@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 16:34:39
+ * @LastEditTime: 2023-12-11 17:48:51
  * @Description:
 -->
 <script setup>
@@ -117,37 +117,59 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="ExamplePoint">
-        <div class="ExamplePoint-item">
-            <div>基础点位-显示隐藏</div>
-            <el-button type="primary" plain @click="pointController">切换</el-button>
+        <div class="ExamplePoint-console">
+            <div class="ExamplePoint-console-item">
+                <div>基础点位-显示隐藏</div>
+                <el-button type="primary" plain @click="pointController">切换</el-button>
+            </div>
+            <div class="ExamplePoint-console-item">
+                <div>图标点位-显示隐藏</div>
+                <el-button type="primary" plain @click="iconPointController">切换</el-button>
+            </div>
         </div>
-        <div class="ExamplePoint-item">
-            <div>图标点位-显示隐藏</div>
-            <el-button type="primary" plain @click="iconPointController">切换</el-button>
+        <div class="ExamplePoint-illustrate">
+            站点(点)示例
         </div>
     </div>
 </template>
 
 <style scoped lang='scss'>
 .ExamplePoint {
-    position: absolute;
-    top: 5px;
-    left: 150px;
-    z-index: 999;
-    background: #232323;
-    height: 100px;
-    width: 300px;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 10px;
-
-    &-item {
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    &-console {
+        position: absolute;
+        top: 5px;
+        left: 150px;
+        z-index: 999;
+        background: #232323;
+        height: 100px;
+        width: 300px;
         padding: 5px;
         box-sizing: border-box;
+        border-radius: 10px;
+
+        &-item {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    }
+
+    &-illustrate {
+        position: absolute;
+        top: 5px;
+        left: 40%;
+        z-index: 999;
+        background: #232323;
+        height: 30px;
+        width: 400px;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        color: #fff;
+        text-align: center;
     }
 }
 </style>
