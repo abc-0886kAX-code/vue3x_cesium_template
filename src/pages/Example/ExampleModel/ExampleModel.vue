@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-11 17:34:19
+ * @LastEditTime: 2023-12-12 09:25:43
  * @Description:
 -->
 <script setup>
@@ -90,7 +90,7 @@ async function executeQuery() {
     const modelMatrix = Transforms.eastNorthUpToFixedFrame(
         Cartesian3.fromDegrees(116.416411, 40.249242, 0)
     );
-    const tile = await setupModelShape({ url: '/src/assets/model/MetadataGranularities/tileset.json', modelMatrix })
+    const tile = await setupModelShape({ url: 'model/MetadataGranularities/tileset.json', modelMatrix })
     enity.add(tile);
 }
 
