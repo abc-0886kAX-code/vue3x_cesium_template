@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-12 09:25:43
+ * @LastEditTime: 2023-12-12 13:04:51
  * @Description:
 -->
 <script setup>
@@ -18,7 +18,7 @@ import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import { useModel } from '@/biz/Cesium/usecase/useModel.js';
 
-const { setupModelShape } = useModel();
+const { setupModelByUrl } = useModel();
 const { mapview } = useCesium();
 const { gather, setupLayer } = usePrimitiveLayer(mapview);
 const controller = setupLayer({
@@ -90,7 +90,7 @@ async function executeQuery() {
     const modelMatrix = Transforms.eastNorthUpToFixedFrame(
         Cartesian3.fromDegrees(116.416411, 40.249242, 0)
     );
-    const tile = await setupModelShape({ url: 'model/MetadataGranularities/tileset.json', modelMatrix })
+    const tile = await setupModelByUrl({ url: 'model/MetadataGranularities/tileset.json', modelMatrix })
     enity.add(tile);
 }
 

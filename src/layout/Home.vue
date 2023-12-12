@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-11 15:47:29
+ * @LastEditTime: 2023-12-12 11:05:49
  * @Description:
 -->
 <script setup>
@@ -45,6 +45,10 @@ const featurelist = {
     },
     'ExampleModel': {
         label: 'Cesium示例-模型',
+        func: jumpToPage
+    },
+    'ExampleHuaiRouModel': {
+        label: 'Cesium示例-怀柔模型',
         func: jumpToPage
     }
 }

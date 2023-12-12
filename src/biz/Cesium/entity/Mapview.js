@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-25 09:19:13
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 17:14:33
+ * @LastEditTime: 2023-12-12 10:11:56
  * @Description: file content
  */
 import { uuid } from "@/shared/uuid.js";
@@ -42,7 +42,7 @@ export class Mapview {
             layer: "tdtCiaLayer",
             style: "default",
             format: "tiles",
-            tileMatrixSetID: "c",
+            tileMatrixSetID: "GoogleMapsCompatible",
             subdomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
             tilingScheme: new GeographicTilingScheme(),
             tileMatrixLabels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"],

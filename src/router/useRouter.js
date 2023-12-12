@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-11 15:47:06
+ * @LastEditTime: 2023-12-12 11:06:11
  * @Description:
  */
 import { defineRouter } from "./defineRouter";
@@ -96,6 +96,15 @@ export const routes = [
                     "hidden": "true"
                 },
                 "component": () => import("@/pages/Example/ExampleModel/ExampleModel.vue")
+            },
+            {
+                "path": "/Example/ExampleHuaiRouModel",
+                "name": "ExampleHuaiRouModel",
+                "meta": {
+                    "title": "Cesium示例-怀柔模型",
+                    "hidden": "true"
+                },
+                "component": () => import("@/pages/Example/ExampleHuaiRouModel/ExampleHuaiRouModel.vue")
             }
         ]
     },
