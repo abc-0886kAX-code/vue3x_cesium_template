@@ -2,11 +2,11 @@
  * @Author: zhangxin
  * @Date: 2022-04-25 09:19:13
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-12 10:11:56
+ * @LastEditTime: 2023-12-12 18:09:52
  * @Description: file content
  */
 import { uuid } from "@/shared/uuid.js";
-import { Viewer, EventHelper, Ion, WebMapTileServiceImageryProvider, GeographicTilingScheme } from 'cesium'
+import { Viewer, EventHelper, Ion, WebMapTileServiceImageryProvider, GeographicTilingScheme, Cartesian3 } from 'cesium'
 const { VITE_CESIUMTOKEN, DEV } = import.meta.env;
 export class Mapview {
     _id = uuid();
@@ -49,6 +49,14 @@ export class Mapview {
             maximumLevel: 50,
             show: true
         }))
+        // 修改homeButton的默认返回位置
+        let _that = this;
+        this.view.homeButton.viewModel.command.beforeExecute.addEventListener(function (e) {
+            e.cancel = true;
+            _that.view.camera.flyTo({
+                destination: Cartesian3.fromDegrees(116.416411, 40.249242, 409882),
+            })
+        })
 
         return this.view;
     }
