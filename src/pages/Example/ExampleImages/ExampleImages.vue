@@ -3,14 +3,14 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 16:32:08
+ * @LastEditTime: 2023-12-13 09:27:19
  * @Description:
 -->
 <script setup>
 import { Cartesian3, SingleTileImageryProvider, Rectangle } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { useImagesLayer } from '@/biz/Cesium/usecase/useImagesLayer.js';
-import transparentImage from '@/assets/images/map/transparent.png';
+import radarImage from '@/assets/images/map/radar.png';
 import ImagesJson from '@/assets/json/ExampleImages.json';
 const { mapview } = useCesium();
 const { gather, setupLayer } = useImagesLayer(mapview);
@@ -30,7 +30,7 @@ async function executeQuery() {
     controller.value = setupLayer({
         render: SingleTileImageryProvider,
         config: {
-            url: transparentImage,
+            url: radarImage,
             tileWidth: 200, // 必须 -文档出错
             tileHeight: 200, // 必须 文档出错
             rectangle: Rectangle.fromDegrees(113.34406, 35.9589, 119.93586, 42.74581)
@@ -63,7 +63,7 @@ onBeforeUnmount(() => {
             </div>
         </div>
         <div class="ExampleImages-illustrate">
-            图片渲染
+            雷达气象图(图片)渲染
         </div>
 
 
