@@ -2,12 +2,12 @@
  * @Author: zhangxin
  * @Date: 2022-04-25 09:19:13
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-12 18:09:52
+ * @LastEditTime: 2023-12-14 16:38:30
  * @Description: file content
  */
 import { uuid } from "@/shared/uuid.js";
 import { Viewer, EventHelper, Ion, WebMapTileServiceImageryProvider, GeographicTilingScheme, Cartesian3 } from 'cesium'
-const { VITE_CESIUMTOKEN, DEV } = import.meta.env;
+const { VITE_CESIUMTOKEN, DEV, VITE_TDT_KEY } = import.meta.env;
 export class Mapview {
     _id = uuid();
     view = null;
@@ -36,9 +36,7 @@ export class Mapview {
 
         // 天地图标注
         this.view.imageryLayers.addImageryProvider(new WebMapTileServiceImageryProvider({
-            url: "http://{s}.tianditu.gov.cn/cia_c/wmts?service=wmts&request=GetTile&version=1.0.0" +
-                "&LAYER=cia&tileMatrixSet=c&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}" +
-                "&style=default&format=tiles&tk=" + 'ef590000990e247813bf916bdce1d941',
+            url: `http://{s}.tianditu.gov.cn/cia_c/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=c&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=${VITE_TDT_KEY}`,
             layer: "tdtCiaLayer",
             style: "default",
             format: "tiles",
