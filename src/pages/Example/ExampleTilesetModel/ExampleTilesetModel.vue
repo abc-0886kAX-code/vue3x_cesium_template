@@ -1,18 +1,18 @@
 <!--
- * @FilePath: \vue3x_cesium_template\src\pages\Example\ExampleHuaiRouModel\ExampleHuaiRouModel.vue
+ * @FilePath: \vue3x_cesium_template\src\pages\Example\ExampleTilesetModel\ExampleTilesetModel.vue
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-12 14:15:13
+ * @LastEditTime: 2023-12-29 10:25:17
  * @Description:
 -->
 <script setup>
 import { Cartesian3, PrimitiveCollection, Transforms, defined, ClassificationType, Matrix4, Cartographic } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
-import { useModel } from '@/biz/Cesium/usecase/useModel.js';
+import { useModel, update3dtilesMaxtrix } from '@/biz/Cesium/usecase/useModel.js';
 
-const { setupModelById, setupModelByUrl } = useModel();
+const { setupModelByUrl } = useModel();
 const { mapview } = useCesium();
 const { gather, setupLayer } = usePrimitiveLayer(mapview);
 const controller = setupLayer({
@@ -27,27 +27,24 @@ function pointController() {
 }
 
 async function executeQuery() {
-    const tile = await setupModelById({
-        id: '2387456',
-        maximumScreenSpaceError: 16,
-        cacheBytes: 1073741824,
-        maximumCacheOverflowBytes: 2147483648,
-        show: true,
-        skipLevelOfDetail: true,
-        baseScreenSpaceError: 1024,
-        skipScreenSpaceErrorFactor: 16,
-        skipLevels: 1,
-        immediatelyLoadDesiredLevelOfDetail: false,
-        loadSiblings: false,
-    })
+    const tile = await setupModelByUrl({
+        url: "model/factory/tileset.json",
+        // url: 'https://data.mars3d.cn/3dtiles/max-piping/tileset.json'
+    });
     enity.add(tile);
+    tile._root.transform = update3dtilesMaxtrix({
+        tx: 116.442159, //模型中心X轴坐标（经度，单位：十进制度）
+        ty: 39.742936, //模型中心Y轴坐标（纬度，单位：十进制度）
+        tz: 0, //模型中心Z轴坐标（高程，单位：米）
+        rx: 0, //X轴（经度）方向旋转角度（单位：度）
+        ry: 0, //Y轴（纬度）方向旋转角度（单位：度）
+        rz: 60, //Z轴（高程）方向旋转角度（单位：度）
+    });
+
     unref(mapview).zoomTo(tile)
 }
 
 onMounted(() => {
-    // unref(mapview).camera.flyTo({
-    //     destination: Cartesian3.fromDegrees(116.416411, 40.249242, 1000)
-    // });
     executeQuery();
 })
 onBeforeUnmount(() => {
@@ -59,13 +56,13 @@ onBeforeUnmount(() => {
     <div class="ExampleModel">
         <div class="ExampleModel-console">
             <div class="ExampleModel-console-item">
-                <div>怀柔模型-显示隐藏
+                <div>供水厂模型-显示隐藏
                 </div>
                 <el-button type="primary" plain @click="pointController">切换</el-button>
             </div>
         </div>
         <div class="ExampleModel-illustrate">
-            怀柔模型(存在问题-还没有锁定问题)
+            供水厂模型
         </div>
     </div>
 </template>

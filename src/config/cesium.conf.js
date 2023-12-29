@@ -3,12 +3,19 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 14:20:16
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-14 16:37:05
+ * @LastEditTime: 2023-12-29 09:57:25
  * @Description:
  */
 import * as Cesium from 'cesium';
 import { BJ_AREA_SERVICE } from "@/config/arcgis.conf";
 const { VITE_TDT_KEY } = import.meta.env
+
+// 初始化位置
+export const initPlace = {
+    position: [116.416411, 38.849242, 409882],
+    pitch: -70,
+    heading: 0
+}
 
 const config = {
     infoBox: false, // 创建InfoBox小部件 默认true - false解决报错
@@ -25,18 +32,11 @@ const config = {
     terrain: Cesium.Terrain.fromWorldTerrain(),
     selectionIndicator: false, // 选中图层后 显示的默认绿色框
     // 天地图底图
-    baseLayer: new Cesium.ImageryLayer(new Cesium.WebMapTileServiceImageryProvider({
-        //影像底图
-        url: `http://{s}.tianditu.gov.cn/img_c/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=c&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=${VITE_TDT_KEY}`,
-        layer: "tdtImgLayer",
-        style: "default",
-        format: "tiles",
-        tileMatrixSetID: "c",
+    baseLayer: new Cesium.ImageryLayer(new Cesium.UrlTemplateImageryProvider({
+        url: "https://{s}.tianditu.gov.cn/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=" + VITE_TDT_KEY,
         subdomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
-        tilingScheme: new Cesium.GeographicTilingScheme(),
-        tileMatrixLabels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"],
-        maximumLevel: 50,
-        show: true
+        tilingScheme: new Cesium.WebMercatorTilingScheme(),
+        maximumLevel: 18,
     }))
 }
 const layers = [

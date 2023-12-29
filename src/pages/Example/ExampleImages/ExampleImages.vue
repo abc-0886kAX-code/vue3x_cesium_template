@@ -3,11 +3,12 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-13 09:27:19
+ * @LastEditTime: 2023-12-29 09:51:55
  * @Description:
 -->
 <script setup>
-import { Cartesian3, SingleTileImageryProvider, Rectangle } from 'cesium';
+import { initPlace } from '@/config/cesium.conf.js';
+import { Cartesian3, SingleTileImageryProvider, Rectangle, Math } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { useImagesLayer } from '@/biz/Cesium/usecase/useImagesLayer.js';
 import radarImage from '@/assets/images/map/radar.png';
@@ -40,7 +41,11 @@ async function executeQuery() {
 
 onMounted(() => {
     unref(mapview).camera.flyTo({
-        destination: Cartesian3.fromDegrees(116.416411, 40.249242, 409882)
+        destination: Cartesian3.fromDegrees(...initPlace.position),
+        orientation: {
+            pitch: Math.toRadians(initPlace.pitch),
+            heading: Math.toRadians(initPlace.heading),
+        },
     });
     executeQuery();
 })

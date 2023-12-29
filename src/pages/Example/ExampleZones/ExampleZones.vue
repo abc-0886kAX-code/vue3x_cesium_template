@@ -7,12 +7,13 @@
  * @Description:
 -->
 <script setup>
+import { initPlace } from '@/config/cesium.conf.js';
 import { CesiumFloatSymbolName } from '@/biz/Cesium/share/context';
 import { usePopup } from "@/biz/Popup/usecase/usePopup";
 import { useCesiumEvent } from '@/biz/Cesium/usecase/useCesiumEvent';
 import { setupFloat } from './float.conf';
 
-import { Cartesian3, GroundPrimitive, PrimitiveCollection } from 'cesium';
+import { Cartesian3, GroundPrimitive, PrimitiveCollection, Math } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import ZonesJson from '@/assets/json/ExampleZones.json';
@@ -72,7 +73,11 @@ function executeQuery() {
 
 onMounted(() => {
     unref(mapview).camera.flyTo({
-        destination: Cartesian3.fromDegrees(116.416411, 40.249242, 409882)
+        destination: Cartesian3.fromDegrees(...initPlace.position),
+        orientation: {
+            pitch: Math.toRadians(initPlace.pitch),
+            heading: Math.toRadians(initPlace.heading),
+        },
     });
     executeQuery();
 })

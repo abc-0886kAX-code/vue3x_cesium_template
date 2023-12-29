@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-11 15:42:12
+ * @LastEditTime: 2023-12-29 10:39:34
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -12,7 +12,7 @@
 
 <strong>Demo</strong>
 
-- 📍&nbsp;&nbsp;[Address](http://152.136.167.65:8082/#/)
+- 📍&nbsp;&nbsp;[Address](http://152.136.167.65:8083/#/)
 <br>
 
 <strong>Render Func</strong>
@@ -106,6 +106,14 @@ useCesiumEvent({
 // 具体查看 ExampleMask.vue 
 ```
 
+### useModel
+
+```javascript
+// 模型渲染
+// 简述:通过 路径 或 Id(上传到cesium.ion) 加载模型，update3dtilesMaxtrix方法调整模型位置以及旋转角度
+// 具体查看 ExampleModel.vue / ExampleTilesetModel.vue 
+```
+
 ## `TODO`
 
 - [x] `Cesium`实体构建
@@ -117,5 +125,5 @@ useCesiumEvent({
 - [x] `GeoJson/Zones`
 - [x] `ImagesLayer`
 - [x] `Mask`遮罩层
-- [ ] 模型渲染
+- [x] `Model`模型渲染
 

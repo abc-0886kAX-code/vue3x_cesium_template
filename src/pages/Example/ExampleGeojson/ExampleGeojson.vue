@@ -3,11 +3,12 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-08 16:40:40
+ * @LastEditTime: 2023-12-29 09:51:43
  * @Description:
 -->
 <script setup>
-import { Cartesian3, GroundPrimitive, PrimitiveCollection } from 'cesium';
+import { initPlace } from '@/config/cesium.conf.js';
+import { Cartesian3, GroundPrimitive, PrimitiveCollection, Math } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import GeoJson from '@/assets/json/ExampleGeoJson.json';
@@ -36,7 +37,11 @@ function executeQuery() {
 
 onMounted(() => {
     unref(mapview).camera.flyTo({
-        destination: Cartesian3.fromDegrees(116.416411, 40.249242, 409882)
+        destination: Cartesian3.fromDegrees(...initPlace.position),
+        orientation: {
+            pitch: Math.toRadians(initPlace.pitch),
+            heading: Math.toRadians(initPlace.heading),
+        },
     });
     executeQuery();
 })

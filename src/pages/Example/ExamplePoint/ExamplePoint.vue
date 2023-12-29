@@ -3,16 +3,17 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-11 17:48:51
+ * @LastEditTime: 2023-12-29 09:54:06
  * @Description:
 -->
 <script setup>
+import { initPlace } from '@/config/cesium.conf.js';
 import { CesiumFloatSymbolName } from '@/biz/Cesium/share/context';
 import { usePopup } from "@/biz/Popup/usecase/usePopup";
 import { useCesiumEvent } from '@/biz/Cesium/usecase/useCesiumEvent';
 import { setupFloat } from './float.conf';
 
-import { Cartesian3, PointPrimitiveCollection, BillboardCollection } from 'cesium';
+import { Cartesian3, PointPrimitiveCollection, BillboardCollection, Math as CesiumMath } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import PointJson from '@/assets/json/ExamplePoint.json';
@@ -103,7 +104,11 @@ function addIconPoint() {
 
 onMounted(() => {
     unref(mapview).camera.flyTo({
-        destination: Cartesian3.fromDegrees(116.416411, 40.249242, 409882)
+        destination: Cartesian3.fromDegrees(...initPlace.position),
+        orientation: {
+            pitch: CesiumMath.toRadians(initPlace.pitch),
+            heading: CesiumMath.toRadians(initPlace.heading),
+        },
     });
     addBasePoint();
     addIconPoint();

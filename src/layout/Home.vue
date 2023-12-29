@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-12 11:05:49
+ * @LastEditTime: 2023-12-29 10:33:55
  * @Description:
 -->
 <script setup>
@@ -13,6 +13,7 @@ import { config, layers } from '@/config/cesium.conf';
 import { useUserStore } from "@/store/useUser";
 const { proxy } = getCurrentInstance();
 const user = useUserStore();
+
 function handleUser(params) { }
 const featurelist = {
     'userLogout': {
@@ -47,8 +48,8 @@ const featurelist = {
         label: 'Cesium示例-模型',
         func: jumpToPage
     },
-    'ExampleHuaiRouModel': {
-        label: 'Cesium示例-怀柔模型',
+    'ExampleTilesetModel': {
+        label: 'Cesium示例-供水厂模型',
         func: jumpToPage
     }
 }
