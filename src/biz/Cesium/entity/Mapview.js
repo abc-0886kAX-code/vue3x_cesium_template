@@ -6,7 +6,7 @@
  * @Description: file content
  */
 import { uuid } from "@/shared/uuid.js";
-import { Viewer, EventHelper, Ion, WebMapTileServiceImageryProvider, Math, Cartesian3 } from 'cesium'
+import { Viewer, EventHelper, Ion, WebMapTileServiceImageryProvider, Math, Cartesian3, UrlTemplateImageryProvider, WebMercatorTilingScheme } from 'cesium'
 const { VITE_CESIUMTOKEN, DEV, VITE_TDT_KEY } = import.meta.env;
 
 import { initPlace } from '@/config/cesium.conf.js';
@@ -36,6 +36,14 @@ export class Mapview {
         this.view = new Viewer(mapbox, this.config);
         this.view._cesiumWidget._creditContainer.style.display = 'none'; // 隐藏Cesium logo
         this.view.scene.debugShowFramesPerSecond = DEV ? true : false; // 显示帧率
+
+        // 天地图底图
+        this.view.imageryLayers.addImageryProvider(new UrlTemplateImageryProvider({
+            url: "https://{s}.tianditu.gov.cn/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=" + VITE_TDT_KEY,
+            subdomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
+            tilingScheme: new WebMercatorTilingScheme(),
+            maximumLevel: 18,
+        }))
 
         // 天地图标注
         this.view.imageryLayers.addImageryProvider(new WebMapTileServiceImageryProvider({

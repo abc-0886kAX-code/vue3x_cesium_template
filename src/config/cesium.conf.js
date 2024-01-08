@@ -8,7 +8,6 @@
  */
 import * as Cesium from 'cesium';
 import { BJ_AREA_SERVICE } from "@/config/arcgis.conf";
-const { VITE_TDT_KEY } = import.meta.env
 
 // 初始化位置
 export const initPlace = {
@@ -31,13 +30,7 @@ const config = {
     navigationInstructionsInitiallyVisible: false, // 如果导航说明最初应该是可见的，则为true；如果直到用户明确单击该按钮，则不显示该说明，否则为false。
     // terrain: Cesium.Terrain.fromWorldTerrain(), 不知道为啥地形不能继续使用了，token过期，和cesium.ion的token没有关系
     selectionIndicator: false, // 选中图层后 显示的默认绿色框
-    // 天地图底图
-    baseLayer: new Cesium.ImageryLayer(new Cesium.UrlTemplateImageryProvider({
-        url: "https://{s}.tianditu.gov.cn/DataServer?T=img_w&x={x}&y={y}&l={z}&tk=" + VITE_TDT_KEY,
-        subdomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
-        tilingScheme: new Cesium.WebMercatorTilingScheme(),
-        maximumLevel: 18,
-    }))
+    baseLayer: false
 }
 const layers = [
     {
