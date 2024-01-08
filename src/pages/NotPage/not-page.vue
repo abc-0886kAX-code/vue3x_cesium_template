@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-11-21 15:16:40
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-05 17:29:53
+ * @LastEditTime: 2024-01-08 17:13:07
  * @Description:
 -->
 <script setup>
@@ -15,7 +15,7 @@ function gobackHome() {
 
 <template>
     <div class="not-page">
-        <img src="https://element-plus-admin.cn/assets/404-1759fece.svg" alt="" />
+        <img src="@/assets/images/404.svg" alt="" />
         <div class="not-page-text">抱歉，您访问的页面不存在。</div>
         <div class="not-page-btn">
             <el-button type="primary" @click="gobackHome">返回首页</el-button>

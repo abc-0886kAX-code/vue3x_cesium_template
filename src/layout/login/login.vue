@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 10:51:30
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-01 15:27:10
+ * @LastEditTime: 2024-01-08 17:14:05
  * @Description:https://element-plus-admin.cn/assets/login-box-bg-fec91044.svg
 -->
 <script setup>
@@ -52,7 +52,7 @@ function logon() {
             </div>
             <div class="login-introduce-content">
                 <div class="login-introduce-content-image">
-                    <img src="https://element-plus-admin.cn/assets/login-box-bg-fec91044.svg" alt="" />
+                    <img src="@/assets/images/login.svg" alt="" />
                 </div>
                 <div class="login-introduce-content-label">欢迎使用本系统</div>
                 <div class="login-introduce-content-desc">基于VUE2.7实现客户端开发平台</div>
