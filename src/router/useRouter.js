@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-29 10:00:51
+ * @LastEditTime: 2024-01-11 09:34:37
  * @Description:
  */
 import { defineRouter } from "./defineRouter";
@@ -105,6 +105,24 @@ export const routes = [
                     "hidden": "true"
                 },
                 "component": () => import("@/pages/Example/ExampleTilesetModel/ExampleTilesetModel.vue")
+            },
+            {
+                "path": "/Example/ExampleWaterUpraise",
+                "name": "ExampleWaterUpraise",
+                "meta": {
+                    "title": "Cesium示例-水体抬升",
+                    "hidden": "true"
+                },
+                "component": () => import("@/pages/Example/ExampleWaterUpraise/ExampleWaterUpraise.vue")
+            },
+            {
+                "path": "/Example/ExampleRoam",
+                "name": "ExampleRoam",
+                "meta": {
+                    "title": "Cesium示例-漫游",
+                    "hidden": "true"
+                },
+                "component": () => import("@/pages/Example/ExampleRoam/ExampleRoam.vue")
             }
         ]
     },

@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-29 10:33:55
+ * @LastEditTime: 2024-01-11 09:32:37
  * @Description:
 -->
 <script setup>
@@ -50,6 +50,14 @@ const featurelist = {
     },
     'ExampleTilesetModel': {
         label: 'Cesium示例-供水厂模型',
+        func: jumpToPage
+    },
+    'ExampleWaterUpraise': {
+        label: 'Cesium示例-水体抬升',
+        func: jumpToPage
+    },
+    'ExampleRoam': {
+        label: 'Cesium示例-漫游',
         func: jumpToPage
     }
 }
