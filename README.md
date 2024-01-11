@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-29 10:39:34
+ * @LastEditTime: 2024-01-11 15:58:43
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -114,6 +114,14 @@ useCesiumEvent({
 // 具体查看 ExampleModel.vue / ExampleTilesetModel.vue 
 ```
 
+### useDrawRiver
+
+```javascript
+// 水体渲染
+// 简述:创建多边形，通过Object.defineProperty监听多边形距离地面高度、水体高度，setInterval调整多边形高度以及距离地面高度
+// 具体查看 ExampleWaterUpraise.vue 
+```
+
 ## `TODO`
 
 - [x] `Cesium`实体构建
@@ -126,4 +134,5 @@ useCesiumEvent({
 - [x] `ImagesLayer`
 - [x] `Mask`遮罩层
 - [x] `Model`模型渲染
+- [x] `Water`水体抬升/降低
 
