@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-11 15:58:43
+ * @LastEditTime: 2024-01-12 17:57:43
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -122,6 +122,14 @@ useCesiumEvent({
 // 具体查看 ExampleWaterUpraise.vue 
 ```
 
+### ExampleRoam.vue
+[官方示例](https://sandcastle.cesium.com/?src=CZML%20Path.html)
+```javascript
+// 漫游场景 - 存在bug
+// 简述: 官方示例繁衍出来的漫游效果，对数据进行了分离，路线、物体、图层可控 
+// 具体查看 ExampleRoam.vue 
+```
+
 ## `TODO`
 
 - [x] `Cesium`实体构建
@@ -135,4 +143,5 @@ useCesiumEvent({
 - [x] `Mask`遮罩层
 - [x] `Model`模型渲染
 - [x] `Water`水体抬升/降低
+- [ ] `Roam`漫游效果
 

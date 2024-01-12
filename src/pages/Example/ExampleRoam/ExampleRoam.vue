@@ -3,55 +3,81 @@
  * @Author: zhangxin
  * @Date: 2024-01-11 09:34:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-12 10:38:32
+ * @LastEditTime: 2024-01-12 17:54:29
  * @Description:
 -->
 <script setup>
-import { Cartesian3, CzmlDataSource, LagrangePolynomialApproximation } from "cesium"
+import Roam from './roam.json';
+import { pathStyle, billboard } from './config.js';
+import { Cartesian3, CzmlDataSource, LagrangePolynomialApproximation, CameraEventType } from "cesium"
 import { useCesium } from '@/biz/Cesium/usecase/useCesium';
 const { mapview } = useCesium();
 
-let flyEntity = {}
+let flyEntity = ref(null);
 const target = new Cartesian3.fromDegrees(120.189, 30.254, 300)
 function setRoamView() {
-    if (flyEntity) {
-        const center = flyEntity.position.getValue(unref(mapview).clock.currentTime)
+    if (unref(flyEntity)) {
+        const center = unref(flyEntity).position.getValue(unref(mapview).clock.currentTime)
         if (center) {
             const vector = new Cartesian3(target.x - center.x, target.y - center.y, 300)
             unref(mapview).camera.lookAt(center, vector)
         }
     }
 }
-
+const RoamMap = ref(Roam);
 function readyRoam() {
-    unref(mapview).dataSources.add(CzmlDataSource.load('./roam.json')).then((ds) => {
-        flyEntity = ds.entities.getById('path')
+    unref(mapview).dataSources.removeAll();
+    unref(mapview).dataSources.add(CzmlDataSource.load(unref(RoamMap))).then((ds) => {
+        flyEntity.value = ds.entities.getById('path')
 
-        flyEntity.position.setInterpolationOptions({
+        unref(flyEntity).position.setInterpolationOptions({
             interpolationDegree: 5,
             interpolationAlgorithm: LagrangePolynomialApproximation
         })
     })
 }
-
+const isPathChoice = computed(() => {
+    return !isNull(unref(flyEntity));
+})
 function onStart() {
-    unref(mapview).trackedEntity = flyEntity
+    readyRoam()
+    unref(mapview).trackedEntity = unref(flyEntity)
     unref(mapview).scene.preUpdate.addEventListener(setRoamView)
 }
 function onEnd() {
+    flyEntity.value = null
     unref(mapview).trackedEntity = null
     unref(mapview).scene.preUpdate.removeEventListener(setRoamView)
+    unref(mapview).dataSources.removeAll();
+    // 结束后鼠标左键以及滚轮事件被改变 需要重置 bug
 }
-
-onMounted(() => {
-    readyRoam();
-})
+const pathChoice = ref(false);
+function pathChange(val) {
+    pathChoice.value = val;
+    if (unref(pathChoice)) {
+        RoamMap.value[1].path = pathStyle;
+        RoamMap.value[1].billboard = billboard;
+    } else {
+        RoamMap.value[1].path = {
+            "width": 0,
+            "leadTime": 10,
+            "trailTime": 1000,
+            "resolution": 5
+        }
+        RoamMap.value[1].billboard = {};
+    }
+}
 
 </script>
 
 <template>
     <div class="ExampleRoam">
         <div class="ExampleRoam-console">
+            <div class="ExampleRoam-console-item">
+                <div>漫游-路径</div>
+                <el-checkbox :model-value="pathChoice" label="选择" :checked="pathChoice" border :disabled="isPathChoice"
+                    @change="pathChange" />
+            </div>
             <div class="ExampleRoam-console-item">
                 <div>漫游-开始</div>
                 <el-button type="primary" plain @click="onStart">开始</el-button>
@@ -75,7 +101,7 @@ onMounted(() => {
         left: 150px;
         z-index: 999;
         background: #232323;
-        height: 100px;
+        height: 135px;
         width: 300px;
         padding: 5px;
         box-sizing: border-box;
@@ -105,5 +131,9 @@ onMounted(() => {
         color: #fff;
         text-align: center;
     }
+}
+
+:deep(.el-checkbox) {
+    color: #fff;
 }
 </style>

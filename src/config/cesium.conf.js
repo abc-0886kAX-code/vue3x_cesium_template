@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 14:20:16
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-11 15:46:59
+ * @LastEditTime: 2024-01-12 11:30:43
  * @Description:
  */
 import * as Cesium from 'cesium';
@@ -28,9 +28,10 @@ const config = {
     selectionIndicator: true,//选取指示器组件
     navigationHelpButton: true,//帮助按钮
     navigationInstructionsInitiallyVisible: false, // 如果导航说明最初应该是可见的，则为true；如果直到用户明确单击该按钮，则不显示该说明，否则为false。
-    // terrain: Cesium.Terrain.fromWorldTerrain(), 不知道为啥地形不能继续使用了，token过期，和cesium.ion的token没有关系
+    // terrain: Cesium.Terrain.fromWorldTerrain(), //不知道为啥地形不能继续使用了，token过期，和cesium.ion的token没有关系
     selectionIndicator: false, // 选中图层后 显示的默认绿色框
-    baseLayer: false
+    baseLayer: false,
+    shouldAnimate: true,
 }
 const layers = [
     {

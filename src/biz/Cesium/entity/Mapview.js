@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-25 09:19:13
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-08 14:46:43
+ * @LastEditTime: 2024-01-12 11:17:51
  * @Description: file content
  */
 import { uuid } from "@/shared/uuid.js";
@@ -33,6 +33,7 @@ export class Mapview {
     }
     install(mapbox) {
         Ion.defaultAccessToken = VITE_CESIUMTOKEN; // 设置Cesium token
+        console.log(Ion);
         this.view = new Viewer(mapbox, this.config);
         this.view._cesiumWidget._creditContainer.style.display = 'none'; // 隐藏Cesium logo
         this.view.scene.debugShowFramesPerSecond = DEV ? true : false; // 显示帧率
