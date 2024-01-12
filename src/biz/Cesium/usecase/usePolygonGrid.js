@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-05-19 11:02:21
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-11 15:42:43
+ * @LastEditTime: 2024-01-12 09:58:33
  * @Description: 面渲染方法
  */
 import { Primitive, Cartesian3, GeometryInstance, PolygonGeometry, PolylineMaterialAppearance, EllipsoidSurfaceAppearance, Material, PolygonHierarchy, Color } from 'cesium';
