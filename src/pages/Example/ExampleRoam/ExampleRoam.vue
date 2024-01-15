@@ -3,13 +3,13 @@
  * @Author: zhangxin
  * @Date: 2024-01-11 09:34:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-15 10:39:58
+ * @LastEditTime: 2024-01-15 16:48:45
  * @Description:
 -->
 <script setup>
 import Roam from './roam.json';
 import { pathStyle, billboard } from './config.js';
-import { Cartesian3, CzmlDataSource, LagrangePolynomialApproximation, ScreenSpaceEventHandler } from "cesium"
+import { Cartesian3, CzmlDataSource, LagrangePolynomialApproximation, Matrix4 } from "cesium"
 import { useCesium } from '@/biz/Cesium/usecase/useCesium';
 const { mapview } = useCesium();
 
@@ -49,7 +49,9 @@ function onEnd() {
     mapview.value.trackedEntity = null
     unref(mapview).scene.preUpdate.removeEventListener(setRoamView)
     unref(mapview).dataSources.removeAll();
-    // 结束后鼠标左键以及滚轮事件被改变 需要重置 bug
+    // 结束后鼠标左键以及滚轮事件被改变 需要重置 bug`
+    // 20240115 不需要重置鼠标事件，解除视角锁定即可
+    unref(mapview).camera.lookAtTransform(Matrix4.IDENTITY);
 }
 const pathChoice = ref(false);
 function pathChange(val) {
