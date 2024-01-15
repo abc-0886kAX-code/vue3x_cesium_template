@@ -1,5 +1,5 @@
 /*
- * @FilePath: \数字大厅\src\middleware\token.request.js
+ * @FilePath: \vue3x_cesium_template\src\middleware\token.request.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-01 10:42:20
  * @LastEditors: abc-0886kAX-code

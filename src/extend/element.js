@@ -1,5 +1,5 @@
 /*
- * @FilePath: \明湖大屏\src\extend\element.js
+ * @FilePath: \vue3x_cesium_template\src\extend\element.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 14:54:00
  * @LastEditors: abc-0886kAX-code

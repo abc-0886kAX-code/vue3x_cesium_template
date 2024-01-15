@@ -1,5 +1,5 @@
 <!--
- * @FilePath: \数字大厅\src\pages\Debug\form\form-checkbox\index.vue
+ * @FilePath: \vue3x_cesium_template\src\pages\Debug\form\form-checkbox\index.vue
  * @Author: abc-0886kAX-code
  * @Date: 2023-02-03 17:27:41
  * @LastEditors: abc-0886kAX-code

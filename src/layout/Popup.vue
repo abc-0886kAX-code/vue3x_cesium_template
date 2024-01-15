@@ -13,12 +13,13 @@ const { pond, pondFind, pondRelease } = definePopup();
 </script>
 
 <template>
-    <div class="furnace-popup">
+    <div class="vue3x_cesium_template-popup">
         <template v-for="key in pond" :key="key">
             <el-dialog :before-close="pondRelease(key)" :model-value="pondFind(key).visible.value"
                 :title="pondFind(key).title.value" :width="pondFind(key).width.value" :top="pondFind(key).top.value"
                 v-bind="pondFind(key).constProps" draggable>
-                <div class="furnace-popup-main" :ref="pondFind(key).refs" :style="{ height: pondFind(key).height.value }">
+                <div class="vue3x_cesium_template-popup-main" :ref="pondFind(key).refs"
+                    :style="{ height: pondFind(key).height.value }">
                     <template v-if="pondFind(key).visible.value">
                         <component :is="pondFind(key).template" :popupKeyword="key" />
                     </template>

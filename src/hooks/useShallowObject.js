@@ -1,5 +1,5 @@
 /*
- * @FilePath: \Furnace\src\hooks\useShallowObject.js
+ * @FilePath: \vue3x_cesium_template\src\hooks\useShallowObject.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-22 12:50:47
  * @LastEditors: abc-0886kAX-code

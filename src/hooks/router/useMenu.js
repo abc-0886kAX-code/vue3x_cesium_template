@@ -1,9 +1,9 @@
 /*
- * @FilePath: \明湖大屏\src\hooks\router\useMenu.js
+ * @FilePath: \vue3x_cesium_template\src\hooks\router\useMenu.js
  * @Author: abc-0886kAX-code
  * @Date: 2023-01-30 15:49:15
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-01-30 17:50:04
+ * @LastEditTime: 2024-01-15 17:36:12
  * @Description:
  */
 import { getCurrentInstance } from "vue";
@@ -41,7 +41,7 @@ export function useMenu() {
 export function useMenuTitle() {
     const route = useFirstRoute();
     const title = computed(() => {
-        if (!unref(route).state) return "明湖数字平台";
+        if (!unref(route).state) return "vue3x_cesium_template";
 
         return unref(route).store.meta.title;
     });

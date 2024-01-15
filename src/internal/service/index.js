@@ -1,5 +1,5 @@
 /*
- * @FilePath: \明湖大屏\src\internal\service\index.js
+ * @FilePath: \vue3x_cesium_template\src\internal\service\index.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 00:42:53
  * @LastEditors: abc-0886kAX-code

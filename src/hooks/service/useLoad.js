@@ -1,5 +1,5 @@
 /*
- * @FilePath: /Furnace/src/hooks/service/useLoad.js
+ * @FilePath: /vue3x_cesium_template/src/hooks/service/useLoad.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 01:37:53
  * @LastEditors: abc-0886kAX-code

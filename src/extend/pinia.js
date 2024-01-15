@@ -1,5 +1,5 @@
 /*
- * @FilePath: \vue2.7_admin_template-master\src\extend\pinia.js
+ * @FilePath: \vue3x_cesium_template\src\extend\pinia.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 14:54:26
  * @LastEditors: abc-0886kAX-code

@@ -1,5 +1,5 @@
 /*
- * @FilePath: \Furnace\src\hooks\service\useWatch.js
+ * @FilePath: \vue3x_cesium_template\src\hooks\service\useWatch.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 02:00:44
  * @LastEditors: abc-0886kAX-code

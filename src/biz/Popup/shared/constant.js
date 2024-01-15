@@ -6,7 +6,7 @@
  * @LastEditTime: 2023-12-05 16:19:23
  * @Description:
  */
-// export const DialogCustomClass = "furnace-dialog";
+// export const DialogCustomClass = "vue3x_cesium_template-dialog";
 export const DialogProps = {
     // customClass: DialogCustomClass, element-plus version 2.3.0 属性弃用
     fullscreen: false,

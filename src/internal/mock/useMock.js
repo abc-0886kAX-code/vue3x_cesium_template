@@ -1,5 +1,5 @@
 /*
- * @FilePath: /Furnace/src/internal/mock/useMock.js
+ * @FilePath: /vue3x_cesium_template/src/internal/mock/useMock.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 02:50:19
  * @LastEditors: abc-0886kAX-code

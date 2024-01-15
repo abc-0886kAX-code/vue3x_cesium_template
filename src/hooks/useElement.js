@@ -1,5 +1,5 @@
 /*
- * @FilePath: \Furnace\src\hooks\useElement.js
+ * @FilePath: \vue3x_cesium_template\src\hooks\useElement.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-27 14:50:41
  * @LastEditors: abc-0886kAX-code

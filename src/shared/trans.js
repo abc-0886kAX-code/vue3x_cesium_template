@@ -1,5 +1,5 @@
 /*
- * @FilePath: \Furnace\src\shared\trans.js
+ * @FilePath: \vue3x_cesium_template\src\shared\trans.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 15:35:56
  * @LastEditors: abc-0886kAX-code

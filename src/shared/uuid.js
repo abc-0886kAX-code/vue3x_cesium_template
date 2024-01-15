@@ -1,5 +1,5 @@
 /*
- * @FilePath: \Furnace\src\internal\uuid.js
+ * @FilePath: \vue3x_cesium_template\src\internal\uuid.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 15:19:29
  * @LastEditors: abc-0886kAX-code

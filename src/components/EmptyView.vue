@@ -16,11 +16,11 @@ const props = defineProps({
 </script>
 
 <template>
-    <el-empty class="furnace-empty" :description="desc"></el-empty>
+    <el-empty class="vue3x_cesium_template-empty" :description="desc"></el-empty>
 </template>
 
 <style scoped lang="scss">
-.furnace-empty {
+.vue3x_cesium_template-empty {
     width: 100%;
     height: 100%;
 }

@@ -1,5 +1,5 @@
 /*
- * @FilePath: /Furnace/src/internal/service/entity/Config.js
+ * @FilePath: /vue3x_cesium_template/src/internal/service/entity/Config.js
  * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 00:50:32
  * @LastEditors: abc-0886kAX-code
