@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-15 16:04:16
+ * @LastEditTime: 2024-01-15 17:24:15
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -165,6 +165,6 @@ useCesiumEvent({
 - [x] `Mask`遮罩层
 - [x] `Model`模型渲染
 - [x] `Water`水体抬升/降低
-- [ ] `Roam`漫游效果
+- [x] `Roam`漫游效果
 - [x] `Weather`天气场景开发
 
