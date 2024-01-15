@@ -3,16 +3,18 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-29 09:51:43
+ * @LastEditTime: 2024-01-15 16:20:39
  * @Description:
 -->
 <script setup>
-import { initPlace } from '@/config/cesium.conf.js';
-import { Cartesian3, GroundPrimitive, PrimitiveCollection, Math } from 'cesium';
+import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js';
+import { GroundPrimitive, PrimitiveCollection } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import GeoJson from '@/assets/json/ExampleGeoJson.json';
 import { usePolygonGrid } from "@/biz/Cesium/usecase/usePolygonGrid.js"
+
+const roam = useResetCamera();
 const { setupPolygonFillShape } = usePolygonGrid();
 const { mapview } = useCesium();
 const { gather, setupLayer } = usePrimitiveLayer(mapview);
@@ -36,13 +38,7 @@ function executeQuery() {
 }
 
 onMounted(() => {
-    unref(mapview).camera.flyTo({
-        destination: Cartesian3.fromDegrees(...initPlace.position),
-        orientation: {
-            pitch: Math.toRadians(initPlace.pitch),
-            heading: Math.toRadians(initPlace.heading),
-        },
-    });
+    roam();
     executeQuery();
 })
 

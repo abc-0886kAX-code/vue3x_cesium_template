@@ -1,14 +1,11 @@
 <script setup>
-import { initPlace } from '@/config/cesium.conf.js';
-import { CesiumFloatSymbolName } from '@/biz/Cesium/share/context';
-import { usePopup } from "@/biz/Popup/usecase/usePopup";
-import { useCesiumEvent } from '@/biz/Cesium/usecase/useCesiumEvent';
-
-import { Cartesian3, GroundPrimitive, Primitive, PrimitiveCollection, Math } from 'cesium';
+import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js';
+import { PrimitiveCollection } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import ZonesJson from './ExampleZones.json';
 import { useDrawRiver } from "@/biz/Cesium/usecase/usePolygonGrid.js"
+const roam = useResetCamera();
 const { mapview } = useCesium();
 const { gather, setupLayer } = usePrimitiveLayer(mapview);
 const controller = setupLayer({
@@ -77,13 +74,9 @@ function executeQuery() {
 }
 
 onMounted(() => {
-    unref(mapview).camera.flyTo({
-        destination: Cartesian3.fromDegrees(116.666411, 40.429242, 9882),
-        orientation: {
-            pitch: Math.toRadians(initPlace.pitch),
-            heading: Math.toRadians(initPlace.heading),
-        },
-    });
+    roam({
+        position: [116.666411, 40.429242, 9882],
+    })
     executeQuery();
 })
 

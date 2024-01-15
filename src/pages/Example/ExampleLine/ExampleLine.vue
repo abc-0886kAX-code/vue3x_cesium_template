@@ -3,21 +3,23 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-29 09:50:14
+ * @LastEditTime: 2024-01-15 16:19:29
  * @Description:
 -->
 <script setup>
-import { initPlace } from '@/config/cesium.conf.js';
+import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js';
 import { CesiumFloatSymbolName } from '@/biz/Cesium/share/context';
 import { usePopup } from "@/biz/Popup/usecase/usePopup";
 import { useCesiumEvent } from '@/biz/Cesium/usecase/useCesiumEvent';
 import { setupFloat } from './float.conf';
 
-import { Cartesian3, GroundPolylinePrimitive, PrimitiveCollection, Math } from 'cesium';
+import { GroundPolylinePrimitive, PrimitiveCollection } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import LineJson from '@/assets/json/ExampleLine.json';
 import { usePolyline } from '@/biz/Cesium/usecase/usePolyline.js';
+
+const roam = useResetCamera();
 const { setupPolylineFillShape, setupPolylineImageShape } = usePolyline()
 const { mapview } = useCesium();
 const { gather, setupLayer } = usePrimitiveLayer(mapview);
@@ -76,13 +78,7 @@ function executeQuery() {
 }
 
 onMounted(() => {
-    unref(mapview).camera.flyTo({
-        destination: Cartesian3.fromDegrees(...initPlace.position),
-        orientation: {
-            pitch: Math.toRadians(initPlace.pitch),
-            heading: Math.toRadians(initPlace.heading),
-        },
-    });
+    roam();
     executeQuery();
 })
 

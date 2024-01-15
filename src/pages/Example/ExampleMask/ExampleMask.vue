@@ -3,19 +3,20 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-29 09:51:30
+ * @LastEditTime: 2024-01-15 16:18:42
  * @Description:
 -->
 <script setup>
 import ExampleMask_BJ from '@/assets/json/ExampleMask_BJ.json';
 
-import { initPlace } from '@/config/cesium.conf.js';
-import { Cartesian3, GroundPrimitive, PrimitiveCollection, GroundPolylinePrimitive, Math } from 'cesium';
+import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js';
+import { PrimitiveCollection, GroundPolylinePrimitive } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePolyline } from '@/biz/Cesium/usecase/usePolyline.js';
 import { useMask } from "@/biz/Cesium/usecase/useMask.js"
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 
+const roam = useResetCamera();
 const { mapview } = useCesium();
 const { setupMaskLayer } = useMask();
 const { setupPolylineFillShape } = usePolyline()
@@ -68,13 +69,7 @@ function executeQuery() {
 }
 
 onMounted(() => {
-    unref(mapview).camera.flyTo({
-        destination: Cartesian3.fromDegrees(...initPlace.position),
-        orientation: {
-            pitch: Math.toRadians(initPlace.pitch),
-            heading: Math.toRadians(initPlace.heading),
-        },
-    });
+    roam();
     executeQuery();
 })
 

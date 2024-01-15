@@ -3,16 +3,18 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-29 09:51:55
+ * @LastEditTime: 2024-01-15 16:20:09
  * @Description:
 -->
 <script setup>
-import { initPlace } from '@/config/cesium.conf.js';
-import { Cartesian3, SingleTileImageryProvider, Rectangle, Math } from 'cesium';
+import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js';
+import { SingleTileImageryProvider, Rectangle, } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { useImagesLayer } from '@/biz/Cesium/usecase/useImagesLayer.js';
 import radarImage from '@/assets/images/map/radar.png';
 import ImagesJson from '@/assets/json/ExampleImages.json';
+
+const roam = useResetCamera();
 const { mapview } = useCesium();
 const { gather, setupLayer } = useImagesLayer(mapview);
 const controller = ref({
@@ -40,13 +42,7 @@ async function executeQuery() {
 }
 
 onMounted(() => {
-    unref(mapview).camera.flyTo({
-        destination: Cartesian3.fromDegrees(...initPlace.position),
-        orientation: {
-            pitch: Math.toRadians(initPlace.pitch),
-            heading: Math.toRadians(initPlace.heading),
-        },
-    });
+    roam();
     executeQuery();
 })
 

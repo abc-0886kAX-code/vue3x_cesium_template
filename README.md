@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-15 11:09:04
+ * @LastEditTime: 2024-01-15 16:04:16
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -136,6 +136,14 @@ useCesiumEvent({
 // 具体查看 ExampleWaterUpraise.vue 
 ```
 
+### useCesiumWeather
+
+```javascript
+// 天气渲染
+// 简述:通过传入天气类型参数，初始化生成天气实例，实例中带有显示/隐藏、更新天气配置等方法，并且天气类中增加watch监听，可实时更新天气配置，特殊业务需求可直接调用biz/Cesium/entity文件夹下的天气类
+// 具体查看 ExampleWeather.vue 
+```
+
 ### ExampleRoam.vue
 [官方示例](https://sandcastle.cesium.com/?src=CZML%20Path.html)
 ```javascript
@@ -158,5 +166,5 @@ useCesiumEvent({
 - [x] `Model`模型渲染
 - [x] `Water`水体抬升/降低
 - [ ] `Roam`漫游效果
-- [ ] `Weather`天气场景开发
+- [x] `Weather`天气场景开发
 

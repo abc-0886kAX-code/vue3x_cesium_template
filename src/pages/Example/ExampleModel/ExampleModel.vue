@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: zhangxin
- * @LastEditTime: 2023-12-12 13:04:51
+ * @LastEditTime: 2024-01-15 16:17:37
  * @Description:
 -->
 <script setup>
@@ -12,12 +12,13 @@ import { usePopup } from "@/biz/Popup/usecase/usePopup";
 import { useCesiumEvent } from '@/biz/Cesium/usecase/useCesiumEvent';
 import { setupFloat } from './float.conf';
 
-
+import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js';
 import { Cartesian3, PrimitiveCollection, Transforms, defined } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import { useModel } from '@/biz/Cesium/usecase/useModel.js';
 
+const roam = useResetCamera();
 const { setupModelByUrl } = useModel();
 const { mapview } = useCesium();
 const { gather, setupLayer } = usePrimitiveLayer(mapview);
@@ -95,9 +96,9 @@ async function executeQuery() {
 }
 
 onMounted(() => {
-    unref(mapview).camera.flyTo({
-        destination: Cartesian3.fromDegrees(116.416411, 40.249242, 1000)
-    });
+    roam({
+        position: [116.416411, 40.249242, 1000],
+    })
     executeQuery();
 })
 onBeforeUnmount(() => {
