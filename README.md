@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-12 17:57:43
+ * @LastEditTime: 2024-01-15 11:09:04
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -29,6 +29,20 @@
 ```javascript
 // 通过inject注入Cesium实体，在任何setup中都可以使用
 const { mapview } = useCesium();
+```
+
+### useResetCamera
+
+```javascript
+// 整合定位功能，通过传参改变定位视角或默认到初始视角
+const roam = useResetCamera();
+roam();
+
+roam({
+    position: [116.416411, 38.849242, 409882],
+    pitch: -70,
+    heading: 0
+})
 ```
 
 ### useCesiumEvent
@@ -144,4 +158,5 @@ useCesiumEvent({
 - [x] `Model`模型渲染
 - [x] `Water`水体抬升/降低
 - [ ] `Roam`漫游效果
+- [ ] `Weather`天气场景开发
 

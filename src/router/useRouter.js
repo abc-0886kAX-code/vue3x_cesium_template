@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-11 09:34:37
+ * @LastEditTime: 2024-01-15 10:55:40
  * @Description:
  */
 import { defineRouter } from "./defineRouter";
@@ -123,6 +123,15 @@ export const routes = [
                     "hidden": "true"
                 },
                 "component": () => import("@/pages/Example/ExampleRoam/ExampleRoam.vue")
+            },
+            {
+                "path": "/Example/ExampleWeather",
+                "name": "ExampleWeather",
+                "meta": {
+                    "title": "Cesium示例-天气",
+                    "hidden": "true"
+                },
+                "component": () => import("@/pages/Example/ExampleWeather/ExampleWeather.vue")
             }
         ]
     },

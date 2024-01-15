@@ -3,13 +3,13 @@
  * @Author: zhangxin
  * @Date: 2024-01-11 09:34:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-12 17:54:29
+ * @LastEditTime: 2024-01-15 10:39:58
  * @Description:
 -->
 <script setup>
 import Roam from './roam.json';
 import { pathStyle, billboard } from './config.js';
-import { Cartesian3, CzmlDataSource, LagrangePolynomialApproximation, CameraEventType } from "cesium"
+import { Cartesian3, CzmlDataSource, LagrangePolynomialApproximation, ScreenSpaceEventHandler } from "cesium"
 import { useCesium } from '@/biz/Cesium/usecase/useCesium';
 const { mapview } = useCesium();
 
@@ -46,7 +46,7 @@ function onStart() {
 }
 function onEnd() {
     flyEntity.value = null
-    unref(mapview).trackedEntity = null
+    mapview.value.trackedEntity = null
     unref(mapview).scene.preUpdate.removeEventListener(setRoamView)
     unref(mapview).dataSources.removeAll();
     // 结束后鼠标左键以及滚轮事件被改变 需要重置 bug

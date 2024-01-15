@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2024-01-11 09:32:37
+ * @LastEditTime: 2024-01-15 10:52:31
  * @Description:
 -->
 <script setup>
@@ -58,6 +58,10 @@ const featurelist = {
     },
     'ExampleRoam': {
         label: 'Cesium示例-漫游',
+        func: jumpToPage
+    },
+    'ExampleWeather': {
+        label: 'Cesium示例-天气',
         func: jumpToPage
     }
 }
