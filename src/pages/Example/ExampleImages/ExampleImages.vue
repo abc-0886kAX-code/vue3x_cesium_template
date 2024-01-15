@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 16:20:09
+ * @LastEditTime: 2024-01-15 17:46:47
  * @Description:
 -->
 <script setup>
@@ -79,7 +79,7 @@ onBeforeUnmount(() => {
         left: 150px;
         z-index: 999;
         background: #232323;
-        height: 100px;
+        height: 95px;
         width: 300px;
         padding: 5px;
         box-sizing: border-box;
@@ -113,5 +113,7 @@ onBeforeUnmount(() => {
 
 .slider {
     width: 150px;
+    padding: 5px;
+    box-sizing: border-box;
 }
 </style>
