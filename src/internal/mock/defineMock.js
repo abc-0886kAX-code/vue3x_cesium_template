@@ -1,10 +1,10 @@
 /*
  * @FilePath: /Furnace/src/internal/mock/defineMock.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 02:38:01
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-04 21:52:19
- * @Description: 
+ * @Description:
  */
 import Mock from "mockjs";
 import { mergeObject } from "~/shared/merge";

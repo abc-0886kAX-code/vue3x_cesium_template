@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue2.7_admin_template-master\src\permission.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-11 12:26:15
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-11-16 17:15:39
  * @Description:
  */

@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\shared\trans.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 15:35:56
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-11-22 13:37:37
- * @Description: 
+ * @Description:
  */
 // 布尔类型转换
 export function toBoolean(value, replace = false) {

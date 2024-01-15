@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\hooks\ref\useRefState.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-27 02:46:28
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-05 15:38:07
- * @Description: 
+ * @Description:
  */
 import { transFunction, transArray, transBoolean } from "~/shared/trans";
 import { uuid } from "~/shared/uuid";

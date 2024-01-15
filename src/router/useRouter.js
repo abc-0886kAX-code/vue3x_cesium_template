@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template\src\router\useRouter.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-30 10:18:11
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2024-01-15 10:55:40
  * @Description:
  */

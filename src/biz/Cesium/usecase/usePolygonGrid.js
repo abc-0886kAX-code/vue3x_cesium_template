@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template\src\biz\Cesium\usecase\usePolygonGrid.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-05-19 11:02:21
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2024-01-12 09:58:33
  * @Description: 面渲染方法
  */

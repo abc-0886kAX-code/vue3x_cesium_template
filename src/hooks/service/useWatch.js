@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\hooks\service\useWatch.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 02:00:44
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-07 18:17:31
- * @Description: 
+ * @Description:
  */
 import { transFunction } from "~/shared/trans";
 

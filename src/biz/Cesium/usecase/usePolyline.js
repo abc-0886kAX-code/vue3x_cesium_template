@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template\src\biz\Cesium\usecase\usePolyline.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-05-19 11:02:21
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-12-05 09:37:10
  * @Description: 线段渲染方法
  */

@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\hooks\useShallowArray.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-22 13:11:19
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-11-22 13:16:25
- * @Description: 
+ * @Description:
  */
 import { toArray } from "@/shared/trans";
 

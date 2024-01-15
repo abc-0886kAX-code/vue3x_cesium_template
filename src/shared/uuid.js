@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\internal\uuid.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 15:19:29
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-11-21 15:19:47
- * @Description: 
+ * @Description:
  */
 import { v4 as uuidv4 } from "uuid";
 

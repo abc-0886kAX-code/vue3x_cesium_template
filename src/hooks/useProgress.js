@@ -1,8 +1,8 @@
 /*
  * @FilePath: \明湖大屏\src\hooks\useProgress.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2023-02-07 16:30:14
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-02-14 13:41:25
  * @Description:
  */

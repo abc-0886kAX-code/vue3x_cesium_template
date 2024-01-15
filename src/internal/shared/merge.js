@@ -1,10 +1,10 @@
 /*
  * @FilePath: /Furnace/src/internal/shared/merge.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-03 19:18:20
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-04 02:48:37
- * @Description: 
+ * @Description:
  */
 export function mergeObject(...args) {
     return merge({}, ...args);

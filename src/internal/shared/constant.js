@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template\src\internal\shared\constant.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-03 17:56:35
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-12-05 15:14:32
  * @Description:
  */

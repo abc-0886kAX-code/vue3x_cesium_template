@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template\src\biz\Cesium\entity\snow.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2024-01-15 11:19:51
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2024-01-15 15:54:28
  * @Description:
  */

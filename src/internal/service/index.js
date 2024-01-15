@@ -1,10 +1,10 @@
 /*
  * @FilePath: \明湖大屏\src\internal\service\index.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 00:42:53
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-28 09:24:23
- * @Description: 
+ * @Description:
  */
 import { ResponseEntity } from "~/service/entity/Response";
 import { NormServiceProps } from "~/service/shread/constant";

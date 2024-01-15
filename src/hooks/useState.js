@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\hooks\useState.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 15:35:12
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-11-22 11:36:49
- * @Description: 
+ * @Description:
  */
 import { toBoolean } from "@/shared/trans";
 

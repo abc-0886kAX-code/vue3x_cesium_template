@@ -1,8 +1,8 @@
 /*
  * @FilePath: \明湖大屏\src\router\meta.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2023-01-30 15:25:13
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-01-30 15:42:55
  * @Description:
  */

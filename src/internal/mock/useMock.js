@@ -1,10 +1,10 @@
 /*
  * @FilePath: /Furnace/src/internal/mock/useMock.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 02:50:19
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-04 22:24:06
- * @Description: 
+ * @Description:
  */
 import Mock from "mockjs";
 

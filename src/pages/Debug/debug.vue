@@ -1,8 +1,8 @@
 <!--
  * @FilePath: \vue2.7_admin_template-master\src\pages\Debug\debug.vue
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2023-11-16 15:34:41
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-11-16 17:09:59
  * @Description:
 -->

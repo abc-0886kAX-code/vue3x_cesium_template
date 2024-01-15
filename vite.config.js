@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template\vite.config.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 14:19:59
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-11-29 15:50:59
  * @Description:
  */

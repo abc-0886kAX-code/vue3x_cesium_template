@@ -1,10 +1,10 @@
 /*
  * @FilePath: /Furnace/src/internal/mock/index.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 02:49:04
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-04 04:33:33
- * @Description: 
+ * @Description:
  */
 export * from "./defineMock";
 export * from "./defineResponse";

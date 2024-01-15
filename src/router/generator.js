@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template-master\src\router\generator.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2023-08-03 15:26:27
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-08-04 10:02:29
  * @Description: 待完善...
  */

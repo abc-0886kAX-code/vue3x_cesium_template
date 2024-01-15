@@ -1,10 +1,10 @@
 /*
  * @FilePath: /Furnace/src/hooks/service/useMapper.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 04:42:21
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-04 05:34:40
- * @Description: 
+ * @Description:
  */
 import { transArray } from "~/shared/trans";
 

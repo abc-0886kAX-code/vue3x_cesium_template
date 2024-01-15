@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template\src\internal\shared\number.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-22 11:11:05
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-03-04 15:49:38
  * @Description:
  */

@@ -1,10 +1,10 @@
 /*
  * @FilePath: \51world\src\internal\service\shread\constant.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 00:51:38
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-21 14:42:31
- * @Description: 
+ * @Description:
  */
 export const NormConfig = {
     url: "",

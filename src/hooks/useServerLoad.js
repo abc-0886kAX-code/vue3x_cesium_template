@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\hooks\useServerLoad.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-22 14:01:06
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-11-22 14:04:31
- * @Description: 
+ * @Description:
  */
 import { toArray } from "@/shared/trans";
 

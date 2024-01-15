@@ -1,10 +1,10 @@
 /*
  * @FilePath: /Furnace/src/internal/shared/filter.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-03 19:03:31
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-03 19:06:13
- * @Description: 
+ * @Description:
  */
 import { isEmptyObject, isUsable } from "~/shared/is";
 import { transObject } from "~/shared/trans";

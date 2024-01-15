@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\hooks\useShallowObject.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-22 12:50:47
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-11-22 13:15:55
- * @Description: 
+ * @Description:
  */
 import { toPlainObject } from "@/shared/trans";
 

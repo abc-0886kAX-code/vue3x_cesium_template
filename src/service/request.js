@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template-master\src\service\request.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2023-05-24 15:00:39
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-08-04 10:10:05
  * @Description:
  */

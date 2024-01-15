@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\hooks\ref\useShallowArray.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 01:42:19
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-09 10:17:36
- * @Description: 
+ * @Description:
  */
 import { transArray } from "~/shared/trans";
 import { useComplexState } from "@/hooks/ref/useRefState";

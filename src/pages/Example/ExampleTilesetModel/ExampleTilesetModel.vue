@@ -1,8 +1,8 @@
 <!--
  * @FilePath: \vue3x_cesium_template\src\pages\Example\ExampleTilesetModel\ExampleTilesetModel.vue
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 10:05:54
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-12-29 10:25:17
  * @Description:
 -->

@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\hooks\ref\useShallowObject.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 01:42:31
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-05 18:07:13
- * @Description: 
+ * @Description:
  */
 import { transObject } from "~/shared/trans";
 import { mergeObject } from "~/shared/merge";

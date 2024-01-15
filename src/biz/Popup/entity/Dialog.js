@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template\src\biz\Popup\entity\Dialog.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-05 14:59:26
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-03-11 14:01:45
  * @Description:
  */

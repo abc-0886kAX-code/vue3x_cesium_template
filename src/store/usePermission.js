@@ -1,8 +1,8 @@
 /*
  * @FilePath: \vue3x_cesium_template-master\src\store\usePermission.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2023-08-03 16:59:38
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-08-04 09:52:58
  * @Description: 待开发...
  */

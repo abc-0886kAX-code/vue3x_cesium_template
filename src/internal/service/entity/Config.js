@@ -1,10 +1,10 @@
 /*
  * @FilePath: /Furnace/src/internal/service/entity/Config.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 00:50:32
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-04 03:07:30
- * @Description: 
+ * @Description:
  */
 import { NormConfig } from "~/service/shread/constant";
 import { mergeObject } from "~/shared/merge";

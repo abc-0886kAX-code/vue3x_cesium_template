@@ -1,10 +1,10 @@
 /*
  * @FilePath: /Furnace/src/internal/shared/is.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-03 18:54:33
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-03 19:03:12
- * @Description: 
+ * @Description:
  */
 import { transObject, transArray } from "~/shared/trans";
 

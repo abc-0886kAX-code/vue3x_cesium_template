@@ -1,10 +1,10 @@
 /*
  * @FilePath: \Furnace\src\internal\service\entity\Response.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 00:48:41
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-07 18:16:00
- * @Description: 
+ * @Description:
  */
 import { ConfigEntity } from "~/service/entity/Config";
 import { NormResult } from "~/service/shread/constant";

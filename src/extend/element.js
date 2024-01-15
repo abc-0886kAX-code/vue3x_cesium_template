@@ -1,8 +1,8 @@
 /*
  * @FilePath: \明湖大屏\src\extend\element.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 14:54:00
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2023-01-03 13:37:04
  * @Description:
  */

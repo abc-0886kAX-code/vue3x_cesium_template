@@ -1,10 +1,10 @@
 /*
  * @FilePath: \51world\src\internal\shared\trans.js
- * @Author: zhangxin
+ * @Author: abc-0886kAX-code
  * @Date: 2022-12-03 17:33:16
- * @LastEditors: zhangxin
+ * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2022-12-22 15:22:03
- * @Description: 
+ * @Description:
  */
 import dayjs from "dayjs";
 
