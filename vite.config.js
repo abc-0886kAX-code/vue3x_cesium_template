@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 14:19:59
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-11-29 15:50:59
+ * @LastEditTime: 2024-01-16 10:50:43
  * @Description:
  */
 import { defineConfig, splitVendorChunkPlugin, loadEnv } from "vite";
@@ -76,6 +76,7 @@ export default defineConfig(({ mode }) => {
             }),
             vueComponents({
                 resolvers: [ElementPlusResolver()],
+                dts: true,
             }),
             viteCompression({
                 verbose: true,
