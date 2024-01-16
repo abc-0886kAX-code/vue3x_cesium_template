@@ -2,7 +2,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-04-25 09:19:13
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 17:52:12
+ * @LastEditTime: 2024-01-16 15:32:43
  * @Description: file content
  */
 import { uuid } from "@/shared/uuid.js";
@@ -67,6 +67,12 @@ export class Mapview {
                 },
             })
         })
+
+        // 光照效果
+        this.view.scene.globe.enableLighting = true; // 开启光照
+
+        //高程遮挡效果
+        this.view.scene.globe.depthTestAgainstTerrain = true; // 开启遮挡
 
         return this.view;
     }
