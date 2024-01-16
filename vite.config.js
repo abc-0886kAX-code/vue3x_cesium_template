@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 14:19:59
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-16 10:50:43
+ * @LastEditTime: 2024-01-16 15:15:04
  * @Description:
  */
 import { defineConfig, splitVendorChunkPlugin, loadEnv } from "vite";
@@ -20,7 +20,7 @@ import lodashImport from "./plugins/lodash";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-    const { VITE_ASSETS } = loadEnv(mode, process.cwd());
+    const { VITE_ASSETS, VITE_API_BASE_URL_PRE, VITE_API_BASE_URL } = loadEnv(mode, process.cwd());
     console.log(mode, VITE_ASSETS);
     return {
         base: VITE_ASSETS,
@@ -31,15 +31,10 @@ export default defineConfig(({ mode }) => {
                 overlay: true,
             },
             proxy: {
-                "/api": {
-                    target: "http://127.0.0.1:8899/",
+                [VITE_API_BASE_URL_PRE]: {
+                    target: VITE_API_BASE_URL,
                     changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/api/, "/api"),
-                },
-                "/QrWater": {
-                    target: "https://www.xxanyu.cn/",
-                    changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/QrWater/, "/QrWater"),
+                    rewrite: (path) => path.replace(/^\/[VITE_API_BASE_URL_PRE]/, `/${VITE_API_BASE_URL_PRE}`),
                 },
             },
         },

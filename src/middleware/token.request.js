@@ -3,13 +3,12 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-01 10:42:20
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-03-21 17:34:38
+ * @LastEditTime: 2024-01-16 15:15:36
  * @Description:
  */
 import { uuid } from "@/shared/uuid.js";
 import { useRouter } from "@/router/useRouter";
 import { useUserStore } from "@/store/useUser";
-import { MessageBox, Message } from "element-ui";
 const user = useUserStore();
 const router = useRouter();
 
@@ -26,7 +25,7 @@ function response(response) {
     const res = response.data;
     if (res.code != 200) {
         if (res.code == 203) {
-            MessageBox.confirm(res.msg, "提示", {
+            ElMessageBox.confirm(res.msg, "提示", {
                 type: "warning",
                 showCancelButton: false,
                 confirmButtonText: "确定",
@@ -37,7 +36,7 @@ function response(response) {
                 }, 1000);
             });
         } else {
-            Message({
+            ElMessage({
                 message: res.msg || "请求出错，请重试",
                 type: "error",
                 duration: 1500,

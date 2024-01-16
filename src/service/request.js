@@ -1,13 +1,12 @@
 /*
- * @FilePath: \vue3x_cesium_template-master\src\service\request.js
+ * @FilePath: \vue3x_cesium_template\src\service\request.js
  * @Author: abc-0886kAX-code
  * @Date: 2023-05-24 15:00:39
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-08-04 10:10:05
+ * @LastEditTime: 2024-01-16 15:16:48
  * @Description:
  */
 import { useUserStore } from "@/store/useUser";
-import { Message } from 'element-ui';
 import Axios from 'axios';
 
 const user = useUserStore();
@@ -54,7 +53,7 @@ request.interceptors.response.use(
         if (code < 400) {
             return res;
         } else {
-            Message.error(message || '请联系管理员', 4);
+            ElMessage.error(message || '请联系管理员', 4);
 
             return Promise.reject(new Error(message || 'Error'));
         }
