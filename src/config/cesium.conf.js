@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 14:20:16
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 17:51:48
+ * @LastEditTime: 2024-02-27 16:43:41
  * @Description:
  */
 import * as Cesium from 'cesium';
@@ -34,10 +34,10 @@ const config = {
     shouldAnimate: true,
 }
 const layers = [
-    {
-        type: "arcgis",
-        url: BJ_AREA_SERVICE,
-        maximumLevel: 18
-    }
+    // {
+    //     type: "arcgis",
+    //     url: BJ_AREA_SERVICE,
+    //     maximumLevel: 18
+    // }
 ]
 export { config, layers }

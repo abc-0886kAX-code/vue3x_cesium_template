@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 16:16:17
+ * @LastEditTime: 2024-02-27 16:52:09
  * @Description:
 -->
 <script setup>
@@ -13,7 +13,7 @@ import { useCesiumEvent } from '@/biz/Cesium/usecase/useCesiumEvent';
 import { setupFloat } from './float.conf';
 
 import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js';
-import { PointPrimitiveCollection, BillboardCollection } from 'cesium';
+import { PointPrimitiveCollection, BillboardCollection, LabelCollection } from 'cesium';
 import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
 import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
 import PointJson from '@/assets/json/ExamplePoint.json';
@@ -23,12 +23,13 @@ const roam = useResetCamera();
 function splitArrayRandomly(array) {
     const randomIndex = Math.floor(Math.random() * array.length);
     const part1 = array.splice(0, randomIndex);
-    return [part1, array];
+    const part2 = array.splice(randomIndex + 1, randomIndex + 1 + Math.floor(Math.random()));
+    return [part1, part2, array];
 }
-const [randomPart1, randomPart2] = splitArrayRandomly(PointJson.data);
+const [randomPart1, randomPart2, randomPart3] = splitArrayRandomly(PointJson.data);
 
 
-const { setBaseShape, setIconShape } = usePoint();
+const { setBaseShape, setIconShape, setLabel } = usePoint();
 const { mapview } = useCesium();
 const { gather, setupLayer } = usePrimitiveLayer(mapview);
 
@@ -102,15 +103,38 @@ function addIconPoint() {
     })
 }
 
+
+const labelController = setupLayer({
+    render: LabelCollection,
+    config: {},
+});
+const labelControllerEnity = unref(gather)[labelController._guid];
+const labelEnity = labelControllerEnity.find();
+function labelPointController() {
+    labelControllerEnity.switch();
+}
+
+function addLabelPoint() {
+    randomPart3.forEach((item, index) => {
+        labelEnity.add(setLabel({
+            longitude: item.lgtd,
+            latitude: item.lttd,
+            group: `测试${index}`
+        }))
+    })
+}
+
 onMounted(() => {
     roam();
     addBasePoint();
     addIconPoint();
+    addLabelPoint()
 })
 
 onBeforeUnmount(() => {
     controllerEnity.clear();
     iconControllerEnity.clear();
+    labelControllerEnity.clear();
 })
 </script>
 
@@ -124,6 +148,13 @@ onBeforeUnmount(() => {
             <div class="ExamplePoint-console-item">
                 <div>图标点位-显示隐藏</div>
                 <el-button type="primary" plain @click="iconPointController">切换</el-button>
+            </div>
+            <div class="ExamplePoint-console-item">
+                <div>文本点位-显示隐藏</div>
+                <el-button type="primary" plain @click="labelPointController">切换</el-button>
+            </div>
+            <div class="ExamplePoint-console-item">
+                <div>*图标+文本/基础+文本</div>
             </div>
         </div>
         <div class="ExamplePoint-illustrate">
@@ -140,7 +171,7 @@ onBeforeUnmount(() => {
         left: 150px;
         z-index: 999;
         background: #232323;
-        height: 100px;
+        height: 165px;
         width: 300px;
         padding: 5px;
         box-sizing: border-box;

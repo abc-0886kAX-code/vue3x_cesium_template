@@ -6,7 +6,7 @@
  * @Description: 点渲染方法
  */
 
-import { Cartesian3, Color, VerticalOrigin } from 'cesium';
+import { Cartesian3, Color, VerticalOrigin, Cartesian2 } from 'cesium';
 import defaultPoint from '@/assets/images/map/point_icon.png'
 
 // rgba 0-255转0-1范围
@@ -53,9 +53,34 @@ export function usePoint() {
         }
     }
 
+    function setLabel(options) {
+        const { longitude, latitude, group, backgroundColor, fillColor, distance } = options;
+        const position = Cartesian3.fromDegrees(longitude, latitude, distance ?? 500);
+
+
+        const text = Array.isArray(group) ? group.map(item.value).join('\n') : group;
+        const height = Array.isArray(group) ? group.length * -10 : -10;
+
+        const style = {
+
+            scale: 1,
+            fillColor: fillColor ? convertColorRange(fillColor) : convertColorRange([255, 255, 255, 1]), // 调整文本颜色
+            font: '14px sans-serif',
+            pixelOffset: new Cartesian2(20, height),  // 调整文本位置
+            verticalOrigin: VerticalOrigin.BOTTOM,
+        }
+
+        return {
+            position,
+            text,
+            ...style
+        }
+    }
+
 
     return {
         setBaseShape,
-        setIconShape
+        setIconShape,
+        setLabel
     };
 }
