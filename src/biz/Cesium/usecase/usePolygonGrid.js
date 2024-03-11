@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-05-19 11:02:21
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-12 09:58:33
+ * @LastEditTime: 2024-03-06 14:18:51
  * @Description: 面渲染方法
  */
 import { Primitive, Cartesian3, GeometryInstance, PolygonGeometry, PolylineMaterialAppearance, EllipsoidSurfaceAppearance, Material, PolygonHierarchy, Color } from 'cesium';

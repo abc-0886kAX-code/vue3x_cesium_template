@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 10:55:40
+ * @LastEditTime: 2024-03-11 13:01:20
  * @Description:
  */
 import { defineRouter } from "./defineRouter";
@@ -13,13 +13,13 @@ export const routes = [
         name: "login",
         path: "/login",
         meta: defineMeta(),
-        component: () => import("@/layout/login/login.vue"),
+        component: () => import("@/layout/Login/Login.vue"),
     },
     {
         name: "singleLogin",
         path: "/singleLogin",
         meta: defineMeta(),
-        component: () => import("@/layout/loginsso/loginsso.vue"),
+        component: () => import("@/layout/Loginsso/Loginsso.vue"),
     },
     {
         name: "debug",
@@ -32,7 +32,7 @@ export const routes = [
         path: "/",
         redirect: "/Example/ExamplePoint",
         meta: defineMeta({ level: 0 }),
-        component: () => import("@/layout/Home.vue"),
+        component: () => import("@/layout/ExampleHome.vue"),
         children: [
             {
                 "path": "/Example/ExamplePoint",

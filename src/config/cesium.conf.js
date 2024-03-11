@@ -3,12 +3,9 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 14:20:16
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-02-27 16:43:41
+ * @LastEditTime: 2024-03-11 12:57:47
  * @Description:
  */
-import * as Cesium from 'cesium';
-import { BJ_AREA_SERVICE } from "@/config/arcgis.conf";
-
 // 初始化位置
 export const initPlace = {
     position: [116.416411, 38.849242, 409882],
