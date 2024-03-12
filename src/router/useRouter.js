@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-03-11 13:01:20
+ * @LastEditTime: 2024-03-12 15:08:05
  * @Description:
  */
 import { defineRouter } from "./defineRouter";
@@ -132,6 +132,15 @@ export const routes = [
                     "hidden": "true"
                 },
                 "component": () => import("@/pages/Example/ExampleWeather/ExampleWeather.vue")
+            },
+            {
+                "path": "/Example/ExampleCuttingMap",
+                "name": "ExampleCuttingMap",
+                "meta": {
+                    "title": "Cesium示例-地图裁剪",
+                    "hidden": "true"
+                },
+                "component": () => import("@/pages/Example/ExampleCuttingMap/ExampleCuttingMap.vue")
             }
         ]
     },

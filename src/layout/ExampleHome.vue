@@ -63,7 +63,12 @@ const featurelist = {
     'ExampleWeather': {
         label: 'Cesium示例-天气',
         func: jumpToPage
+    },
+    'ExampleCuttingMap': {
+        label: 'Cesium示例-地图切割',
+        func: jumpToPage
     }
+
 }
 function handleCommand(command) {
     featurelist[command].func(command);
@@ -84,7 +89,7 @@ function jumpToPage(name) {
             <template #dropdown>
                 <el-dropdown-menu>
                     <el-dropdown-item v-for="(item, key) in featurelist" :key="key" :command="key">{{ item.label
-                    }}</el-dropdown-item>
+                        }}</el-dropdown-item>
                 </el-dropdown-menu>
             </template>
         </el-dropdown>

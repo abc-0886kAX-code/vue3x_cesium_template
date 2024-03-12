@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 16:18:42
+ * @LastEditTime: 2024-03-12 10:16:11
  * @Description:
 -->
 <script setup>
@@ -57,7 +57,7 @@ function executeQuery() {
     const highlightArea = ExampleMask_BJ.map(item => {
         return [item.longitude, item.latitude]
     })
-
+    console.log(highlightArea.flat(2));
     const options = { attr: {}, positions: highlightArea.flat(2), enity }
     setupMaskLayer(options)
 
@@ -89,7 +89,8 @@ onBeforeUnmount(() => {
             <div class="ExampleMask-console-item">
                 <div>遮罩层-透明度
                 </div>
-                <el-slider class="slider" :model-value="slider" :min="0" :max="1" :step="0.1" @input="maskTransparent" />
+                <el-slider class="slider" :model-value="slider" :min="0" :max="1" :step="0.1"
+                    @input="maskTransparent" />
             </div>
             <div class="ExampleMask-console-item">
                 <div>遮罩层-显示隐藏
