@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 17:24:15
+ * @LastEditTime: 2024-03-12 17:00:21
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -14,6 +14,35 @@
 
 - 📍&nbsp;&nbsp;[Address](http://152.136.167.65:8083/#/)
 <br>
+
+
+<strong>vite/cesium</strong>
+`package.json`
+```json
+"cesium": "1.111.0",
+"@cesium/engine": "6.1.0",
+"@cesium/widgets": "4.3.0",
+"vite-plugin-cesium": "1.2.22"
+```
+`vite.config.js`
+```javascript
+import cesium from 'vite-plugin-cesium';
+plugins:[
+    cesium()
+]
+```
+<strong>webpack/cesium</strong>
+`自行百度`
+
+<strong>Render Component</strong>
+`cesium-container.vue`
+`整个项目仅需要一个map以及mapview实体，通过provide/inject传递，所以把握好放在什么地方(特殊情况业务除外)`
+
+```vue
+<CesiumContainer :config="config" :layers="layers">
+    <component :is="Component" />
+</CesiumContainer>
+```
 
 <strong>Render Func</strong>
 
@@ -147,9 +176,17 @@ useCesiumEvent({
 ### ExampleRoam.vue
 [官方示例](https://sandcastle.cesium.com/?src=CZML%20Path.html)
 ```javascript
-// 漫游场景 - 存在bug
+// 漫游场景
 // 简述: 官方示例繁衍出来的漫游效果，对数据进行了分离，路线、物体、图层可控 
 // 具体查看 ExampleRoam.vue 
+```
+
+### useCuttingMap
+[官方示例](https://sandcastle.cesium.com/?src=Terrain%2520Clipping%2520Planes.html)
+```javascript
+// 切割地图
+// 简述: 通过传入中心点位以及周围要展示的距离，实现地图的局部显示，切割以外的部分不会再加载以及请求图层等 (目前是一个正方形的，不会根据范围边界进行裁剪)
+// 具体查看 ExampleCuttingMap.vue 
 ```
 
 ## `TODO`
@@ -167,4 +204,5 @@ useCesiumEvent({
 - [x] `Water`水体抬升/降低
 - [x] `Roam`漫游效果
 - [x] `Weather`天气场景开发
+- [x] `CuttingMap`切割地图
 
