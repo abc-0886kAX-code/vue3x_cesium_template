@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-02-27 16:52:09
+ * @LastEditTime: 2024-03-25 15:54:48
  * @Description:
 -->
 <script setup>
@@ -87,7 +87,9 @@ function addBasePoint() {
 
 const iconController = setupLayer({
     render: BillboardCollection,
-    config: {}
+    config: {
+        scene: unref(mapview).scene
+    }
 });
 const iconControllerEnity = unref(gather)[iconController._guid];
 const iconEnity = iconControllerEnity.find();
@@ -106,7 +108,9 @@ function addIconPoint() {
 
 const labelController = setupLayer({
     render: LabelCollection,
-    config: {},
+    config: {
+        scene: unref(mapview).scene
+    }
 });
 const labelControllerEnity = unref(gather)[labelController._guid];
 const labelEnity = labelControllerEnity.find();
@@ -146,11 +150,11 @@ onBeforeUnmount(() => {
                 <el-button type="primary" plain @click="pointController">切换</el-button>
             </div>
             <div class="ExamplePoint-console-item">
-                <div>图标点位-显示隐藏</div>
+                <div>图标点位（贴地）-显示隐藏</div>
                 <el-button type="primary" plain @click="iconPointController">切换</el-button>
             </div>
             <div class="ExamplePoint-console-item">
-                <div>文本点位-显示隐藏</div>
+                <div>文本点位（贴地）-显示隐藏</div>
                 <el-button type="primary" plain @click="labelPointController">切换</el-button>
             </div>
             <div class="ExamplePoint-console-item">
