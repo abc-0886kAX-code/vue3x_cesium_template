@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-03-12 17:00:21
+ * @LastEditTime: 2024-06-03 09:59:13
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -189,6 +189,14 @@ useCesiumEvent({
 // 具体查看 ExampleCuttingMap.vue 
 ```
 
+### ExampleInundationAnalysis.vue
+[参考示例](https://blog.csdn.net/ljy1998dsb/article/details/125881260)
+```javascript
+// 淹没分析
+// 简述: 通过传入多边形经纬度(区域范围)，设定初始高度以及限高，然后通过setInterval()设定每一次改变的值，达到淹没分析效果，本实例依托于视角(第一人称视角)以及地形
+// 具体查看 ExampleInundationAnalysis.vue 
+```
+
 ## `TODO`
 
 - [x] `Cesium`实体构建
@@ -205,4 +213,5 @@ useCesiumEvent({
 - [x] `Roam`漫游效果
 - [x] `Weather`天气场景开发
 - [x] `CuttingMap`切割地图
+- [x] `InundationAnalysis`淹没分析
 

@@ -1,9 +1,9 @@
 <!--
- * @FilePath: \vue3x_cesium_template\src\layout\Home.vue
+ * @FilePath: \vue3x_cesium_template\src\layout\ExampleHome.vue
  * @Author: abc-0886kAX-code
  * @Date: 2023-04-12 13:14:28
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 10:52:31
+ * @LastEditTime: 2024-06-01 14:26:47
  * @Description:
 -->
 <script setup>
@@ -66,6 +66,10 @@ const featurelist = {
     },
     'ExampleCuttingMap': {
         label: 'Cesium示例-地图切割',
+        func: jumpToPage
+    },
+    'ExampleInundationAnalysis': {
+        label: 'Cesium示例-淹没分析',
         func: jumpToPage
     }
 

@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-30 10:18:11
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-03-12 15:08:05
+ * @LastEditTime: 2024-06-01 14:25:56
  * @Description:
  */
 import { defineRouter } from "./defineRouter";
@@ -141,6 +141,15 @@ export const routes = [
                     "hidden": "true"
                 },
                 "component": () => import("@/pages/Example/ExampleCuttingMap/ExampleCuttingMap.vue")
+            },
+            {
+                "path": "/Example/ExampleInundationAnalysis",
+                "name": "ExampleInundationAnalysis",
+                "meta": {
+                    "title": "Cesium示例-淹没分析",
+                    "hidden": "true"
+                },
+                "component": () => import("@/pages/Example/ExampleInundationAnalysis/ExampleInundationAnalysis.vue")
             }
         ]
     },

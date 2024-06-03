@@ -42,7 +42,7 @@
     },
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "window.autoDetectColorScheme": true,
+    "window.autoDetectColorScheme": false,
     "window.dialogStyle": "custom",
     "window.nativeTabs": true, // this is great, macOS only
     "window.titleBarStyle": "custom",

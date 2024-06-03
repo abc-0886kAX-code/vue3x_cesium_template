@@ -1,3 +1,13 @@
+/*
+ * @FilePath: \vue3x_cesium_template\src\pages\Example\ExampleRoam\config.js
+ * @Author: abc-0886kAX-code
+ * @Date: 2024-01-12 13:37:06
+ * @LastEditors: abc-0886kAX-code
+ * @LastEditTime: 2024-05-28 15:44:38
+ * @Description:
+ */
+import {VelocityOrientationProperty,SampledPositionProperty} from 'cesium';
+
 export const pathStyle = {
     material: {
         polylineOutline: {
@@ -14,6 +24,7 @@ export const pathStyle = {
     leadTime: 10,
     trailTime: 1000,
     resolution: 5,
+    // orientation: new VelocityOrientationProperty(new SampledPositionProperty()),
 }
 
 export const billboard = {
@@ -23,4 +34,11 @@ export const billboard = {
     eyeOffset: {
         cartesian: [0.0, 0.0, -10.0],
     },
+    "orientation" : {
+      "velocityReference": "#position"
+    },
+    "viewFrom": {
+      "cartesian": [ -2080, -1715, 779 ]
+    },
+    // orientation: new VelocityOrientationProperty(new SampledPositionProperty()),
 }

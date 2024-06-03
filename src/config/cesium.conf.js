@@ -3,9 +3,11 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 14:20:16
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-03-11 12:57:47
+ * @LastEditTime: 2024-06-01 14:42:29
  * @Description:
  */
+import {Terrain} from 'cesium';
+
 // 初始化位置
 export const initPlace = {
     position: [116.416411, 38.849242, 409882],
@@ -25,10 +27,10 @@ const config = {
     selectionIndicator: true,//选取指示器组件
     navigationHelpButton: true,//帮助按钮
     navigationInstructionsInitiallyVisible: false, // 如果导航说明最初应该是可见的，则为true；如果直到用户明确单击该按钮，则不显示该说明，否则为false。
-    // terrain: Cesium.Terrain.fromWorldTerrain(), //不知道为啥地形不能继续使用了，token过期，和cesium.ion的token没有关系
+    // terrain: Terrain.fromWorldTerrain(), //不知道为啥地形不能继续使用了，token过期，和cesium.ion的token没有关系
     selectionIndicator: false, // 选中图层后 显示的默认绿色框
     baseLayer: false,
-    shouldAnimate: true,
+    shouldAnimate: false,
 }
 const layers = [
     // {
