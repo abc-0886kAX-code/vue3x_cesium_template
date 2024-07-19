@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-06-03 09:59:13
+ * @LastEditTime: 2024-07-19 14:40:46
  * @Description: 
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
@@ -195,6 +195,12 @@ useCesiumEvent({
 // 淹没分析
 // 简述: 通过传入多边形经纬度(区域范围)，设定初始高度以及限高，然后通过setInterval()设定每一次改变的值，达到淹没分析效果，本实例依托于视角(第一人称视角)以及地形
 // 具体查看 ExampleInundationAnalysis.vue 
+```
+
+### useWatchLevel
+```javascript
+// 监听地图层级
+// 简述：通过调用内置方法 开始监听地图层级，当地图层级发生变化时，触发回调函数
 ```
 
 ## `TODO`
