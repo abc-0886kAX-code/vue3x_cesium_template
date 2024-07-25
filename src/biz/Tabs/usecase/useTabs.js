@@ -6,62 +6,66 @@
  * @LastEditTime: 2023-03-08 10:39:22
  * @Description:
  */
-import EmptyView from "@/components/EmptyView.vue";
+import { TabsEntity } from '../entity/Tabs'
+import EmptyView from '@/components/EmptyView.vue'
 
-import { TabsEntity } from "../entity/Tabs";
-import { useShallowObject } from "@/hooks/ref/useShallowObject";
-import { uuid } from "~/shared/uuid";
-import { transObject, transBoolean, transFunction, transArray } from "~/shared/trans";
+import { useShallowObject } from '@/hooks/ref/useShallowObject'
+import { uuid } from '~/shared/uuid'
+import { transArray, transBoolean, transFunction, transObject } from '~/shared/trans'
 
 export function useTabs(props = {}) {
-    const trans = transFunction(props.trans);
-    const { source, state, has, take, bind, clear } = useShallowObject();
-    const active = ref(get(props, "default", uuid()));
-    const component = computed(() => {
-        if (!has(unref(active))) return EmptyView;
+  const trans = transFunction(props.trans)
+  const { source, state, has, take, bind, clear } = useShallowObject()
+  const active = ref(get(props, 'default', uuid()))
+  const component = computed(() => {
+    if (!has(unref(active)))
+      return EmptyView
 
-        return take(unref(active)).template;
-    });
-    const dataset = computed(() => {
-        return Object.keys(unref(source)).map((keyword) => {
-            return trans(take(keyword));
-        });
-    });
-    function update(raw) {
-        const entity = transObject(raw, TabsEntity());
+    return take(unref(active)).template
+  })
+  const dataset = computed(() => {
+    return Object.keys(unref(source)).map((keyword) => {
+      return trans(take(keyword))
+    })
+  })
+  function update(raw) {
+    const entity = transObject(raw, TabsEntity())
 
-        if (unref(state.unusable)) return (active.value = uuid());
+    if (unref(state.unusable))
+      return (active.value = uuid())
 
-        if (has(entity.keyword)) return (active.value = entity.keyword);
+    if (has(entity.keyword))
+      return (active.value = entity.keyword)
 
-        return (active.value = unref(dataset)[0].keyword);
-    }
+    return (active.value = unref(dataset)[0].keyword)
+  }
 
-    function setup(tabsource) {
-        transArray(tabsource).forEach((tab, idx) => {
-            const entity = TabsEntity(tab, idx);
-            bind(entity.keyword, entity);
-        });
+  function setup(tabsource) {
+    transArray(tabsource).forEach((tab, idx) => {
+      const entity = TabsEntity(tab, idx)
+      bind(entity.keyword, entity)
+    })
 
-        update();
-    }
+    update()
+  }
 
-    onBeforeMount(() => {
-        setup(props.data);
-    });
+  onBeforeMount(() => {
+    setup(props.data)
+  })
 
-    onBeforeUnmount(() => {
-        if (transBoolean(props.release, true)) clear();
-    });
+  onBeforeUnmount(() => {
+    if (transBoolean(props.release, true))
+      clear()
+  })
 
-    return {
-        active,
-        component,
-        dataset,
-        update,
-        setup,
-        clear,
-    };
+  return {
+    active,
+    component,
+    dataset,
+    update,
+    setup,
+    clear,
+  }
 }
 
-export default useTabs;
+export default useTabs

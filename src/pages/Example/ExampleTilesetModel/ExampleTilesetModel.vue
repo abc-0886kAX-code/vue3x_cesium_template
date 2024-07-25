@@ -7,64 +7,67 @@
  * @Description:
 -->
 <script setup>
-import { Cartesian3, PrimitiveCollection, Transforms, defined, ClassificationType, Matrix4, Cartographic } from 'cesium';
-import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
-import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js';
-import { useModel, update3dtilesMaxtrix } from '@/biz/Cesium/usecase/useModel.js';
+import { PrimitiveCollection } from 'cesium'
+import { useCesium } from '@/biz/Cesium/usecase/useCesium.js'
+import { usePrimitiveLayer } from '@/biz/Cesium/usecase/usePrimitiveLayer.js'
+import { update3dtilesMaxtrix, useModel } from '@/biz/Cesium/usecase/useModel.js'
 
-const { setupModelByUrl } = useModel();
-const { mapview } = useCesium();
-const { gather, setupLayer } = usePrimitiveLayer(mapview);
+const { setupModelByUrl } = useModel()
+const { mapview } = useCesium()
+const { gather, setupLayer } = usePrimitiveLayer(mapview)
 const controller = setupLayer({
-    render: PrimitiveCollection,
-    config: {}
-});
-const controllerEnity = unref(gather)[controller._guid];
-const enity = controllerEnity.find();
+  render: PrimitiveCollection,
+  config: {},
+})
+const controllerEnity = unref(gather)[controller._guid]
+const enity = controllerEnity.find()
 
 function pointController() {
-    controllerEnity.switch();
+  controllerEnity.switch()
 }
 
 async function executeQuery() {
-    const tile = await setupModelByUrl({
-        url: "model/factory/tileset.json",
-        // url: 'https://data.mars3d.cn/3dtiles/max-piping/tileset.json'
-    });
-    enity.add(tile);
-    tile._root.transform = update3dtilesMaxtrix({
-        tx: 116.442159, //模型中心X轴坐标（经度，单位：十进制度）
-        ty: 39.742936, //模型中心Y轴坐标（纬度，单位：十进制度）
-        tz: 0, //模型中心Z轴坐标（高程，单位：米）
-        rx: 0, //X轴（经度）方向旋转角度（单位：度）
-        ry: 0, //Y轴（纬度）方向旋转角度（单位：度）
-        rz: 60, //Z轴（高程）方向旋转角度（单位：度）
-    });
+  const tile = await setupModelByUrl({
+    url: 'model/factory/tileset.json',
+    // url: 'https://data.mars3d.cn/3dtiles/max-piping/tileset.json'
+  })
+  enity.add(tile)
+  tile._root.transform = update3dtilesMaxtrix({
+    tx: 116.442159, // 模型中心X轴坐标（经度，单位：十进制度）
+    ty: 39.742936, // 模型中心Y轴坐标（纬度，单位：十进制度）
+    tz: 0, // 模型中心Z轴坐标（高程，单位：米）
+    rx: 0, // X轴（经度）方向旋转角度（单位：度）
+    ry: 0, // Y轴（纬度）方向旋转角度（单位：度）
+    rz: 60, // Z轴（高程）方向旋转角度（单位：度）
+  })
 
-    unref(mapview).zoomTo(tile)
+  unref(mapview).zoomTo(tile)
 }
 
 onMounted(() => {
-    executeQuery();
+  executeQuery()
 })
 onBeforeUnmount(() => {
-    controllerEnity.clear();
+  controllerEnity.clear()
 })
 </script>
 
 <template>
-    <div class="ExampleModel">
-        <div class="ExampleModel-console">
-            <div class="ExampleModel-console-item">
-                <div>供水厂模型-显示隐藏
-                </div>
-                <el-button type="primary" plain @click="pointController">切换</el-button>
-            </div>
+  <div class="ExampleModel">
+    <div class="ExampleModel-console">
+      <div class="ExampleModel-console-item">
+        <div>
+          供水厂模型-显示隐藏
         </div>
-        <div class="ExampleModel-illustrate">
-            供水厂模型
-        </div>
+        <el-button type="primary" plain @click="pointController">
+          切换
+        </el-button>
+      </div>
     </div>
+    <div class="ExampleModel-illustrate">
+      供水厂模型
+    </div>
+  </div>
 </template>
 
 <style scoped lang='scss'>

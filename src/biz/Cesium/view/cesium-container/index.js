@@ -5,6 +5,6 @@
  * @LastEditTime: 2023-11-29 13:46:20
  * @Description: file content
  */
-import CesiumContainer from './cesium-container.vue';
+import CesiumContainer from './cesium-container.vue'
 
-export { CesiumContainer };
+export { CesiumContainer }

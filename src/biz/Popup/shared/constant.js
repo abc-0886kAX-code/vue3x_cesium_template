@@ -8,16 +8,16 @@
  */
 // export const DialogCustomClass = "vue3x_cesium_template-dialog";
 export const DialogProps = {
-    // customClass: DialogCustomClass, element-plus version 2.3.0 属性弃用
-    fullscreen: false,
-    modal: false,
-    modalAppendToBody: true,
-    appendToBody: true,
-    lockScroll: true,
-    closeOnClickModal: false,
-    closeOnPressEscape: true,
-    showClose: true,
-    center: false,
-    // 待定
-    destroyOnClose: false
+  // customClass: DialogCustomClass, element-plus version 2.3.0 属性弃用
+  fullscreen: false,
+  modal: false,
+  modalAppendToBody: true,
+  appendToBody: true,
+  lockScroll: true,
+  closeOnClickModal: false,
+  closeOnPressEscape: true,
+  showClose: true,
+  center: false,
+  // 待定
+  destroyOnClose: false,
 }

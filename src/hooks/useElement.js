@@ -7,13 +7,13 @@
  * @Description:
  */
 export function useElementRefs() {
-    const refs = ref(null);
-    const ready = computed(() => !isNil(unref(refs)));
+  const refs = ref(null)
+  const ready = computed(() => !isNil(unref(refs)))
 
-    return {
-        refs,
-        ready,
-    }
+  return {
+    refs,
+    ready,
+  }
 }
 
-export default useElementRefs;
+export default useElementRefs

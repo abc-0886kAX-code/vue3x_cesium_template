@@ -6,22 +6,24 @@
  * @LastEditTime: 2022-12-07 18:17:31
  * @Description:
  */
-import { transFunction } from "~/shared/trans";
+import { transFunction } from '~/shared/trans'
 
 export function useWatch({ server }, props) {
-    const handler = isFunction(props) ? props : flow([
-        transFunction(props.trans),
-        transFunction(props.setup),
-        transFunction(props.next)
-    ]);
+  const handler = isFunction(props)
+    ? props
+    : flow([
+      transFunction(props.trans),
+      transFunction(props.setup),
+      transFunction(props.next),
+    ])
 
-    const unwatchEffect = watchEffect(() => {
-        unref(server.started) && handler(unref(server.result.source));
-    });
+  const unwatchEffect = watchEffect(() => {
+    unref(server.started) && handler(unref(server.result.source))
+  })
 
-    onUnmounted(() => {
-        unwatchEffect();
-    });
+  onUnmounted(() => {
+    unwatchEffect()
+  })
 
-    return unwatchEffect;
+  return unwatchEffect
 }

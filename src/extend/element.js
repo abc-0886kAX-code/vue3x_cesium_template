@@ -10,7 +10,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
 export function extendElement(Vue) {
-    Vue.use(ElementPlus);
+  Vue.use(ElementPlus)
 }
 
-export default extendElement;
+export default extendElement

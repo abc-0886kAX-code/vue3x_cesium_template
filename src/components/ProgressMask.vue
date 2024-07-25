@@ -1,34 +1,38 @@
 <script setup lang='ts'>
-import { storeToRefs } from "pinia";
-import { useProgressMask } from "@/store/useProgressMask";
+import { storeToRefs } from 'pinia'
+import { useProgressMask } from '@/store/useProgressMask'
 
-const progressMaskStore = useProgressMask();
-const { active, desc, percentage } = storeToRefs(progressMaskStore);
+const progressMaskStore = useProgressMask()
+const { active, desc, percentage } = storeToRefs(progressMaskStore)
 
 const customColors = [
-    { color: '#f56c6c', percentage: 20 },
-    { color: '#e6a23c', percentage: 40 },
-    { color: '#5cb87a', percentage: 60 },
-    { color: '#1989fa', percentage: 80 },
-    { color: '#6f7ad3', percentage: 100 }
-];
+  { color: '#f56c6c', percentage: 20 },
+  { color: '#e6a23c', percentage: 40 },
+  { color: '#5cb87a', percentage: 60 },
+  { color: '#1989fa', percentage: 80 },
+  { color: '#6f7ad3', percentage: 100 },
+]
 const maskClassName = computed(() => {
-    return unref(active) ? ["progess-mask-active"] : [];
-});
+  return unref(active) ? ['progess-mask-active'] : []
+})
 
 onUnmounted(() => {
-    progressMaskStore.$reset();
-});
+  progressMaskStore.$reset()
+})
 </script>
 
 <template>
-    <div class="progress-mask" :class="maskClassName">
-        <p class="progress-mask-desc">{{ desc }}</p>
-        <div class="progress-mask-main">
-            <el-progress stroke-linecap="square" :percentage="percentage" :color="customColors"
-                :show-text="false"></el-progress>
-        </div>
+  <div class="progress-mask" :class="maskClassName">
+    <p class="progress-mask-desc">
+      {{ desc }}
+    </p>
+    <div class="progress-mask-main">
+      <el-progress
+        stroke-linecap="square" :percentage="percentage" :color="customColors"
+        :show-text="false"
+      />
     </div>
+  </div>
 </template>
 
 <style scoped lang='scss'>

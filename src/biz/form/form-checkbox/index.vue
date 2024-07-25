@@ -7,25 +7,23 @@
  * @Description:
 -->
 <script setup>
-import { useFormCheckbox } from './useFormCheckbox';
-const props = defineProps({
-    sign: {
-        type: String,
-        required: true
-    }
-})
-const { schema, setupValue } = useFormCheckbox(props.sign);
-const checkboxValue = ref(schema.value.content);
-function onChange(e) {
-    setupValue(e);
-}
+import { useFormCheckbox } from './useFormCheckbox'
 
+const props = defineProps({
+  sign: {
+    type: String,
+    required: true,
+  },
+})
+const { schema, setupValue } = useFormCheckbox(props.sign)
+const checkboxValue = ref(schema.value.content)
+function onChange(e) {
+  setupValue(e)
+}
 </script>
 
-
 <template>
-    <el-checkbox class="form-checkbox" v-bind="schema" v-model="checkboxValue" @change="onChange">
-    </el-checkbox>
+  <el-checkbox v-bind="schema" v-model="checkboxValue" class="form-checkbox" @change="onChange" />
 </template>
 
 <style scoped lang='scss'>

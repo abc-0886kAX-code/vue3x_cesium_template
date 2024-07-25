@@ -7,21 +7,21 @@
  * @Description:
 -->
 <script setup>
-import Popup from "@/layout/Popup.vue";
-import ProgressMask from "@/components/ProgressMask.vue";
+import Popup from '@/layout/Popup.vue'
+import ProgressMask from '@/components/ProgressMask.vue'
 </script>
 
 <template>
-    <div id="app">
-        <ProgressMask></ProgressMask>
-        <Popup>
-            <RouterView v-slot="{ Component }">
-                <transition name="el-fade-in-linear">
-                    <component :is="Component" />
-                </transition>
-            </RouterView>
-        </Popup>
-    </div>
+  <div id="app">
+    <ProgressMask />
+    <Popup>
+      <RouterView v-slot="{ Component }">
+        <transition name="el-fade-in-linear">
+          <component :is="Component" />
+        </transition>
+      </RouterView>
+    </Popup>
+  </div>
 </template>
 
 <style scoped lang="scss"></style>

@@ -7,127 +7,143 @@
  * @Description:
 -->
 <script setup>
-import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js';
-import { useCesium } from '@/biz/Cesium/usecase/useCesium';
-import { useCesiumWeather } from '@/biz/Cesium/usecase/useCesiumWeather.js';
-const roam = useResetCamera();
-const { mapview } = useCesium();
-const { EffectGather, weatherConfig } = useCesiumWeather();
+import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js'
+import { useCesium } from '@/biz/Cesium/usecase/useCesium'
+import { useCesiumWeather } from '@/biz/Cesium/usecase/useCesiumWeather.js'
+
+const roam = useResetCamera()
+const { mapview } = useCesium()
+const { EffectGather, weatherConfig } = useCesiumWeather()
 
 const rainEffect = computed(() => {
-    return EffectGather.get('rain')
-});
+  return EffectGather.get('rain')
+})
 const snowEffect = computed(() => {
-    return EffectGather.get('snow')
-});
+  return EffectGather.get('snow')
+})
 const fogEffect = computed(() => {
-    return EffectGather.get('fog')
-});
+  return EffectGather.get('fog')
+})
 
-const rainChoice = ref(false);
+const rainChoice = ref(false)
 const isRainChoice = computed(() => {
-    return unref(snowChoice) || unref(fogChoice)
-});
+  return unref(snowChoice) || unref(fogChoice)
+})
 function rainChange(val) {
-    rainChoice.value = val;
-    executeRainEffect();
+  rainChoice.value = val
+  executeRainEffect()
 }
 
-const snowChoice = ref(false);
+const snowChoice = ref(false)
 const isSnowChoice = computed(() => {
-    return unref(rainChoice) || unref(fogChoice)
-});
+  return unref(rainChoice) || unref(fogChoice)
+})
 function snowChange(val) {
-    snowChoice.value = val;
-    executeSnowEffect();
+  snowChoice.value = val
+  executeSnowEffect()
 }
 
-const fogChoice = ref(false);
+const fogChoice = ref(false)
 const isFogChoice = computed(() => {
-    return unref(snowChoice) || unref(rainChoice)
-});
+  return unref(snowChoice) || unref(rainChoice)
+})
 function fogChange(val) {
-    fogChoice.value = val;
-    executeFogEffect();
+  fogChoice.value = val
+  executeFogEffect()
 }
 
 function executeRainEffect() {
-    unref(rainEffect).switchWeatherState()
+  unref(rainEffect).switchWeatherState()
 }
 function executeSnowEffect() {
-    unref(snowEffect).switchWeatherState()
+  unref(snowEffect).switchWeatherState()
 }
 function executeFogEffect() {
-    unref(fogEffect).switchWeatherState()
+  unref(fogEffect).switchWeatherState()
 }
 
-
-
-
 onMounted(() => {
-    roam();
+  roam()
 })
 </script>
 
 <template>
-    <div class="ExampleWeather">
-        <div class="ExampleWeather-console">
-            <div class="ExampleWeather-console-item">
-                <div>雨天</div>
-                <el-checkbox :model-value="rainChoice" label="选择" :checked="rainChoice" border :disabled="isRainChoice"
-                    @change="rainChange" />
-                <div class="ExampleWeather-console-item-params">
-                    <div class="ExampleWeather-console-item-params-item">
-                        <span>倾斜角度</span>
-                        <el-slider class="ExampleWeather-console-item-params-item-slider"
-                            v-model="weatherConfig['rain'].tiltAngle" :min="-1" :max="1" :step="0.1" />
-                    </div>
-                    <div class="ExampleWeather-console-item-params-item">
-                        <span>雨大小</span>
-                        <el-slider class="ExampleWeather-console-item-params-item-slider"
-                            v-model="weatherConfig['rain'].rainSize" :min="0" :max="1" :step="0.1" />
-                    </div>
-                    <div class="ExampleWeather-console-item-params-item">
-                        <span>雨速</span>
-                        <el-slider class="ExampleWeather-console-item-params-item-slider"
-                            v-model="weatherConfig['rain'].rainSpeed" :max="200" />
-                    </div>
-                </div>
-            </div>
-            <div class="ExampleWeather-console-item">
-                <div>雪天</div>
-                <el-checkbox :model-value="snowChoice" label="选择" :checked="snowChoice" border :disabled="isSnowChoice"
-                    @change="snowChange" />
-                <div class="ExampleWeather-console-item-params">
-                    <div class="ExampleWeather-console-item-params-item">
-                        <span>雪花大小</span>
-                        <el-slider class="ExampleWeather-console-item-params-item-slider"
-                            v-model="weatherConfig['snow'].snowSize" :min="0" :max="0.05" :step="0.01" />
-                    </div>
-                    <div class="ExampleWeather-console-item-params-item">
-                        <span>雪速</span>
-                        <el-slider class="ExampleWeather-console-item-params-item-slider"
-                            v-model="weatherConfig['snow'].snowSpeed" />
-                    </div>
-                </div>
-            </div>
-            <div class="ExampleWeather-console-item">
-                <div>雾天</div>
-                <el-checkbox :model-value="fogChoice" label="选择" :checked="fogChoice" border :disabled="isFogChoice"
-                    @change="fogChange" />
-                <div class="ExampleWeather-console-item-params">
-                    <div class="ExampleWeather-console-item-params-item">
-                        <span>可见度</span>
-                        <el-slider class="ExampleWeather-console-item-params-item-slider"
-                            v-model="weatherConfig['fog'].visibility" :step="0.01" :max="0.3" />
-                    </div>
-                </div>
-            </div>
+  <div class="ExampleWeather">
+    <div class="ExampleWeather-console">
+      <div class="ExampleWeather-console-item">
+        <div>雨天</div>
+        <el-checkbox
+          :model-value="rainChoice" label="选择" :checked="rainChoice" border :disabled="isRainChoice"
+          @change="rainChange"
+        />
+        <div class="ExampleWeather-console-item-params">
+          <div class="ExampleWeather-console-item-params-item">
+            <span>倾斜角度</span>
+            <el-slider
+              v-model="weatherConfig.rain.tiltAngle"
+              class="ExampleWeather-console-item-params-item-slider" :min="-1" :max="1" :step="0.1"
+            />
+          </div>
+          <div class="ExampleWeather-console-item-params-item">
+            <span>雨大小</span>
+            <el-slider
+              v-model="weatherConfig.rain.rainSize"
+              class="ExampleWeather-console-item-params-item-slider" :min="0" :max="1" :step="0.1"
+            />
+          </div>
+          <div class="ExampleWeather-console-item-params-item">
+            <span>雨速</span>
+            <el-slider
+              v-model="weatherConfig.rain.rainSpeed"
+              class="ExampleWeather-console-item-params-item-slider" :max="200"
+            />
+          </div>
         </div>
-        <div class="ExampleWeather-illustrate">
-            天气示例
+      </div>
+      <div class="ExampleWeather-console-item">
+        <div>雪天</div>
+        <el-checkbox
+          :model-value="snowChoice" label="选择" :checked="snowChoice" border :disabled="isSnowChoice"
+          @change="snowChange"
+        />
+        <div class="ExampleWeather-console-item-params">
+          <div class="ExampleWeather-console-item-params-item">
+            <span>雪花大小</span>
+            <el-slider
+              v-model="weatherConfig.snow.snowSize"
+              class="ExampleWeather-console-item-params-item-slider" :min="0" :max="0.05" :step="0.01"
+            />
+          </div>
+          <div class="ExampleWeather-console-item-params-item">
+            <span>雪速</span>
+            <el-slider
+              v-model="weatherConfig.snow.snowSpeed"
+              class="ExampleWeather-console-item-params-item-slider"
+            />
+          </div>
         </div>
+      </div>
+      <div class="ExampleWeather-console-item">
+        <div>雾天</div>
+        <el-checkbox
+          :model-value="fogChoice" label="选择" :checked="fogChoice" border :disabled="isFogChoice"
+          @change="fogChange"
+        />
+        <div class="ExampleWeather-console-item-params">
+          <div class="ExampleWeather-console-item-params-item">
+            <span>可见度</span>
+            <el-slider
+              v-model="weatherConfig.fog.visibility"
+              class="ExampleWeather-console-item-params-item-slider" :step="0.01" :max="0.3"
+            />
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="ExampleWeather-illustrate">
+      天气示例
+    </div>
+  </div>
 </template>
 
 <style scoped lang='scss'>

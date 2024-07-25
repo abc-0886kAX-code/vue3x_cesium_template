@@ -6,4 +6,4 @@
  * @LastEditTime: 2023-02-01 13:45:47
  * @Description:
  */
-export * from "./usecase/useTabs";
+export * from './usecase/useTabs'

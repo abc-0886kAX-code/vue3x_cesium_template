@@ -7,20 +7,24 @@
  * @Description:
 -->
 <script setup>
-const { proxy } = getCurrentInstance();
+const { proxy } = getCurrentInstance()
 function gobackHome() {
-    proxy.$router.push({ name: "layout" });
+  proxy.$router.push({ name: 'layout' })
 }
 </script>
 
 <template>
-    <div class="not-page">
-        <img src="@/assets/images/404.svg" alt="" />
-        <div class="not-page-text">抱歉，您访问的页面不存在。</div>
-        <div class="not-page-btn">
-            <el-button type="primary" @click="gobackHome">返回首页</el-button>
-        </div>
+  <div class="not-page">
+    <img src="@/assets/images/404.svg" alt="">
+    <div class="not-page-text">
+      抱歉，您访问的页面不存在。
     </div>
+    <div class="not-page-btn">
+      <el-button type="primary" @click="gobackHome">
+        返回首页
+      </el-button>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">

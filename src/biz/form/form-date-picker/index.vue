@@ -7,25 +7,23 @@
  * @Description:
 -->
 <script setup>
-import { useFormDatePicker } from './useFormDatePicker';
-const props = defineProps({
-    sign: {
-        type: String,
-        required: true
-    }
-})
-const { schema, setupValue } = useFormDatePicker(props.sign);
-const datePickerValue = ref(schema.value.content);
-function onChange(e) {
-    setupValue(e);
-}
+import { useFormDatePicker } from './useFormDatePicker'
 
+const props = defineProps({
+  sign: {
+    type: String,
+    required: true,
+  },
+})
+const { schema, setupValue } = useFormDatePicker(props.sign)
+const datePickerValue = ref(schema.value.content)
+function onChange(e) {
+  setupValue(e)
+}
 </script>
 
-
 <template>
-    <el-date-picker class="form-date-picker" v-bind="schema" v-model="datePickerValue" @change="onChange">
-    </el-date-picker>
+  <el-date-picker v-bind="schema" v-model="datePickerValue" class="form-date-picker" @change="onChange" />
 </template>
 
 <style scoped lang='scss'>

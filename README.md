@@ -4,7 +4,7 @@
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: abc-0886kAX-code
  * @LastEditTime: 2024-07-19 14:40:46
- * @Description: 
+ * @Description:
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
 
@@ -14,7 +14,6 @@
 
 - 📍&nbsp;&nbsp;[Address](http://152.136.167.65:8083/#/)
 <br>
-
 
 <strong>vite/cesium</strong>
 `package.json`
@@ -26,9 +25,9 @@
 ```
 `vite.config.js`
 ```javascript
-import cesium from 'vite-plugin-cesium';
+import cesium from 'vite-plugin-cesium'
 plugins:[
-    cesium()
+  cesium()
 ]
 ```
 <strong>webpack/cesium</strong>
@@ -57,20 +56,20 @@ plugins:[
 
 ```javascript
 // 通过inject注入Cesium实体，在任何setup中都可以使用
-const { mapview } = useCesium();
+const { mapview } = useCesium()
 ```
 
 ### useResetCamera
 
 ```javascript
 // 整合定位功能，通过传参改变定位视角或默认到初始视角
-const roam = useResetCamera();
-roam();
+const roam = useResetCamera()
+roam()
 
 roam({
-    position: [116.416411, 38.849242, 409882],
-    pitch: -70,
-    heading: 0
+  position: [116.416411, 38.849242, 409882],
+  pitch: -70,
+  heading: 0
 })
 ```
 
@@ -82,10 +81,10 @@ roam({
 // 鼠标移入 - 可选
 // 鼠标移出 - 可选
 useCesiumEvent({
-    click: handlerClick,
-    mouseOver: handlerOver,
-    mouseOut: setupFloatHide,
-});
+  click: handlerClick,
+  mouseOver: handlerOver,
+  mouseOut: setupFloatHide,
+})
 ```
 
 ### useLayerSetup
@@ -94,10 +93,10 @@ useCesiumEvent({
 // 实体初始化挂载的图层
 // 目前仅支持ArcGIS图层
 [
-    {
-        type: "arcgis",
-        url: BJ_AREA_SERVICE
-    }
+  {
+    type: 'arcgis',
+    url: BJ_AREA_SERVICE
+  }
 ]
 ```
 
@@ -109,7 +108,6 @@ useCesiumEvent({
 // 可携带额外数据 id:{}
 // _guid 唯一标识
 ```
-
 
 ### usePoint
 
@@ -131,14 +129,14 @@ useCesiumEvent({
 
 ```javascript
 // 面渲染
-// 具体查看 ExampleZones.vue / ExampleGeojson.vue 
+// 具体查看 ExampleZones.vue / ExampleGeojson.vue
 ```
 
 ### useImagesLayer
 
 ```javascript
 // 图片渲染
-// 具体查看 ExampleImages.vue 
+// 具体查看 ExampleImages.vue
 ```
 
 ### useMask
@@ -146,7 +144,7 @@ useCesiumEvent({
 ```javascript
 // 遮罩层渲染
 // 简述:通过在地球上绘制三个面，只在指定的一个面上绘制空洞，形成遮罩层
-// 具体查看 ExampleMask.vue 
+// 具体查看 ExampleMask.vue
 ```
 
 ### useModel
@@ -154,7 +152,7 @@ useCesiumEvent({
 ```javascript
 // 模型渲染
 // 简述:通过 路径 或 Id(上传到cesium.ion) 加载模型，update3dtilesMaxtrix方法调整模型位置以及旋转角度
-// 具体查看 ExampleModel.vue / ExampleTilesetModel.vue 
+// 具体查看 ExampleModel.vue / ExampleTilesetModel.vue
 ```
 
 ### useDrawRiver
@@ -162,7 +160,7 @@ useCesiumEvent({
 ```javascript
 // 水体渲染
 // 简述:创建多边形，通过Object.defineProperty监听多边形距离地面高度、水体高度，setInterval调整多边形高度以及距离地面高度
-// 具体查看 ExampleWaterUpraise.vue 
+// 具体查看 ExampleWaterUpraise.vue
 ```
 
 ### useCesiumWeather
@@ -170,15 +168,15 @@ useCesiumEvent({
 ```javascript
 // 天气渲染
 // 简述:通过传入天气类型参数，初始化生成天气实例，实例中带有显示/隐藏、更新天气配置等方法，并且天气类中增加watch监听，可实时更新天气配置，特殊业务需求可直接调用biz/Cesium/entity文件夹下的天气类
-// 具体查看 ExampleWeather.vue 
+// 具体查看 ExampleWeather.vue
 ```
 
 ### ExampleRoam.vue
 [官方示例](https://sandcastle.cesium.com/?src=CZML%20Path.html)
 ```javascript
 // 漫游场景
-// 简述: 官方示例繁衍出来的漫游效果，对数据进行了分离，路线、物体、图层可控 
-// 具体查看 ExampleRoam.vue 
+// 简述: 官方示例繁衍出来的漫游效果，对数据进行了分离，路线、物体、图层可控
+// 具体查看 ExampleRoam.vue
 ```
 
 ### useCuttingMap
@@ -186,7 +184,7 @@ useCesiumEvent({
 ```javascript
 // 切割地图
 // 简述: 通过传入中心点位以及周围要展示的距离，实现地图的局部显示，切割以外的部分不会再加载以及请求图层等 (目前是一个正方形的，不会根据范围边界进行裁剪)
-// 具体查看 ExampleCuttingMap.vue 
+// 具体查看 ExampleCuttingMap.vue
 ```
 
 ### ExampleInundationAnalysis.vue
@@ -194,7 +192,7 @@ useCesiumEvent({
 ```javascript
 // 淹没分析
 // 简述: 通过传入多边形经纬度(区域范围)，设定初始高度以及限高，然后通过setInterval()设定每一次改变的值，达到淹没分析效果，本实例依托于视角(第一人称视角)以及地形
-// 具体查看 ExampleInundationAnalysis.vue 
+// 具体查看 ExampleInundationAnalysis.vue
 ```
 
 ### useWatchLevel
@@ -220,4 +218,3 @@ useCesiumEvent({
 - [x] `Weather`天气场景开发
 - [x] `CuttingMap`切割地图
 - [x] `InundationAnalysis`淹没分析
-

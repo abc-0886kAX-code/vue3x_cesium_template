@@ -7,25 +7,25 @@
  * @Description:
  */
 export function defineFormSelect(sign) {
-    const schema = ref({});
-    function setupSchema(params) {
-        schema.value = params;
-    }
+  const schema = ref({})
+  function setupSchema(params) {
+    schema.value = params
+  }
 
-    function setupValue(param) {
-        schema.value.content = param;
-    }
+  function setupValue(param) {
+    schema.value.content = param
+  }
 
-    const value = computed(() => schema.value.content);
-    const target = computed(() => {
-        return schema.value.options.find(item => item[schema.value.usevalue ?? 'value'] === schema.value.content)
-    });
+  const value = computed(() => schema.value.content)
+  const target = computed(() => {
+    return schema.value.options.find(item => item[schema.value.usevalue ?? 'value'] === schema.value.content)
+  })
 
-    provide(sign, { schema, setupValue })
+  provide(sign, { schema, setupValue })
 
-    return {
-        setupSelectSchema: setupSchema,
-        value,
-        target
-    }
+  return {
+    setupSelectSchema: setupSchema,
+    value,
+    target,
+  }
 }

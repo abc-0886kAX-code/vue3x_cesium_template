@@ -6,16 +6,17 @@
  * @LastEditTime: 2023-02-03 17:29:19
  * @Description:
  */
-import { mergeObject } from "~/shared/merge";
-const define = {
-    size: "mini"
-};
-export function useFormCheckbox(sign) {
-    const checkboxSchema = inject(sign, {})
-    const schema = computed(() => mergeObject({ ...define, ...checkboxSchema.schema.value }))
+import { mergeObject } from '~/shared/merge'
 
-    return {
-        schema,
-        setupValue: checkboxSchema.setupValue
-    }
+const define = {
+  size: 'mini',
+}
+export function useFormCheckbox(sign) {
+  const checkboxSchema = inject(sign, {})
+  const schema = computed(() => mergeObject({ ...define, ...checkboxSchema.schema.value }))
+
+  return {
+    schema,
+    setupValue: checkboxSchema.setupValue,
+  }
 }

@@ -7,68 +7,67 @@
  * @Description:
 -->
 <script setup>
-import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js';
-import { SingleTileImageryProvider, Rectangle, } from 'cesium';
-import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
-import { useImagesLayer } from '@/biz/Cesium/usecase/useImagesLayer.js';
-import radarImage from '@/assets/images/map/radar.png';
-import ImagesJson from '@/assets/json/ExampleImages.json';
+import { Rectangle, SingleTileImageryProvider } from 'cesium'
+import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js'
+import { useCesium } from '@/biz/Cesium/usecase/useCesium.js'
+import { useImagesLayer } from '@/biz/Cesium/usecase/useImagesLayer.js'
+import radarImage from '@/assets/images/map/radar.png'
 
-const roam = useResetCamera();
-const { mapview } = useCesium();
-const { gather, setupLayer } = useImagesLayer(mapview);
+const roam = useResetCamera()
+const { mapview } = useCesium()
+const { gather, setupLayer } = useImagesLayer(mapview)
 const controller = ref({
-    alpha: 1
+  alpha: 1,
 })
 
 const controllerEnity = computed(() => {
-    return unref(gather)[unref(controller)._layerIndex];
+  return unref(gather)[unref(controller)._layerIndex]
 })
 
 function pointController() {
-    unref(controllerEnity).switch();
+  unref(controllerEnity).switch()
 }
 
 async function executeQuery() {
-    controller.value = setupLayer({
-        render: SingleTileImageryProvider,
-        config: {
-            url: radarImage,
-            tileWidth: 200, // 必须 -文档出错
-            tileHeight: 200, // 必须 文档出错
-            rectangle: Rectangle.fromDegrees(113.34406, 35.9589, 119.93586, 42.74581)
-        }
-    });
+  controller.value = setupLayer({
+    render: SingleTileImageryProvider,
+    config: {
+      url: radarImage,
+      tileWidth: 200, // 必须 -文档出错
+      tileHeight: 200, // 必须 文档出错
+      rectangle: Rectangle.fromDegrees(113.34406, 35.9589, 119.93586, 42.74581),
+    },
+  })
 }
 
 onMounted(() => {
-    roam();
-    executeQuery();
+  roam()
+  executeQuery()
 })
 
 onBeforeUnmount(() => {
-    unref(controllerEnity).clear();
+  unref(controllerEnity).clear()
 })
 </script>
 
 <template>
-    <div class="ExampleImages">
-        <div class="ExampleImages-console">
-            <div class="ExampleImages-console-item">
-                <div>显示隐藏</div>
-                <el-button type="primary" plain @click="pointController">切换</el-button>
-            </div>
-            <div class="ExampleImages-console-item">
-                <div>透明度</div>
-                <el-slider class="slider" v-model="controller.alpha" :min="0" :max="1" :step="0.1" />
-            </div>
-        </div>
-        <div class="ExampleImages-illustrate">
-            雷达气象图(图片)渲染
-        </div>
-
-
+  <div class="ExampleImages">
+    <div class="ExampleImages-console">
+      <div class="ExampleImages-console-item">
+        <div>显示隐藏</div>
+        <el-button type="primary" plain @click="pointController">
+          切换
+        </el-button>
+      </div>
+      <div class="ExampleImages-console-item">
+        <div>透明度</div>
+        <el-slider v-model="controller.alpha" class="slider" :min="0" :max="1" :step="0.1" />
+      </div>
     </div>
+    <div class="ExampleImages-illustrate">
+      雷达气象图(图片)渲染
+    </div>
+  </div>
 </template>
 
 <style scoped lang='scss'>

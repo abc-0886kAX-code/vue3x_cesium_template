@@ -7,82 +7,81 @@
  * @Description:
 -->
 <script setup>
-import { Cartesian3, Color, CallbackProperty } from 'cesium';
-import { useCesium } from '@/biz/Cesium/usecase/useCesium.js';
-import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js';
-const roam = useResetCamera();
-const { mapview } = useCesium();
+import { CallbackProperty, Cartesian3, Color } from 'cesium'
+import { useCesium } from '@/biz/Cesium/usecase/useCesium.js'
+import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js'
 
-const waterEntity = ref(null);
+const roam = useResetCamera()
+const { mapview } = useCesium()
+
+const waterEntity = ref(null)
 
 const showWater = ref(false)
 const WaterValue = ref(10)
 
-
 function drawWater() {
-    showWater.value = true;
-    unref(waterEntity) && unref(mapview).entities.remove(unref(waterEntity))
-    const waterCoord = [104.892735, 31.676836, 0, 104.893444, 31.681168
-        , 0, 104.89981, 31.680128
-        , 0, 104.899345, 31.676022, 0]
+  showWater.value = true
+  unref(waterEntity) && unref(mapview).entities.remove(unref(waterEntity))
+  const waterCoord = [104.892735, 31.676836, 0, 104.893444, 31.681168, 0, 104.89981, 31.680128, 0, 104.899345, 31.676022, 0]
 
-    let startHeight = 0
-    const targetHeight = 500
-    waterEntity.value = unref(mapview).entities.add({
-        polygon: {
-            hierarchy: Cartesian3.fromDegreesArrayHeights(waterCoord),
-            material: Color.fromBytes(64, 157, 253, 200),
-            perPositionHeight: true,
-            extrudedHeight: new CallbackProperty(() => { return startHeight }, false)
-        }
-    })
-    const waterInterval = setInterval(() => {
-        if (startHeight < targetHeight) {
-            startHeight += unref(WaterValue)
-            if (startHeight >= targetHeight) {
-                startHeight = targetHeight
-                clearInterval(waterInterval)
-                showWater.value = false;
-            }
-            // 使用该方式会闪烁，改用 Cesium.CallbackProperty 平滑
-            // this.waterEntity.polygon.extrudedHeight.setValue(startHeight)
-        }
-    }, 100)
+  let startHeight = 0
+  const targetHeight = 500
+  waterEntity.value = unref(mapview).entities.add({
+    polygon: {
+      hierarchy: Cartesian3.fromDegreesArrayHeights(waterCoord),
+      material: Color.fromBytes(64, 157, 253, 200),
+      perPositionHeight: true,
+      extrudedHeight: new CallbackProperty(() => { return startHeight }, false),
+    },
+  })
+  const waterInterval = setInterval(() => {
+    if (startHeight < targetHeight) {
+      startHeight += unref(WaterValue)
+      if (startHeight >= targetHeight) {
+        startHeight = targetHeight
+        clearInterval(waterInterval)
+        showWater.value = false
+      }
+      // 使用该方式会闪烁，改用 Cesium.CallbackProperty 平滑
+      // this.waterEntity.polygon.extrudedHeight.setValue(startHeight)
+    }
+  }, 100)
 }
 
-
 function destroyWater() {
-    unref(waterEntity) && unref(mapview).entities.remove(unref(waterEntity))
+  unref(waterEntity) && unref(mapview).entities.remove(unref(waterEntity))
 }
 
 onMounted(() => {
-    roam({
-        position: [104.892735, 31.676836, 1000]
-    })
+  roam({
+    position: [104.892735, 31.676836, 1000],
+  })
 })
-
-
 </script>
 
 <template>
-    <div class="ExamplePoint">
-        <div class="ExamplePoint-console">
-            <div class="ExamplePoint-console-item">
-                <div>开始</div>
-                <el-button type="primary" plain @click="drawWater">切换</el-button>
-            </div>
-            <div class="ExamplePoint-console-item">
-                <div>销毁</div>
-                <el-button type="primary" plain @click="destroyWater">切换</el-button>
-            </div>
-            <div class="ExamplePoint-console-item">
-                <div>目前没有地形衬托，以及没有进行视角调整，已在真实项目中实现</div>
-            </div>
-        </div>
-        <div class="ExamplePoint-illustrate">
-            淹没分析示例
-        </div>
+  <div class="ExamplePoint">
+    <div class="ExamplePoint-console">
+      <div class="ExamplePoint-console-item">
+        <div>开始</div>
+        <el-button type="primary" plain @click="drawWater">
+          切换
+        </el-button>
+      </div>
+      <div class="ExamplePoint-console-item">
+        <div>销毁</div>
+        <el-button type="primary" plain @click="destroyWater">
+          切换
+        </el-button>
+      </div>
+      <div class="ExamplePoint-console-item">
+        <div>目前没有地形衬托，以及没有进行视角调整，已在真实项目中实现</div>
+      </div>
     </div>
+    <div class="ExamplePoint-illustrate">
+      淹没分析示例
+    </div>
+  </div>
 </template>
 
 <style scoped lang='scss'>

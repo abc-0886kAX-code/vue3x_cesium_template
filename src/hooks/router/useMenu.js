@@ -6,87 +6,92 @@
  * @LastEditTime: 2024-01-15 17:36:12
  * @Description:
  */
-import { getCurrentInstance } from "vue";
+import { getCurrentInstance } from 'vue'
 
 export function useFirstRoute() {
-    const { proxy } = getCurrentInstance();
+  const { proxy } = getCurrentInstance()
 
-    return computed(() => {
-        const state = proxy.$route.matched.length >= 2;
-        const store = state ? proxy.$route.matched[1] : null;
-        return { state, store };
-    });
+  return computed(() => {
+    const state = proxy.$route.matched.length >= 2
+    const store = state ? proxy.$route.matched[1] : null
+    return { state, store }
+  })
 }
 
 export function useMenu() {
-    const { proxy } = getCurrentInstance();
-    const route = useFirstRoute();
-    const source = computed(() => {
-        if (!unref(route).state) return [];
+  const { proxy } = getCurrentInstance()
+  const route = useFirstRoute()
+  const source = computed(() => {
+    if (!unref(route).state)
+      return []
 
-        const routes = proxy.$router.getRoutes();
+    const routes = proxy.$router.getRoutes()
 
-        if (unref(route).store.meta.navstate.main) {
-            return routes.filter((item) => !item.meta.navstate.main && item.meta.navstate.second);
-        } else {
-            return routes.filter((item) => {
-                return eq(item?.parent?.name, unref(route).store.name);
-            });
-        }
-    });
+    if (unref(route).store.meta.navstate.main) {
+      return routes.filter(item => !item.meta.navstate.main && item.meta.navstate.second)
+    }
+    else {
+      return routes.filter((item) => {
+        return eq(item?.parent?.name, unref(route).store.name)
+      })
+    }
+  })
 
-    return source;
+  return source
 }
 
 export function useMenuTitle() {
-    const route = useFirstRoute();
-    const title = computed(() => {
-        if (!unref(route).state) return "vue3x_cesium_template";
+  const route = useFirstRoute()
+  const title = computed(() => {
+    if (!unref(route).state)
+      return 'vue3x_cesium_template'
 
-        return unref(route).store.meta.title;
-    });
+    return unref(route).store.meta.title
+  })
 
-    return title;
+  return title
 }
 
 export function useMenuNav() {
-    const { proxy } = getCurrentInstance();
-    const route = useFirstRoute();
-    const source = computed(() => {
-        if (!unref(route).state || !unref(route).store.meta.navstate.main) return [];
+  const { proxy } = getCurrentInstance()
+  const route = useFirstRoute()
+  const source = computed(() => {
+    if (!unref(route).state || !unref(route).store.meta.navstate.main)
+      return []
 
-        return proxy.$router.getRoutes().filter((item) => {
-            return eq(item?.parent?.name, unref(route).store.name);
-        });
-    });
+    return proxy.$router.getRoutes().filter((item) => {
+      return eq(item?.parent?.name, unref(route).store.name)
+    })
+  })
 
-    return source;
+  return source
 }
 
 export function useMenuTohome() {
-    const { proxy } = getCurrentInstance();
-    const route = useFirstRoute();
-    const visableTohome = computed(() => {
-        if (!unref(route).state) return false;
+  const { proxy } = getCurrentInstance()
+  const route = useFirstRoute()
+  const visableTohome = computed(() => {
+    if (!unref(route).state)
+      return false
 
-        return !unref(route).store.meta.navstate.main && unref(route).store.meta.navstate.second;
-    });
-    function tohome() {
-        proxy.$router.push({ name: "home" });
-    }
+    return !unref(route).store.meta.navstate.main && unref(route).store.meta.navstate.second
+  })
+  function tohome() {
+    proxy.$router.push({ name: 'home' })
+  }
 
-    return {
-        visableTohome,
-        tohome,
-    };
+  return {
+    visableTohome,
+    tohome,
+  }
 }
 
 export function useMenuActive(name) {
-    const { proxy } = getCurrentInstance();
-    function eqActive(route) {
-        return eq(route.name, proxy.$route.name) ? [name] : [];
-    }
-    const className = computed(() => eqActive);
+  const { proxy } = getCurrentInstance()
+  function eqActive(route) {
+    return eq(route.name, proxy.$route.name) ? [name] : []
+  }
+  const className = computed(() => eqActive)
 
-    return className;
+  return className
 }

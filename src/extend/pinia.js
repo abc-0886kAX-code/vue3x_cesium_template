@@ -6,20 +6,20 @@
  * @LastEditTime: 2023-11-16 16:11:09
  * @Description:
  */
-import { createPinia, PiniaVuePlugin } from "pinia";
-import { createPersistedState } from "pinia-plugin-persistedstate";
+import { createPinia } from 'pinia'
+import { createPersistedState } from 'pinia-plugin-persistedstate'
 
-export const pinia = createPinia();
+export const pinia = createPinia()
 
 pinia.use(createPersistedState({
-    debug: import.meta.env.DEV,
-    storage: sessionStorage
-}));
+  debug: import.meta.env.DEV,
+  storage: sessionStorage,
+}))
 
 export function extendPinia(Vue) {
-    Vue.use(pinia);
+  Vue.use(pinia)
 
-    return pinia;
+  return pinia
 }
 
-export default extendPinia;
+export default extendPinia

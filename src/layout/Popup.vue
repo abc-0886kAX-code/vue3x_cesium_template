@@ -7,26 +7,28 @@
  * @Description:
 -->
 <script setup>
-import { definePopup } from "@/biz/Popup/usecase/definePopup";
+import { definePopup } from '@/biz/Popup/usecase/definePopup'
 
-const { pond, pondFind, pondRelease } = definePopup();
+const { pond, pondFind, pondRelease } = definePopup()
 </script>
 
 <template>
-    <div class="furnace-popup">
-        <template v-for="key in pond" :key="key">
-            <el-dialog :before-close="pondRelease(key)" :model-value="pondFind(key).visible.value"
-                :title="pondFind(key).title.value" :width="pondFind(key).width.value" :top="pondFind(key).top.value"
-                v-bind="pondFind(key).constProps" draggable>
-                <div class="furnace-popup-main" :ref="pondFind(key).refs" :style="{ height: pondFind(key).height.value }">
-                    <template v-if="pondFind(key).visible.value">
-                        <component :is="pondFind(key).template" :popupKeyword="key" />
-                    </template>
-                </div>
-            </el-dialog>
-        </template>
-        <slot></slot>
-    </div>
+  <div class="furnace-popup">
+    <template v-for="key in pond" :key="key">
+      <el-dialog
+        :before-close="pondRelease(key)" :model-value="pondFind(key).visible.value"
+        :title="pondFind(key).title.value" :width="pondFind(key).width.value" :top="pondFind(key).top.value"
+        v-bind="pondFind(key).constProps" draggable
+      >
+        <div :ref="pondFind(key).refs" class="furnace-popup-main" :style="{ height: pondFind(key).height.value }">
+          <template v-if="pondFind(key).visible.value">
+            <component :is="pondFind(key).template" :popup-keyword="key" />
+          </template>
+        </div>
+      </el-dialog>
+    </template>
+    <slot />
+  </div>
 </template>
 
 <style scoped lang="scss">

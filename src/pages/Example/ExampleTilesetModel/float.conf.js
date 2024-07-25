@@ -7,28 +7,28 @@
  * @Description:
  */
 const floatColumn = [
-    {
-        prop: "author",
-        label: "作者",
-    },
-    {
-        prop: "date",
-        label: "创建时间",
-    },
-    {
-        prop: "tileCount",
-        label: "数量",
-    },
-];
+  {
+    prop: 'author',
+    label: '作者',
+  },
+  {
+    prop: 'date',
+    label: '创建时间',
+  },
+  {
+    prop: 'tileCount',
+    label: '数量',
+  },
+]
 
-export const setupFloat = (attr) => {
-    return floatColumn.map((item) => {
-        const { label, prop: field } = item;
+export function setupFloat(attr) {
+  return floatColumn.map((item) => {
+    const { label, prop: field } = item
 
-        return {
-            label,
-            field,
-            text: attr[field],
-        };
-    });
-};
+    return {
+      label,
+      field,
+      text: attr[field],
+    }
+  })
+}

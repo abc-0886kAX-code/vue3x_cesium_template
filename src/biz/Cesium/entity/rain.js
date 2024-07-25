@@ -6,67 +6,69 @@
  * @LastEditTime: 2024-01-15 15:53:54
  * @Description:
  */
-import * as Cesium from "cesium";
+import * as Cesium from 'cesium'
 
 class RainEffect {
-    constructor(viewer, options) {
-        if (!viewer) throw new Error("no viewer object!");
-        options = options || {};
-        //倾斜角度，负数向右，正数向左
-        this.tiltAngle = Cesium.defaultValue(options.tiltAngle, -0.6);
-        this.rainSize = Cesium.defaultValue(options.rainSize, 0.3);
-        this.rainSpeed = Cesium.defaultValue(options.rainSpeed, 60.0);
-        this.viewer = viewer;
+  constructor(viewer, options) {
+    if (!viewer)
+      throw new Error('no viewer object!')
+    options = options || {}
+    // 倾斜角度，负数向右，正数向左
+    this.tiltAngle = Cesium.defaultValue(options.tiltAngle, -0.6)
+    this.rainSize = Cesium.defaultValue(options.rainSize, 0.3)
+    this.rainSpeed = Cesium.defaultValue(options.rainSpeed, 60.0)
+    this.viewer = viewer
 
-        watch(() => options, (newVal, oldVal) => {
-            this.tiltAngle = Cesium.defaultValue(options.tiltAngle, -0.6);
-            this.rainSize = Cesium.defaultValue(options.rainSize, 0.3);
-            this.rainSpeed = Cesium.defaultValue(options.rainSpeed, 60.0);
-            this.viewer.scene.postProcessStages.remove(this.rainStage);
-            this.init();
-        }, { deep: true });
+    watch(() => options, (newVal, oldVal) => {
+      this.tiltAngle = Cesium.defaultValue(options.tiltAngle, -0.6)
+      this.rainSize = Cesium.defaultValue(options.rainSize, 0.3)
+      this.rainSpeed = Cesium.defaultValue(options.rainSpeed, 60.0)
+      this.viewer.scene.postProcessStages.remove(this.rainStage)
+      this.init()
+    }, { deep: true })
 
-        this.init();
+    this.init()
+  }
+
+  init() {
+    this.rainStage = new Cesium.PostProcessStage({
+      name: 'czm_rain',
+      fragmentShader: this.rain(),
+      uniforms: {
+        tiltAngle: () => {
+          return this.tiltAngle
+        },
+        rainSize: () => {
+          return this.rainSize
+        },
+        rainSpeed: () => {
+          return this.rainSpeed
+        },
+      },
+    })
+    this.viewer.scene.postProcessStages.add(this.rainStage)
+  }
+
+  destroy() {
+    if (!this.viewer || !this.rainStage)
+      return
+    this.viewer.scene.postProcessStages.remove(this.rainStage)
+    const isDestroyed = this.rainStage.isDestroyed()
+    // 先检查是否被销毁过，如果已经被销毁过再调用destroy会报错
+    if (!isDestroyed) {
+      this.rainStage.destroy()
     }
+    delete this.tiltAngle
+    delete this.rainSize
+    delete this.rainSpeed
+  }
 
-    init() {
-        this.rainStage = new Cesium.PostProcessStage({
-            name: "czm_rain",
-            fragmentShader: this.rain(),
-            uniforms: {
-                tiltAngle: () => {
-                    return this.tiltAngle;
-                },
-                rainSize: () => {
-                    return this.rainSize;
-                },
-                rainSpeed: () => {
-                    return this.rainSpeed;
-                },
-            },
-        });
-        this.viewer.scene.postProcessStages.add(this.rainStage);
-    }
+  show(visible) {
+    this.rainStage.enabled = visible
+  }
 
-    destroy() {
-        if (!this.viewer || !this.rainStage) return;
-        this.viewer.scene.postProcessStages.remove(this.rainStage);
-        const isDestroyed = this.rainStage.isDestroyed();
-        // 先检查是否被销毁过，如果已经被销毁过再调用destroy会报错
-        if (!isDestroyed) {
-            this.rainStage.destroy();
-        }
-        delete this.tiltAngle;
-        delete this.rainSize;
-        delete this.rainSpeed;
-    }
-
-    show(visible) {
-        this.rainStage.enabled = visible;
-    }
-
-    rain() {
-        return "uniform sampler2D colorTexture;\n\
+  rain() {
+    return 'uniform sampler2D colorTexture;\n\
               in vec2 v_textureCoordinates;\n\
               uniform float tiltAngle;\n\
               uniform float rainSize;\n\
@@ -89,8 +91,8 @@ class RainEffect {
                   c *= v * b;\n\
                   fragColor = mix(texture(colorTexture, v_textureCoordinates), vec4(c, 1), .5);\n\
               }\n\
-              ";
-    }
+              '
+  }
 }
 
-export default RainEffect;
+export default RainEffect

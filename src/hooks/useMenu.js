@@ -8,36 +8,37 @@
  */
 
 export function useMenu() {
-    const menu = ref([]);
-    function setupMenu(list) {
-        menu.value = list;
-    }
-    function renderSubmenu(cell) {
-        const { meta } = cell;
-        if (meta?.hidden === 'false') return false;
-        return cell.children && cell.children.length > 0;
-    }
-    function renderMenu(cell) {
-        const { meta } = cell;
-        return meta?.hidden === 'true';
-    }
-    function getIcon(cell) {
-        const { meta } = cell;
-        const { icon } = meta;
-        return icon ? icon : "el-icon-location";
-    }
-    function getTitle(cell) {
-        const { meta, name } = cell;
-        const { title } = meta;
-        return title ? title : name;
-    }
-    return {
-        menuMap: menu,
-        setupMenu,
-        renderSubmenu,
-        renderMenu,
-        getIcon,
-        getTitle
-    }
+  const menu = ref([])
+  function setupMenu(list) {
+    menu.value = list
+  }
+  function renderSubmenu(cell) {
+    const { meta } = cell
+    if (meta?.hidden === 'false')
+      return false
+    return cell.children && cell.children.length > 0
+  }
+  function renderMenu(cell) {
+    const { meta } = cell
+    return meta?.hidden === 'true'
+  }
+  function getIcon(cell) {
+    const { meta } = cell
+    const { icon } = meta
+    return icon || 'el-icon-location'
+  }
+  function getTitle(cell) {
+    const { meta, name } = cell
+    const { title } = meta
+    return title || name
+  }
+  return {
+    menuMap: menu,
+    setupMenu,
+    renderSubmenu,
+    renderMenu,
+    getIcon,
+    getTitle,
+  }
 };
-export default useMenu;
+export default useMenu

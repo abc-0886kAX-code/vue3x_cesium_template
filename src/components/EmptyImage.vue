@@ -1,9 +1,9 @@
 <script setup></script>
 
 <template>
-    <div class="empty-image">
-        <slot></slot>
-    </div>
+  <div class="empty-image">
+    <slot />
+  </div>
 </template>
 
 <style scoped lang='scss'>

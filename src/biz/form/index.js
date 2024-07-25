@@ -6,18 +6,18 @@
  * @LastEditTime: 2024-01-15 17:38:30
  * @Description:
  */
-export * from './form-input/defineFormInput';
-export * from './form-input/useFormInput';
-export const FormInput = defineComponent(() => import('./form-input/index.vue'));
+export * from './form-input/defineFormInput'
+export * from './form-input/useFormInput'
+export const FormInput = defineComponent(() => import('./form-input/index.vue'))
 
-export * from './form-select/defineFormSelect';
-export * from './form-select/useFormSelect';
-export const FormSelect = defineComponent(() => import('./form-select/index.vue'));
+export * from './form-select/defineFormSelect'
+export * from './form-select/useFormSelect'
+export const FormSelect = defineComponent(() => import('./form-select/index.vue'))
 
-export * from './form-date-picker/defineFormDatePicker';
-export * from './form-date-picker/useFormDatePicker';
-export const FormDatePicker = defineComponent(() => import('./form-date-picker/index.vue'));
+export * from './form-date-picker/defineFormDatePicker'
+export * from './form-date-picker/useFormDatePicker'
+export const FormDatePicker = defineComponent(() => import('./form-date-picker/index.vue'))
 
-export * from './form-checkbox/defineFormCheckbox';
-export * from './form-checkbox/useFormCheckbox';
-export const FormCheckbox = defineComponent(() => import('./form-checkbox/index.vue'));
+export * from './form-checkbox/defineFormCheckbox'
+export * from './form-checkbox/useFormCheckbox'
+export const FormCheckbox = defineComponent(() => import('./form-checkbox/index.vue'))

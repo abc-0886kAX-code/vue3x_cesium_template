@@ -7,25 +7,25 @@
  */
 
 export const loadStyle = {
-    "element-loading-text": "请稍后..",
-    "element-loading-spinner": "el-icon-loading",
-    "element-loading-background": "rgba(16, 36, 75, 0.6)",
-};
+  'element-loading-text': '请稍后..',
+  'element-loading-spinner': 'el-icon-loading',
+  'element-loading-background': 'rgba(16, 36, 75, 0.6)',
+}
 
 export function Load(status = true) {
-    const loading = ref(status);
-    const setupLoading = (status = false) => {
-        loading.value = status;
-    };
+  const loading = ref(status)
+  const setupLoading = (status = false) => {
+    loading.value = status
+  }
 
-    provide("loading", {
-        loading,
-        setupLoading,
-    });
+  provide('loading', {
+    loading,
+    setupLoading,
+  })
 
-    return {
-        loading,
-        loadStyle,
-        setupLoading,
-    };
+  return {
+    loading,
+    loadStyle,
+    setupLoading,
+  }
 }

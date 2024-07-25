@@ -1,43 +1,49 @@
 ```vue
 <script setup>
-import { useTabs } from "@/biz/Tabs";
+import { useTabs } from '@/biz/Tabs'
 
 const { active, component, dataset, setup, update } = useTabs({
-    data: [
-        {
-            keyword: "tab1",
-            label: "大厅 - 水生态",
-            template: () => import("@/pages/hall-st/hall-st.vue"),
-        },
-        {
-            keyword: "tab2",
-            label: "大厅 - 水文化",
-            template: () => import("@/pages/hall-wh/hall-wh.vue"),
-        },
-        {
-            keyword: "tab3",
-            label: "大厅 - 水环境",
-            template: () => import("@/pages/hall-hj/hall-hj.vue"),
-        }
-    ]
-});
+  data: [
+    {
+      keyword: 'tab1',
+      label: '大厅 - 水生态',
+      template: () => import('@/pages/hall-st/hall-st.vue'),
+    },
+    {
+      keyword: 'tab2',
+      label: '大厅 - 水文化',
+      template: () => import('@/pages/hall-wh/hall-wh.vue'),
+    },
+    {
+      keyword: 'tab3',
+      label: '大厅 - 水环境',
+      template: () => import('@/pages/hall-hj/hall-hj.vue'),
+    }
+  ]
+})
 </script>
 
 <template>
-    <div class="debug">
-        <div class="debug-head">
-            <template v-for="(entity) in dataset">
-                <el-button @click="update(entity)" v-if="entity.keyword === active"
-                    type="success">{{ entity.label }}</el-button>
-                <el-button @click="update(entity)" v-else type="primary">{{ entity.label }}</el-button>
-            </template>
-        </div>
-        <div class="debug-body">
-            <transition name="el-fade-in-linear">
-                <components :key="active" :is="component"></components>
-            </transition>
-        </div>
+  <div class="debug">
+    <div class="debug-head">
+      <template v-for="(entity) in dataset">
+        <el-button
+          v-if="entity.keyword === active" type="success"
+          @click="update(entity)"
+        >
+          {{ entity.label }}
+        </el-button>
+        <el-button v-else type="primary" @click="update(entity)">
+          {{ entity.label }}
+        </el-button>
+      </template>
     </div>
+    <div class="debug-body">
+      <transition name="el-fade-in-linear">
+        <components :is="component" :key="active" />
+      </transition>
+    </div>
+  </div>
 </template>
 
 <style scoped lang='scss'>

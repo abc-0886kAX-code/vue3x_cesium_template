@@ -6,10 +6,11 @@
  * @LastEditTime: 2023-11-16 16:46:04
  * @Description:
  */
-import router from '@/router/useRouter';
+import router from '@/router/useRouter'
+
 export function extendRouter(Vue) {
-    router.use(Vue);
-    return router.core;
+  router.use(Vue)
+  return router.core
 }
 
-export default extendRouter;
+export default extendRouter

@@ -6,20 +6,20 @@
  * @LastEditTime: 2023-02-03 15:07:44
  * @Description:
  */
-import { mergeObject } from "~/shared/merge";
+import { mergeObject } from '~/shared/merge'
 
 const define = {
-    size: 'mini',
-    placeholder: '请输入内容',
-    content: '',
+  size: 'mini',
+  placeholder: '请输入内容',
+  content: '',
 }
 
 export function useFormInput(sign) {
-    const inputSchema = inject(sign, {})
-    const schema = computed(() => mergeObject({ ...define, ...unref(inputSchema.schema) }))
+  const inputSchema = inject(sign, {})
+  const schema = computed(() => mergeObject({ ...define, ...unref(inputSchema.schema) }))
 
-    return {
-        setupValue: inputSchema.setupValue,
-        schema
-    }
+  return {
+    setupValue: inputSchema.setupValue,
+    schema,
+  }
 }

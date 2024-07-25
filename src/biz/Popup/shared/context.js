@@ -6,4 +6,4 @@
  * @LastEditTime: 2023-01-03 17:09:05
  * @Description:
  */
-export const POPUP_SYMBOLE = Symbol('vue3x_cesium_template-popup');
+export const POPUP_SYMBOLE = Symbol('vue3x_cesium_template-popup')

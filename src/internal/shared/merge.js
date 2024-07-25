@@ -7,5 +7,5 @@
  * @Description:
  */
 export function mergeObject(...args) {
-    return merge({}, ...args);
+  return merge({}, ...args)
 }

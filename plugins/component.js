@@ -7,5 +7,5 @@
  * @Description:
  */
 export default [
-    "src/components"
-];
+  'src/components',
+]

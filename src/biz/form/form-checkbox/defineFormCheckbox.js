@@ -7,23 +7,21 @@
  * @Description:
  */
 export function defineFormCheckbox(sign) {
-    const schema = ref({});
-    function setupSchema(params) {
-        schema.value = params;
-    }
+  const schema = ref({})
+  function setupSchema(params) {
+    schema.value = params
+  }
 
-    function setupValue(param) {
-        schema.value.content = param;
-    }
+  function setupValue(param) {
+    schema.value.content = param
+  }
 
-    const value = computed(() => schema.value.content)
+  const value = computed(() => schema.value.content)
 
+  provide(sign, { schema, setupValue })
 
-
-    provide(sign, { schema, setupValue })
-
-    return {
-        setupCheckboxSchema: setupSchema,
-        value
-    }
+  return {
+    setupCheckboxSchema: setupSchema,
+    value,
+  }
 }

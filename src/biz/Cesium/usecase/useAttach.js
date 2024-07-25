@@ -7,28 +7,28 @@
  */
 
 export function useAttach(mapview, mapbox) {
-    const mapviewRef = shallowRef(null);
+  const mapviewRef = shallowRef(null)
 
-    mapviewRef.value = mapview;
+  mapviewRef.value = mapview
 
-    watch(
-        () => mapviewRef.value,
-        (v, old, onInvalidate) => {
-            if (v & !v.proof(old._id)) {
-                old.uninstall();
-                nextTick(() => v.install(mapbox.value));
-                onInvalidate(() => v.uninstall());
-            }
-        }
-    );
+  watch(
+    () => mapviewRef.value,
+    (v, old, onInvalidate) => {
+      if (v & !v.proof(old._id)) {
+        old.uninstall()
+        nextTick(() => v.install(mapbox.value))
+        onInvalidate(() => v.uninstall())
+      }
+    },
+  )
 
-    onMounted(() => {
-        mapview.install(mapbox.value);
-    });
+  onMounted(() => {
+    mapview.install(mapbox.value)
+  })
 
-    onUnmounted(() => {
-        mapview.uninstall();
-    });
+  onUnmounted(() => {
+    mapview.uninstall()
+  })
 
-    return mapviewRef;
+  return mapviewRef
 }

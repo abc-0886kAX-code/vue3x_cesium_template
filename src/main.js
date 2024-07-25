@@ -7,11 +7,11 @@
  * @Description:
  */
 import { createApp } from 'vue'
-import { extendRouter } from "@/extend/router";
-import { extendPinia } from "@/extend/pinia";
-import "./permission";
-import App from "@/layout/App.vue";
-import "normalize.css";
-import "@/assets/style/index.scss";
+import { extendRouter } from '@/extend/router'
+import { extendPinia } from '@/extend/pinia'
+import './permission'
+import App from '@/layout/App.vue'
+import 'normalize.css'
+import '@/assets/style/index.scss'
 
-createApp(App).use(extendRouter).use(extendPinia).mount("#app");
+createApp(App).use(extendRouter).use(extendPinia).mount('#app')

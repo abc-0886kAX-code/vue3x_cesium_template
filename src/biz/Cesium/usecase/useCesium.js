@@ -5,16 +5,16 @@
  * @LastEditTime: 2023-11-29 14:27:09
  * @Description: file content
  */
-import { CesiumSymbolName } from "../share/context";
+import { CesiumSymbolName } from '../share/context'
 
 export function useCesium() {
-    const mapviewRef = inject(CesiumSymbolName, shallowRef(null));
+  const mapviewRef = inject(CesiumSymbolName, shallowRef(null))
 
-    const mapview = computed(() => {
-        return mapviewRef.value.view;
-    });
+  const mapview = computed(() => {
+    return mapviewRef.value.view
+  })
 
-    return {
-        mapview,
-    };
+  return {
+    mapview,
+  }
 }

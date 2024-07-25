@@ -6,58 +6,62 @@
  * @LastEditTime: 2024-01-15 15:54:28
  * @Description:
  */
-import * as Cesium from "cesium";
+import * as Cesium from 'cesium'
+
 class SnowEffect {
-    constructor(viewer, options) {
-        if (!viewer) throw new Error("no viewer object!");
-        options = options || {};
-        this.snowSize = Cesium.defaultValue(options.snowSize, 0.02); // ❄️大小，最好小于0.02
-        this.snowSpeed = Cesium.defaultValue(options.snowSpeed, 60.0); // 速度
-        this.viewer = viewer;
+  constructor(viewer, options) {
+    if (!viewer)
+      throw new Error('no viewer object!')
+    options = options || {}
+    this.snowSize = Cesium.defaultValue(options.snowSize, 0.02) // ❄️大小，最好小于0.02
+    this.snowSpeed = Cesium.defaultValue(options.snowSpeed, 60.0) // 速度
+    this.viewer = viewer
 
-        watch(() => options, (newVal, oldVal) => {
-            this.snowSize = Cesium.defaultValue(options.snowSize, 0.02); // ❄️大小，最好小于0.02
-            this.snowSpeed = Cesium.defaultValue(options.snowSpeed, 60.0); // 速度
-            this.viewer.scene.postProcessStages.remove(this.snowStage);
-            this.init();
-        }, { deep: true });
+    watch(() => options, (newVal, oldVal) => {
+      this.snowSize = Cesium.defaultValue(options.snowSize, 0.02) // ❄️大小，最好小于0.02
+      this.snowSpeed = Cesium.defaultValue(options.snowSpeed, 60.0) // 速度
+      this.viewer.scene.postProcessStages.remove(this.snowStage)
+      this.init()
+    }, { deep: true })
 
-        this.init();
+    this.init()
+  }
+
+  init() {
+    this.snowStage = new Cesium.PostProcessStage({
+      name: 'czm_snow',
+      fragmentShader: this.snow(),
+      uniforms: {
+        snowSize: () => {
+          return this.snowSize
+        },
+        snowSpeed: () => {
+          return this.snowSpeed
+        },
+      },
+    })
+    this.viewer.scene.postProcessStages.add(this.snowStage)
+  }
+
+  destroy() {
+    if (!this.viewer || !this.snowStage)
+      return
+    this.viewer.scene.postProcessStages.remove(this.snowStage)
+    const isDestroyed = this.snowStage.isDestroyed()
+    // 先检查是否被销毁过，如果已经被销毁过再调用destroy会报错
+    if (!isDestroyed) {
+      this.snowStage.destroy()
     }
+    delete this.snowSize
+    delete this.snowSpeed
+  }
 
-    init() {
-        this.snowStage = new Cesium.PostProcessStage({
-            name: "czm_snow",
-            fragmentShader: this.snow(),
-            uniforms: {
-                snowSize: () => {
-                    return this.snowSize;
-                },
-                snowSpeed: () => {
-                    return this.snowSpeed;
-                },
-            },
-        });
-        this.viewer.scene.postProcessStages.add(this.snowStage);
-    }
+  show(visible) {
+    this.snowStage.enabled = visible
+  }
 
-    destroy() {
-        if (!this.viewer || !this.snowStage) return;
-        this.viewer.scene.postProcessStages.remove(this.snowStage);
-        const isDestroyed = this.snowStage.isDestroyed();
-        // 先检查是否被销毁过，如果已经被销毁过再调用destroy会报错
-        if (!isDestroyed) {
-            this.snowStage.destroy();
-        }
-        delete this.snowSize;
-        delete this.snowSpeed;
-    }
-    show(visible) {
-        this.snowStage.enabled = visible;
-    }
-
-    snow() {
-        return "uniform sampler2D colorTexture;\n\
+  snow() {
+    return 'uniform sampler2D colorTexture;\n\
           in vec2 v_textureCoordinates;\n\
           uniform float snowSpeed;\n\
                   uniform float snowSize;\n\
@@ -88,7 +92,7 @@ class SnowEffect {
               finalColor=(vec3(c));\n\
               fragColor=mix(texture(colorTexture,v_textureCoordinates),vec4(finalColor,1),.5);\n\
               }\n\
-              ";
-    }
+              '
+  }
 }
-export default SnowEffect;
+export default SnowEffect

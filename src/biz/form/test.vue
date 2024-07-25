@@ -7,50 +7,51 @@
  * @Description:
 -->
 <script setup>
-import { FormInput, defineFormInput, FormSelect, defineFormSelect, FormDatePicker, defineFormDatePicker, FormCheckbox, defineFormCheckbox } from './form';
-const { setupInputSchema, value } = defineFormInput('input');
-const { setupSelectSchema, value: selectValue, target } = defineFormSelect('select');
-const { setupDatePickerSchema, value: datePickerValue } = defineFormDatePicker('DatePicker');
-const { setupCheckboxSchema, value: checkboxValue } = defineFormCheckbox('checkbox');
+import { FormCheckbox, FormDatePicker, FormInput, FormSelect, defineFormCheckbox, defineFormDatePicker, defineFormInput, defineFormSelect } from './form'
+
+const { setupInputSchema, value } = defineFormInput('input')
+const { setupSelectSchema, value: selectValue, target } = defineFormSelect('select')
+const { setupDatePickerSchema, value: datePickerValue } = defineFormDatePicker('DatePicker')
+const { setupCheckboxSchema, value: checkboxValue } = defineFormCheckbox('checkbox')
 setupSelectSchema({
-    content: '123',
-    options: [
-        {
-            'ceshi1': '123',
-            'ceshi2': '标题',
-            'other': 'ok'
-        },
-        {
-            'ceshi1': '456',
-            'ceshi2': '标题1',
-            'other': 'no'
-        }
-    ],
-    usevalue: 'ceshi1',
-    uselabel: 'ceshi2'
+  content: '123',
+  options: [
+    {
+      ceshi1: '123',
+      ceshi2: '标题',
+      other: 'ok',
+    },
+    {
+      ceshi1: '456',
+      ceshi2: '标题1',
+      other: 'no',
+    },
+  ],
+  usevalue: 'ceshi1',
+  uselabel: 'ceshi2',
 })
 setupInputSchema({
-    content: '测试'
+  content: '测试',
 })
 setupDatePickerSchema({
-    content: ''
+  content: '',
 })
 setupCheckboxSchema({
-    content: false
+  content: false,
 })
 </script>
 
 <template>
-    <div class="debug">
-        <FormInput sign="input"></FormInput>
-        {{ value }}
-        <FormSelect sign="select"></FormSelect>
-        {{ selectValue }}-{{ target }}
-        <FormDatePicker sign="DatePicker"></FormDatePicker>
-        {{ datePickerValue }}
-        <FormCheckbox sign="checkbox"></FormCheckbox>
-        {{ checkboxValue }}
-    </div>
+  <div class="debug">
+    <FormInput sign="input" />
+    {{ value }}
+    <FormSelect sign="select" />
+    {{ selectValue }}-{{ target }}
+    <FormDatePicker sign="DatePicker" />
+    {{ datePickerValue }}
+    <FormCheckbox sign="checkbox" />
+    {{ checkboxValue }}
+  </div>
 </template>
 
 <style scoped lang='scss'>

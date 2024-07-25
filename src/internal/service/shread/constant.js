@@ -7,20 +7,20 @@
  * @Description:
  */
 export const NormConfig = {
-    url: "",
-    method: "GET",
-    params: {},
-    data: {},
-    headers: {},
+  url: '',
+  method: 'GET',
+  params: {},
+  data: {},
+  headers: {},
 }
 export const NormResult = {
-    code: -1,
-    message: "ok",
-    data: null
+  code: -1,
+  message: 'ok',
+  data: null,
 }
 
 export const NormServiceProps = {
-    transResponse: (response) => {
-        return response;
-    }
+  transResponse: (response) => {
+    return response
+  },
 }

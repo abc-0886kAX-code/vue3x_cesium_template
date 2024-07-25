@@ -6,27 +6,27 @@
  * @LastEditTime: 2024-01-16 15:14:39
  * @Description:
  */
-import axios from "axios";
-import { defineService } from "~/service";
-import { useTokenMiddleware } from "@/middleware/token.request";
-const { VITE_API_BASE_URL_PRE } = import.meta.env;
+import axios from 'axios'
+import { defineService } from '~/service'
+import { useTokenMiddleware } from '@/middleware/token.request'
 
+const { VITE_API_BASE_URL_PRE } = import.meta.env
 
 const define = axios.create({
-    baseURL: VITE_API_BASE_URL_PRE,
-    timeout: import.meta.env.DEV ? 0 : 30000,
-});
+  baseURL: VITE_API_BASE_URL_PRE,
+  timeout: import.meta.env.DEV ? 0 : 30000,
+})
 
 function transResponse(response) {
-    return get(response, "data.data", {});
+  return get(response, 'data.data', {})
 }
 
-const service = defineService(define, { transResponse });
+const service = defineService(define, { transResponse })
 
-useTokenMiddleware(define);
+useTokenMiddleware(define)
 
 export function useService() {
-    return defineService(define, { transResponse });
+  return defineService(define, { transResponse })
 }
 
-export default service;
+export default service

@@ -8,32 +8,31 @@
  */
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-
 export function setupRouter(routes) {
-    return createRouter({
-        history: createWebHashHistory('/'),
-        scrollBehavior: () => ({ left: 0, top: 0 }),
-        mode: "hash",
-        routes: Array.isArray(routes) ? routes : []
-    })
+  return createRouter({
+    history: createWebHashHistory('/'),
+    scrollBehavior: () => ({ left: 0, top: 0 }),
+    mode: 'hash',
+    routes: Array.isArray(routes) ? routes : [],
+  })
 }
 
 export function defineRouter(routes) {
-    const core = setupRouter(routes);
+  const core = setupRouter(routes)
 
-    function reset() {
-        const router = setupRouter(routes);
-        core.matcher = router.matcher;
-    }
-    function use(Vue) {
-        Vue.use(core);
-    }
+  function reset() {
+    const router = setupRouter(routes)
+    core.matcher = router.matcher
+  }
+  function use(Vue) {
+    Vue.use(core)
+  }
 
-    return {
-        core,
-        reset,
-        use
-    }
+  return {
+    core,
+    reset,
+    use,
+  }
 }
 
-export default defineRouter;
+export default defineRouter

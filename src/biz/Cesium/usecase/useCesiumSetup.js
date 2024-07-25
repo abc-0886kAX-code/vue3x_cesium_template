@@ -5,43 +5,42 @@
  * @LastEditTime: 2023-12-05 13:15:36
  * @Description: file content
  */
-import { Load } from "@/biz/share/entify/Load";
-import { Mapview } from "../entity/Mapview";
-import { CesiumSymbolName } from "../share/context";
-import { useAttach } from "./useAttach";
-
+import { Mapview } from '../entity/Mapview'
+import { CesiumSymbolName } from '../share/context'
+import { useAttach } from './useAttach'
+import { Load } from '@/biz/share/entify/Load'
 
 export function useCesiumSetup(props, emits) {
-    const { loading, loadStyle, setupLoading } = Load();
+  const { loading, loadStyle, setupLoading } = Load()
 
-    const isMounted = ref(false);
+  const isMounted = ref(false)
 
-    const mapbox = ref(null);
+  const mapbox = ref(null)
 
-    const mapview = new Mapview(props.config);
+  const mapview = new Mapview(props.config)
 
-    const mapviewRef = useAttach(mapview, mapbox);
+  const mapviewRef = useAttach(mapview, mapbox)
 
-    provide(CesiumSymbolName, mapviewRef);
+  provide(CesiumSymbolName, mapviewRef)
 
-    onMounted(() => {
-        mapview.onReady(() => {
-            emits("onReady", mapview.view);
-            setupLoading(false);
-            isMounted.value = true;
-        });
-    });
+  onMounted(() => {
+    mapview.onReady(() => {
+      emits('onReady', mapview.view)
+      setupLoading(false)
+      isMounted.value = true
+    })
+  })
 
-    onUnmounted(() => {
-        isMounted.value = false;
-    });
+  onUnmounted(() => {
+    isMounted.value = false
+  })
 
-    return {
-        isMounted,
-        loading,
-        loadStyle,
-        mapbox,
-        mapview,
-        setupLoading,
-    };
+  return {
+    isMounted,
+    loading,
+    loadStyle,
+    mapbox,
+    mapview,
+    setupLoading,
+  }
 }

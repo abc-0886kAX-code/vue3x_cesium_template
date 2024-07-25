@@ -6,16 +6,16 @@
  * @LastEditTime: 2022-11-22 14:04:31
  * @Description:
  */
-import { toArray } from "@/shared/trans";
+import { toArray } from '@/shared/trans'
 
 function pickLoading(server) {
-    return unref(server).loading;
+  return unref(server).loading
 }
 
 export function useServerLoad(servers) {
-    const loads = toArray(servers).map(pickLoading);
+  const loads = toArray(servers).map(pickLoading)
 
-    return computed(() => loads.some((load) => unref(load)));
+  return computed(() => loads.some(load => unref(load)))
 }
 
-export default useServerLoad;
+export default useServerLoad

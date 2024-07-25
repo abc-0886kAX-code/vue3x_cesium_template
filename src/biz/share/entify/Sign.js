@@ -5,15 +5,15 @@
  * @LastEditTime: 2022-11-22 14:58:30
  * @Description: file content
  */
-import { uuid } from "@/shared/uuid";
+import { uuid } from '@/shared/uuid'
 
 export function Sign(value = uuid()) {
-    const sign = ref(value);
+  const sign = ref(value)
 
-    const setupSign = (value = uuid()) => (sign.value = value);
+  const setupSign = (value = uuid()) => (sign.value = value)
 
-    return {
-        sign,
-        setupSign,
-    };
+  return {
+    sign,
+    setupSign,
+  }
 }

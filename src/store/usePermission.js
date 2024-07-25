@@ -6,45 +6,46 @@
  * @LastEditTime: 2023-08-04 09:52:58
  * @Description: 待开发...
  */
-import { defineStore } from 'pinia';
-import { generator } from "@/router/generator"
-export const Namespace = 'usePermission';
+import { defineStore } from 'pinia'
+import { generator } from '@/router/generator'
 
-const paths = [""];
+export const Namespace = 'usePermission'
+
+const paths = ['']
 
 export const usePermission = defineStore(Namespace, {
-    state: () => ({
-        addRoutes: [],
-        routes: []
-    }),
+  state: () => ({
+    addRoutes: [],
+    routes: [],
+  }),
 
-    getters: {
-        getAddRoutes(state) {
-            return this.addRoutes;
-        }
+  getters: {
+    getAddRoutes(state) {
+      return this.addRoutes
     },
+  },
 
-    actions: {
-        generateRoutes(routes) {
-            return new Promise(resolve => {
-                const accessedRoutes = generator(routes);
-                this.addRoutes = accessedRoutes;
-                resolve(accessedRoutes)
-            })
-        }
+  actions: {
+    generateRoutes(routes) {
+      return new Promise((resolve) => {
+        const accessedRoutes = generator(routes)
+        this.addRoutes = accessedRoutes
+        resolve(accessedRoutes)
+      })
     },
+  },
 
-    persist: {
-        key: Namespace,
-        paths,
-    },
-});
+  persist: {
+    key: Namespace,
+    paths,
+  },
+})
 
 export function usePermissionStore() {
-    return usePermission();
+  return usePermission()
 }
 
 export default {
-    namespace: Namespace,
-    store: usePermission
-};
+  namespace: Namespace,
+  store: usePermission,
+}

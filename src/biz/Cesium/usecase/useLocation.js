@@ -6,39 +6,40 @@
  * @Description: file content
  */
 const point = {
-    radius: 10000,
-};
+  radius: 10000,
+}
 const line = {
-    scale: 2.0,
-};
+  scale: 2.0,
+}
 
 const flyOptions = {
-    polylineP: line,
-    water: line,
-    cylinder: point,
-    point,
-};
+  polylineP: line,
+  water: line,
+  cylinder: point,
+  point,
+}
 
 export function useLocation(layerEntity) {
-    const { find } = layerEntity;
-    const layer = find();
-    const lockPosition = (key) => {
-        const target = layer.getGraphicById(key);
-        if (!target) return;
+  const { find } = layerEntity
+  const layer = find()
+  const lockPosition = (key) => {
+    const target = layer.getGraphicById(key)
+    if (!target)
+      return
 
-        const { type } = target;
-        const options = flyOptions[type] ?? point;
-        target.flyTo(
-            Object.assign({}, options, {
-                pitchAdjustHeight: 12000,
-            })
-        );
-        target.openHighlight();
-    };
+    const { type } = target
+    const options = flyOptions[type] ?? point
+    target.flyTo(
+      Object.assign({}, options, {
+        pitchAdjustHeight: 12000,
+      }),
+    )
+    target.openHighlight()
+  }
 
-    return {
-        ...layerEntity,
-        layer,
-        lockPosition,
-    };
+  return {
+    ...layerEntity,
+    layer,
+    lockPosition,
+  }
 }

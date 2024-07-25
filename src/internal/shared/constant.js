@@ -6,10 +6,10 @@
  * @LastEditTime: 2023-12-05 15:14:32
  * @Description:
  */
-import EmptyView from '@/components/EmptyView.vue';
+import EmptyView from '@/components/EmptyView.vue'
 
-export const SYSTEM_SYMBOL = Symbol("system");
-export const MODE_SKIP_NAME = "fragment";
-export const MODE_VOID_NAME = "void";
-export const UNDEFINED_NAME = "unknow";
-export const UNDEFINED_VIEW = EmptyView;
+export const SYSTEM_SYMBOL = Symbol('system')
+export const MODE_SKIP_NAME = 'fragment'
+export const MODE_VOID_NAME = 'void'
+export const UNDEFINED_NAME = 'unknow'
+export const UNDEFINED_VIEW = EmptyView

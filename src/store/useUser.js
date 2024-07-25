@@ -6,49 +6,48 @@
  * @LastEditTime: 2023-08-04 10:15:22
  * @Description:
  */
-import { defineStore } from "pinia";
-import { isEmptyString } from "~/shared/is";
-import { uuid } from "@/shared/uuid.js";
+import { defineStore } from 'pinia'
+import { isEmptyString } from '~/shared/is'
+import { uuid } from '@/shared/uuid.js'
 
+const paths = ['token']
 
-const paths = ["token"];
-
-export const Namespace = "useUser";
+export const Namespace = 'useUser'
 
 export const useUser = defineStore(Namespace, {
-    state: () => ({
-        token: uuid(),
-    }),
+  state: () => ({
+    token: uuid(),
+  }),
 
-    getters: {
-        tokenUnusable() {
-            return isEmptyString(this.token);
-        },
-        tokenUsable() {
-            return !this.tokenUnusable;
-        },
+  getters: {
+    tokenUnusable() {
+      return isEmptyString(this.token)
     },
+    tokenUsable() {
+      return !this.tokenUnusable
+    },
+  },
 
-    actions: {
-        setupToken(token) {
-            this.token = token;
-        },
-        emptyUserInfo() {
-            this.token = "";
-        },
+  actions: {
+    setupToken(token) {
+      this.token = token
     },
+    emptyUserInfo() {
+      this.token = ''
+    },
+  },
 
-    persist: {
-        key: Namespace,
-        paths,
-    },
-});
+  persist: {
+    key: Namespace,
+    paths,
+  },
+})
 
 export function useUserStore() {
-    return useUser();
+  return useUser()
 }
 
 export default {
-    namespace: Namespace,
-    store: useUser,
-};
+  namespace: Namespace,
+  store: useUser,
+}
