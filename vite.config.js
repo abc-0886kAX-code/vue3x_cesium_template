@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 14:19:59
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-07-25 17:02:40
+ * @LastEditTime: 2024-07-25 17:41:51
  * @Description:
  */
 import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
@@ -69,12 +69,17 @@ export default defineConfig(({ mode }) => {
           },
         ],
         dts: true,
+        // eslint报错解决
+        eslintrc: {
+          enabled: true, // Default `false`
+        },
         resolvers: [
           ElementPlusResolver(),
           IconsResolver({
             prefix: 'Icon',
           }),
         ],
+
       }),
       vueComponents({
         resolvers: [
