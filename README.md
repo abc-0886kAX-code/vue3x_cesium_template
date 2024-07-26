@@ -3,11 +3,12 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-07-26 09:19:40
+ * @LastEditTime: 2024-07-26 14:51:48
  * @Description:
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
-[![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
+
+[![vite](https://img.shields.io/badge/vite-2.6.14-brightgreen)](https://vitejs.dev/) [![vue](https://img.shields.io/badge/vue-3.2.29-brightgreen)](https://v3.vuejs.org/) [![cesium](https://img.shields.io/badge/cesium-1.111.0-brightgreen)](https://cesium.com/) [![cesium](https://img.shields.io/badge/vite%20plugin%20cesium-1.2.22-brightgreen)]() [![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
 <br>
 
 <strong>Demo</strong>
