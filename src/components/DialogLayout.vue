@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-03-09 16:09:30
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-03-09 16:16:54
+ * @LastEditTime: 2024-07-26 14:42:52
  * @Description:
 -->
 <script setup>
@@ -28,8 +28,8 @@ function tabClick(entity) {
   <div class="dialog-layout">
     <div class="dialog-layout-tabs">
       <el-tabs :value="active" type="card" @tab-click="tabClick">
-        <template v-for="entity in dataset">
-          <el-tab-pane :key="entity.keyword" :label="entity.label" :name="entity.keyword" />
+        <template v-for="entity in dataset" :key="entity.keyword">
+          <el-tab-pane :label="entity.label" :name="entity.keyword" />
         </template>
       </el-tabs>
     </div>

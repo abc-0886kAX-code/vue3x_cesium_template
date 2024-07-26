@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-12-22 11:11:05
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-03-04 15:49:38
+ * @LastEditTime: 2024-07-26 14:31:17
  * @Description:
  */
 import { transNumber } from '~/shared/trans'
@@ -23,7 +23,7 @@ export function formatPart(value) {
 }
 
 export function floatingNumber(value, floatNumber = 2) {
-  if (isNil(value) || isNaN(Number.parseFloat(value)))
+  if (isNil(value) || Number.isNaN(Number.parseFloat(value)))
     return '-'
 
   return Number.parseFloat(value).toFixed(floatNumber)
@@ -32,7 +32,7 @@ export function floatingNumber(value, floatNumber = 2) {
 const tonumberNorm = { def: null, percentage: 2 }
 export function toupwardNumber(value, props) {
   const { def, percentage } = mergeObject(tonumberNorm, props)
-  if (isNil(value) || isNaN(Number.parseFloat(value)))
+  if (isNil(value) || Number.isNaN(Number.parseFloat(value)))
     return isNil(def) ? value : def
 
   const num = Number.parseFloat(value)
@@ -40,7 +40,7 @@ export function toupwardNumber(value, props) {
 }
 export function todownNumber(value, props) {
   const { def, percentage } = mergeObject(tonumberNorm, props)
-  if (isNil(value) || isNaN(Number.parseFloat(value)))
+  if (isNil(value) || Number.isNaN(Number.parseFloat(value)))
     return isNil(def) ? value : def
 
   const num = Number.parseFloat(value)

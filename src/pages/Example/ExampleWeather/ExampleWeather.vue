@@ -3,16 +3,14 @@
  * @Author: abc-0886kAX-code
  * @Date: 2024-01-11 09:34:22
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 16:05:36
+ * @LastEditTime: 2024-07-26 13:41:51
  * @Description:
 -->
 <script setup>
 import { useResetCamera } from '@/biz/Cesium/usecase/useResetCamera.js'
-import { useCesium } from '@/biz/Cesium/usecase/useCesium'
 import { useCesiumWeather } from '@/biz/Cesium/usecase/useCesiumWeather.js'
 
 const roam = useResetCamera()
-const { mapview } = useCesium()
 const { EffectGather, weatherConfig } = useCesiumWeather()
 
 const rainEffect = computed(() => {
@@ -25,28 +23,26 @@ const fogEffect = computed(() => {
   return EffectGather.get('fog')
 })
 
+const snowChoice = ref(false)
 const rainChoice = ref(false)
+const fogChoice = ref(false)
 const isRainChoice = computed(() => {
   return unref(snowChoice) || unref(fogChoice)
+})
+const isSnowChoice = computed(() => {
+  return unref(rainChoice) || unref(fogChoice)
+})
+const isFogChoice = computed(() => {
+  return unref(snowChoice) || unref(rainChoice)
 })
 function rainChange(val) {
   rainChoice.value = val
   executeRainEffect()
 }
-
-const snowChoice = ref(false)
-const isSnowChoice = computed(() => {
-  return unref(rainChoice) || unref(fogChoice)
-})
 function snowChange(val) {
   snowChoice.value = val
   executeSnowEffect()
 }
-
-const fogChoice = ref(false)
-const isFogChoice = computed(() => {
-  return unref(snowChoice) || unref(rainChoice)
-})
 function fogChange(val) {
   fogChoice.value = val
   executeFogEffect()

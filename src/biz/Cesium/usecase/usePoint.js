@@ -2,7 +2,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-04-26 17:47:31
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-12-08 10:12:55
+ * @LastEditTime: 2024-07-26 14:37:28
  * @Description: 点渲染方法
  */
 
@@ -18,7 +18,7 @@ export function convertColorRange(color) {
 
 export function usePoint() {
   function setBaseShape(options) {
-    const { longitude, latitude, text, color, distance } = options
+    const { longitude, latitude, color, distance } = options
     const position = Cartesian3.fromDegrees(longitude, latitude, distance ?? 1000)
 
     const style = {
@@ -34,7 +34,7 @@ export function usePoint() {
     }
   }
   function setIconShape(options) {
-    const { longitude, latitude, text, image, distance } = options
+    const { longitude, latitude, image } = options
     const position = Cartesian3.fromDegrees(longitude, latitude)
 
     const style = {
@@ -52,10 +52,10 @@ export function usePoint() {
   }
 
   function setLabel(options) {
-    const { longitude, latitude, group, backgroundColor, fillColor, distance } = options
+    const { longitude, latitude, group, fillColor } = options
     const position = Cartesian3.fromDegrees(longitude, latitude)
 
-    const text = Array.isArray(group) ? group.map(item.value).join('\n') : group
+    const text = Array.isArray(group) ? group.map(item => item.value).join('\n') : group
     const height = Array.isArray(group) ? group.length * -10 : -10
 
     const style = {

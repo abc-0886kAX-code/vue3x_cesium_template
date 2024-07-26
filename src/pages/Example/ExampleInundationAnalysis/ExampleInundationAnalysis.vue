@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2024-06-01 14:26:03
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-06-03 09:52:42
+ * @LastEditTime: 2024-07-26 14:24:16
  * @Description:
 -->
 <script setup>
@@ -21,7 +21,7 @@ const WaterValue = ref(10)
 
 function drawWater() {
   showWater.value = true
-  unref(waterEntity) && unref(mapview).entities.remove(unref(waterEntity))
+  destroyWater()
   const waterCoord = [104.892735, 31.676836, 0, 104.893444, 31.681168, 0, 104.89981, 31.680128, 0, 104.899345, 31.676022, 0]
 
   let startHeight = 0
@@ -49,7 +49,9 @@ function drawWater() {
 }
 
 function destroyWater() {
-  unref(waterEntity) && unref(mapview).entities.remove(unref(waterEntity))
+  if (unref(waterEntity)) {
+    unref(mapview).entities.remove(unref(waterEntity))
+  }
 }
 
 onMounted(() => {

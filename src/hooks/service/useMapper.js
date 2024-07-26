@@ -14,7 +14,7 @@ export function useMapper(mapper) {
     const dict = transArray(item)
     if (dict.length < 2) {
       // TODO warning log
-      return
+      return null
     };
 
     const [keys] = dict

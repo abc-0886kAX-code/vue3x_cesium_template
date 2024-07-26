@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-11-16 16:52:33
+ * @LastEditTime: 2024-07-26 14:26:23
  * @Description:
 -->
 <script setup>
@@ -12,7 +12,7 @@ import { useMenu } from '@/hooks/useMenu.js'
 const props = defineProps({
   cell: {
     type: Object,
-    default: {},
+    default: () => {},
   },
 })
 const menu = useMenu()

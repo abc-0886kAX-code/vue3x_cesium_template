@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 16:13:47
+ * @LastEditTime: 2024-07-26 13:39:56
  * @Description:
 -->
 <script setup>
@@ -20,7 +20,7 @@ import ZonesJson from '@/assets/json/ExampleZones.json'
 import { usePolygonGrid } from '@/biz/Cesium/usecase/usePolygonGrid.js'
 
 const roam = useResetCamera()
-const { setupPolygonFillShape, setupPolygonImageShape } = usePolygonGrid()
+const { setupPolygonImageShape } = usePolygonGrid()
 const { mapview } = useCesium()
 const { gather, setupLayer } = usePrimitiveLayer(mapview)
 const controller = setupLayer({

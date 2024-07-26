@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-11-21 14:19:59
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-07-25 17:41:51
+ * @LastEditTime: 2024-07-26 14:43:46
  * @Description:
  */
 import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
@@ -22,8 +22,7 @@ import lodashImport from './plugins/lodash'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const { VITE_ASSETS, VITE_API_BASE_URL_PRE, VITE_API_BASE_URL } = loadEnv(mode, process.cwd())
-  console.log(mode, VITE_ASSETS)
+  const { VITE_ASSETS, VITE_API_BASE_URL_PRE, VITE_API_BASE_URL } = loadEnv(mode, process.cwd()) // eslint-disable-line  node/prefer-global/process
   return {
     base: VITE_ASSETS,
     clearScreen: true,

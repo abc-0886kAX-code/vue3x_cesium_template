@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2024-01-15 11:19:51
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 15:54:28
+ * @LastEditTime: 2024-07-26 14:38:56
  * @Description:
  */
 import * as Cesium from 'cesium'
@@ -17,7 +17,7 @@ class SnowEffect {
     this.snowSpeed = Cesium.defaultValue(options.snowSpeed, 60.0) // 速度
     this.viewer = viewer
 
-    watch(() => options, (newVal, oldVal) => {
+    watch(() => options, () => {
       this.snowSize = Cesium.defaultValue(options.snowSize, 0.02) // ❄️大小，最好小于0.02
       this.snowSpeed = Cesium.defaultValue(options.snowSpeed, 60.0) // 速度
       this.viewer.scene.postProcessStages.remove(this.snowStage)

@@ -2,7 +2,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-05-17 00:37:12
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-12-29 10:06:34
+ * @LastEditTime: 2024-07-26 14:37:38
  * @Description: file content
  */
 import { Cartesian3, Cesium3DTileset, Math, Matrix3, Matrix4, Transforms } from 'cesium'
@@ -41,7 +41,6 @@ export function update3dtilesMaxtrix({ tx, ty, tz, rx, ry, rz }) {
 export function useModel() {
   async function setupModelByUrl(options) {
     const { url, ..._params } = options
-    console.log(url, _params)
     const tileset = await Cesium3DTileset.fromUrl(url, _params)
     return tileset
   }

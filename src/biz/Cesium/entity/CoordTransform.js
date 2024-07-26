@@ -1,8 +1,8 @@
 // 定义一些常量
-const BD_FACTOR = (3.14159265358979324 * 3000.0) / 180.0
-const PI = 3.1415926535897932384626
+const BD_FACTOR = (3.14159265358979324 * 3000.0) / 180.0 // eslint-disable-line  no-loss-of-precision
+const PI = 3.1415926535897932384626 // eslint-disable-line  no-loss-of-precision
 const RADIUS = 6378245.0
-const EE = 0.00669342162296594323
+const EE = 0.00669342162296594323 // eslint-disable-line  no-loss-of-precision
 
 class CoordTransform {
   /**

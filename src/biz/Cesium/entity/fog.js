@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2024-01-15 11:22:06
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 15:58:01
+ * @LastEditTime: 2024-07-26 14:40:09
  * @Description:
  */
 import * as Cesium from 'cesium'
@@ -20,7 +20,7 @@ class FogEffect {
     )
     this.viewer = viewer
 
-    watch(() => options, (newVal, oldVal) => {
+    watch(() => options, () => {
       this.visibility = Cesium.defaultValue(options.visibility, 0.1) // 能见度
       this.viewer.scene.postProcessStages.remove(this.fogStage)
       this.init()

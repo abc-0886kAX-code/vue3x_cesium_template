@@ -19,8 +19,6 @@ export function useMock() {
   if (!isMock())
     return
 
-  console.log('mock server start')
-
   Mock.setup({
     timeout: '800-1200',
   })

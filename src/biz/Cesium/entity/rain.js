@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2024-01-15 11:21:17
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 15:53:54
+ * @LastEditTime: 2024-07-26 14:42:09
  * @Description:
  */
 import * as Cesium from 'cesium'
@@ -19,7 +19,7 @@ class RainEffect {
     this.rainSpeed = Cesium.defaultValue(options.rainSpeed, 60.0)
     this.viewer = viewer
 
-    watch(() => options, (newVal, oldVal) => {
+    watch(() => options, () => {
       this.tiltAngle = Cesium.defaultValue(options.tiltAngle, -0.6)
       this.rainSize = Cesium.defaultValue(options.rainSize, 0.3)
       this.rainSpeed = Cesium.defaultValue(options.rainSpeed, 60.0)

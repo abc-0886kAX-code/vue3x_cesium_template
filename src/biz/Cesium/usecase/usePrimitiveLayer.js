@@ -2,14 +2,14 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-04-26 15:11:22
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-12-08 09:56:44
+ * @LastEditTime: 2024-07-26 14:36:33
  * @Description: 几何图形图层
  */
 import { uuid } from '@/shared/uuid.js'
 
-export function handlerLayerConfig(params, index) {
+export function handlerLayerConfig(params) {
   const { render, config } = params
-  return new render(config)
+  return new render(config) // eslint-disable-line new-cap
 }
 export function addLayer(layer, mapview) {
   if (mapview.scene.primitives.contains(layer))

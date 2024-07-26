@@ -2,12 +2,12 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-04-26 15:11:22
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-12-08 16:01:16
+ * @LastEditTime: 2024-07-26 14:37:52
  * @Description: images图层
  */
-export function handlerLayerConfig(params, index) {
+export function handlerLayerConfig(params) {
   const { render, config } = params
-  return new render(config)
+  return new render(config) // eslint-disable-line new-cap
 }
 export function addLayer(layer, mapview) {
   if (mapview.imageryLayers.contains(layer))

@@ -3,11 +3,11 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-16 15:34:41
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-07-19 14:40:46
+ * @LastEditTime: 2024-07-26 09:19:40
  * @Description:
 -->
 <h1 align="center">Vue3x_Cesium_Template</h1>
-
+[![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
 <br>
 
 <strong>Demo</strong>
@@ -17,7 +17,7 @@
 
 <strong>vite/cesium</strong>
 `package.json`
-```json
+```
 "cesium": "1.111.0",
 "@cesium/engine": "6.1.0",
 "@cesium/widgets": "4.3.0",

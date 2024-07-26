@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 16:19:29
+ * @LastEditTime: 2024-07-26 13:46:17
  * @Description:
 -->
 <script setup>
@@ -20,7 +20,7 @@ import LineJson from '@/assets/json/ExampleLine.json'
 import { usePolyline } from '@/biz/Cesium/usecase/usePolyline.js'
 
 const roam = useResetCamera()
-const { setupPolylineFillShape, setupPolylineImageShape } = usePolyline()
+const { setupPolylineFillShape } = usePolyline()
 const { mapview } = useCesium()
 const { gather, setupLayer } = usePrimitiveLayer(mapview)
 const controller = setupLayer({

@@ -1,18 +1,5 @@
 <script setup>
 import CuttingMap from '@/assets/images/example/cuttingmap.png'
-
-import { useCesium } from '@/biz/Cesium/usecase/useCesium.js'
-import { useCuttingMap } from '@/biz/Cesium/usecase/useCuttingMap.js'
-
-const { mapview } = useCesium()
-const { executeCutting } = useCuttingMap(unref(mapview))
-
-function executeCuttingMap() {
-  executeCutting({
-    center: [104.836844, 31.688768, 0],
-    distance: 35000,
-  })
-}
 </script>
 
 <template>

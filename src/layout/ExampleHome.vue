@@ -15,7 +15,7 @@ import { useUserStore } from '@/store/useUser'
 const { proxy } = getCurrentInstance()
 const user = useUserStore()
 
-function handleUser(params) { }
+function handleUser() { }
 const featurelist = {
   userLogout: {
     label: '注销登录',

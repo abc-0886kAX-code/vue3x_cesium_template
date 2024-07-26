@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-12-04 00:48:41
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2022-12-07 18:16:00
+ * @LastEditTime: 2024-07-26 14:26:40
  * @Description:
  */
 import { ConfigEntity } from '~/service/entity/Config'
@@ -14,7 +14,7 @@ import { useBooleanState } from '@/hooks/ref/useRefState'
 
 // const progress = useProgress();
 
-export function ResponseEntity(props, defineResult) {
+export function ResponseEntity(props) {
   const config = ConfigEntity(props)
   const result = useShallowObject(NormResult)
   const startup = useBooleanState(false)

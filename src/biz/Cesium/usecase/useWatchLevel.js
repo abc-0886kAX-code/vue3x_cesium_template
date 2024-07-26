@@ -1,9 +1,9 @@
 /*
- * @FilePath: \前端\src\biz\Cesium\usecase\useWatchLevel.js
+ * @FilePath: \vue3x_cesium_template\src\biz\Cesium\usecase\useWatchLevel.js
  * @Author: zhangxin
  * @Date: 2024-07-19 13:05:05
- * @LastEditors: zhangxin
- * @LastEditTime: 2024-07-19 14:28:15
+ * @LastEditors: abc-0886kAX-code
+ * @LastEditTime: 2024-07-26 14:33:38
  * @Description:
  */
 import { createEventHook } from '@vueuse/core'
@@ -31,7 +31,7 @@ export function useWatchLevel() {
   function getzoom() {
     const tilesToRender = unref(mapview).scene.globe._surface._tilesToRender
     let level
-    if (tilesToRender.length != 0) {
+    if (tilesToRender.length !== 0) {
       level = tilesToRender[0].level
     }
     return level

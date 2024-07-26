@@ -3,7 +3,7 @@
  * @Author: zhangxin
  * @Date: 2024-03-12 14:43:03
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-03-12 15:19:12
+ * @LastEditTime: 2024-07-26 14:38:48
  * @Description: 参照示例 https://sandcastle.cesium.com/?src=Terrain%2520Clipping%2520Planes.html
  */
 import { BoundingSphere, Cartesian3, Cartographic, ClippingPlane, ClippingPlaneCollection, Color, HeadingPitchRange, Matrix4, Transforms } from 'cesium'
@@ -12,7 +12,7 @@ export function useCuttingMap(mapview) {
   function executeCutting(options) {
     const { center, distance } = options
     const position = Cartographic.toCartesian(
-      new Cartographic.fromDegrees(...center),
+      new Cartographic.fromDegrees(...center), // eslint-disable-line new-cap
     )
     const boundingSphere = new BoundingSphere(position, distance)
     mapview.scene.globe.clippingPlanes = new ClippingPlaneCollection({

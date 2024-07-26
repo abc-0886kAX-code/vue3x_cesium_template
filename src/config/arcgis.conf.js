@@ -1,7 +1,7 @@
 /*
  * @Author: zhangyang
  * @Date: 2022-05-09 09:55:17
- * @LastEditTime: 2023-12-01 14:27:17
+ * @LastEditTime: 2024-07-26 14:35:37
  */
 const { VITE_ARCGIS_SERVER } = import.meta.env
 
@@ -10,8 +10,7 @@ const setupServiceAddress = (server = '') => `${VITE_ARCGIS_SERVER}arcgis/rest/s
 export const setupServiceID = (service, id) => `${service}/${id}`
 
 export function retainServiceBody(url) {
-  console.log(url)
-  const [_, body] = url.split(VITE_ARCGIS_SERVER)
+  const [_, body] = url.split(VITE_ARCGIS_SERVER) // eslint-disable-line no-unused-vars
   return body
 }
 

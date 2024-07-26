@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2024-01-15 11:09:27
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 14:56:52
+ * @LastEditTime: 2024-07-26 14:42:27
  * @Description:
  */
 import { Color } from 'cesium'
@@ -35,7 +35,7 @@ const weather = {
 
 function createReactiveObject(keys) {
   const obj = {}
-  keys.forEach((key, index) => {
+  keys.forEach((key) => {
     obj[key] = reactive(config[key])
   })
   return reactive(obj)

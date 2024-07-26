@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2022-05-19 11:02:21
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2023-12-05 09:37:10
+ * @LastEditTime: 2024-07-26 14:36:50
  * @Description: 线段渲染方法
  */
 import { Cartesian3, GeometryInstance, GroundPolylineGeometry, Material, PolylineMaterialAppearance } from 'cesium'
@@ -26,7 +26,7 @@ const waterStyle = {
   }),
 }
 
-export function usePolyline(mapview) {
+export function usePolyline() {
   function setupPolylineFillShape(options) {
     const { width, positions, color, attr } = options
     return {

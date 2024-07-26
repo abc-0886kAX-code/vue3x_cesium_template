@@ -44,7 +44,7 @@ const waterStyle = {
   }),
 }
 
-export function usePolygonGrid(mapview) {
+export function usePolygonGrid() {
   function setupPolygonFillShape(options) {
     const { positions, color, attr } = options
     return {

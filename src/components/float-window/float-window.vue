@@ -27,7 +27,7 @@ const props = defineProps({
 })
 
 const floatRefs = ref(null)
-const { width, height } = useElementSize(floatRefs)
+const { height } = useElementSize(floatRefs)
 
 const style = computed(() => {
   const { left, top } = props.positionStyle

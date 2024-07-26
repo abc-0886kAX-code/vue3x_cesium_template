@@ -3,7 +3,7 @@
  * @Author: abc-0886kAX-code
  * @Date: 2023-11-29 10:05:54
  * @LastEditors: abc-0886kAX-code
- * @LastEditTime: 2024-01-15 16:17:37
+ * @LastEditTime: 2024-07-26 13:45:32
  * @Description:
 -->
 <script setup>
@@ -35,7 +35,7 @@ const dialog = popup.define({
   // template: WaterLevel,
 })
 const { setupFloatHide, setupFloatWindow } = inject(CesiumFloatSymbolName)
-function handlerClick({ primitive, id }) {
+function handlerClick({ primitive }) {
   const { metadata } = primitive
   const propertyKeys = metadata.getPropertyIds()
   if (!defined(propertyKeys)) {
